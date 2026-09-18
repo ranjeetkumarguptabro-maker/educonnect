@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduConnect - Full 7-Page Complete Web Application</title>
+  <!-- Tailwind CSS -->
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Caveat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-900 min-h-screen text-slate-800 font-['Plus_Jakarta_Sans',sans-serif] antialiased flex flex-col items-center justify-center p-0 sm:p-6 select-none">
+
+  <!-- View Mode Switcher Header for Desktop -->
+  <header class="hidden sm:flex items-center justify-between w-full max-w-md mb-4 bg-white/90 backdrop-blur border border-slate-200 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-600 shadow-sm">
+    <div class="flex items-center gap-1.5 text-slate-500">
+      <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+      <span id="pageTitleLabel">Page 1: Onboarding Landing</span>
+    </div>
+    <div class="flex items-center gap-1 overflow-x-auto">
+      <button onclick="goToPage(1)" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-[11px] font-bold">P1</button>
+      <button onclick="goToPage(2)" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-[11px] font-bold">P2</button>
+      <button onclick="goToPage(3)" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-[11px] font-bold">P3</button>
+      <button onclick="goToPage(4)" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-[11px] font-bold">P4</button>
+      <button onclick="goToPage(5)" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-[11px] font-bold">P5</button>
+      <button onclick="goToPage(6)" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-[11px] font-bold">P6</button>
+      <button onclick="goToPage(7)" class="px-2 py-1 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded text-[11px] font-bold">Feed</button>
+      <button onclick="showAllPages()" class="px-2 py-1 bg-emerald-600 text-white hover:bg-emerald-700 rounded text-[11px] font-bold">Show All</button>
+      <button id="toggleFrameBtn" onclick="toggleViewMode()" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded transition-colors text-[11px] ml-1">
+        Frame
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Mobile Frame Container -->
+  <main id="appContainer" class="w-full sm:max-w-[420px] bg-white min-h-screen sm:min-h-[860px] sm:h-[860px] sm:rounded-[44px] sm:shadow-2xl sm:border-[8px] sm:border-slate-900 overflow-hidden flex flex-col justify-between relative transition-all duration-300">
+    
+    <!-- ====================================================================
+         PAGE 1: ONBOARDING LANDING SCREEN (EXACT MATCH TO MEDIA_1789760965402.PNG)
+    ==================================================================== -->
+    <div id="page1" class="flex-1 flex flex-col justify-between transition-opacity duration-300 bg-white">
+      <!-- Status & Top Header Bar -->
+      <div class="pt-3 px-6 flex items-center justify-between text-xs font-semibold text-slate-900 z-20">
+        <span>9:41</span>
+        <button onclick="handleSkip()" class="text-[#1665F5] hover:text-blue-700 text-sm font-semibold tracking-tight transition-colors">Skip</button>
+      </div>
+
+      <div class="flex-1 flex flex-col items-center px-6 pt-2 pb-4 overflow-y-auto justify-between">
+        <!-- Logo Header -->
+        <div class="flex flex-col items-center text-center mt-1">
+          <div class="flex items-center gap-2 mb-1">
+            <!-- Graduation Cap Logo -->
+            <div class="w-10 h-10 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-sm">
+                <path d="M50 15 L88 34 L50 52 L12 34 Z" fill="#1665F5" />
+                <path d="M24 40 L50 53 L76 40 L76 56 C76 68 64 78 50 78 C36 78 24 68 24 56 Z" fill="#0D47A1" />
+                <path d="M82 36 L88 48 C88 52 86 54 84 54" stroke="#1665F5" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="84" cy="55" r="3" fill="#1665F5" />
+              </svg>
+            </div>
+            <h1 class="text-3xl font-extrabold tracking-tight">
+              <span class="text-[#0D1B3E]">Edu</span><span class="text-[#1665F5]">Connect</span>
+            </h1>
+          </div>
+          <p class="text-slate-400 text-xs font-semibold tracking-wide">Projects • People • Possibilities</p>
+        </div>
+
+        <!-- Headline & Subtitle -->
+        <div class="text-center px-1 mt-3 mb-2">
+          <h2 class="text-2xl sm:text-[26px] leading-[1.25] font-extrabold text-[#0D1B3E]">
+            Find the right people,<br>
+            projects, and opportunities<br>
+            <span class="text-[#1665F5]">in your academic journey.</span>
+          </h2>
+          <p class="text-[#7E8BA0] text-sm font-medium mt-2">Learn. Collaborate. Grow together.</p>
+        </div>
+
+        <!-- Central Vector SVG Illustration (3 Badges, 3 Labeled Books, Plant, Laptop) -->
+        <div class="w-full relative flex-1 min-h-[300px] max-h-[360px] flex items-center justify-center my-1">
+          <!-- Background Cloud Blob -->
+          <div class="absolute inset-0 bg-[#F0F6FF] rounded-full filter blur-xl opacity-80 transform scale-95"></div>
+
+          <svg viewBox="0 0 400 320" class="w-full h-full relative z-10 overflow-visible">
+            <defs>
+              <linearGradient id="blueHoodieGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient>
+              <linearGradient id="yellowSweaterGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FBBF24"/><stop offset="100%" stop-color="#D97706"/></linearGradient>
+              <linearGradient id="manJacketGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1E3A8A"/><stop offset="100%" stop-color="#0F172A"/></linearGradient>
+            </defs>
+
+            <!-- Top 3 Floating Badges -->
+            <!-- Left Badge: Lightbulb -->
+            <g transform="translate(60, 30)">
+              <circle cx="20" cy="20" r="22" fill="#EBF3FF" stroke="#DBEAFE" stroke-width="1.5"/>
+              <circle cx="20" cy="20" r="14" fill="#FBBF24" opacity="0.2"/>
+              <path d="M 20 10 Q 26 10 26 17 C 26 21 22 23 22 26 L 18 26 C 18 23 14 21 14 17 C 14 10 20 10 20 10 Z" fill="#F59E0B"/>
+              <rect x="18" y="27" width="4" height="2" fill="#D97706"/>
+            </g>
+
+            <!-- Middle Badge: Group People -->
+            <g transform="translate(180, 20)">
+              <circle cx="25" cy="25" r="24" fill="#EBF3FF" stroke="#DBEAFE" stroke-width="1.5"/>
+              <path d="M 25 15 A 5 5 0 1 0 25 25 A 5 5 0 1 0 25 15 Z M 16 33 Q 16 27 25 27 Q 34 27 34 33 Z" fill="#1D4ED8"/>
+              <circle cx="16" cy="18" r="3.5" fill="#3B82F6"/>
+              <path d="M 10 32 Q 10 27 16 27 Q 20 27 22 30" fill="none" stroke="#3B82F6" stroke-width="2"/>
+            </g>
+
+            <!-- Right Badge: Document / Notes -->
+            <g transform="translate(300, 30)">
+              <circle cx="20" cy="20" r="22" fill="#EBF3FF" stroke="#DBEAFE" stroke-width="1.5"/>
+              <rect x="12" y="10" width="16" height="20" rx="2" fill="#2563EB"/>
+              <line x1="15" y1="14" x2="25" y2="14" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="15" y1="18" x2="25" y2="18" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="15" y1="22" x2="22" y2="22" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+            </g>
+
+            <!-- Left Character: Boy in Blue Hoodie pointing to laptop -->
+            <g id="boy-left">
+              <path d="M 40 170 Q 80 155 125 170 L 120 280 L 30 280 Z" fill="url(#blueHoodieGrad)"/>
+              <ellipse cx="85" cy="130" rx="22" ry="24" fill="#FDBA74"/>
+              <path d="M 63 125 C 65 100 88 98 108 108 C 98 102 75 105 63 125 Z" fill="#1E293B"/>
+              <!-- Pointing Arm -->
+              <path d="M 90 195 L 140 185" stroke="#FDBA74" stroke-width="8" stroke-linecap="round"/>
+              <!-- Backpack Straps -->
+              <path d="M 50 170 C 45 200 45 230 45 250" fill="none" stroke="#1E293B" stroke-width="6"/>
+            </g>
+
+            <!-- 3 Blue Books Stack (Learn, Build, Connect) on Left -->
+            <g transform="translate(10, 200)">
+              <!-- Bottom Book: Connect -->
+              <g transform="translate(0, 42)">
+                <rect x="0" y="0" width="100" height="18" rx="3" fill="#1E3A8A"/>
+                <rect x="0" y="3" width="95" height="12" fill="#1D4ED8"/>
+                <text x="45" y="12" fill="#FFFFFF" font-size="10" font-weight="800" text-anchor="middle">Connect</text>
+              </g>
+              <!-- Middle Book: Build -->
+              <g transform="translate(5, 21)">
+                <rect x="0" y="0" width="95" height="18" rx="3" fill="#1D4ED8"/>
+                <rect x="0" y="3" width="90" height="12" fill="#2563EB"/>
+                <text x="42" y="12" fill="#FFFFFF" font-size="10" font-weight="800" text-anchor="middle">Build</text>
+              </g>
+              <!-- Top Book: Learn -->
+              <g transform="translate(10, 0)">
+                <rect x="0" y="0" width="90" height="18" rx="3" fill="#2563EB"/>
+                <rect x="0" y="3" width="85" height="12" fill="#3B82F6"/>
+                <text x="40" y="12" fill="#FFFFFF" font-size="10" font-weight="800" text-anchor="middle">Learn</text>
+              </g>
+            </g>
+
+            <!-- Center Character: Girl in Yellow Sweater at Laptop -->
+            <g id="girl-center">
+              <path d="M 135 180 Q 175 165 215 180 L 225 280 L 125 280 Z" fill="url(#yellowSweaterGrad)"/>
+              <ellipse cx="175" cy="132" rx="20" ry="22" fill="#FED7AA"/>
+              <!-- Long Hair & Glasses -->
+              <path d="M 145 125 C 145 95 205 95 205 125 L 208 175 L 142 175 Z" fill="#1E293B" opacity="0.95"/>
+              <circle cx="168" cy="132" r="5" fill="none" stroke="#000000" stroke-width="1.5"/>
+              <circle cx="182" cy="132" r="5" fill="none" stroke="#000000" stroke-width="1.5"/>
+              <line x1="173" y1="132" x2="177" y2="132" stroke="#000000" stroke-width="1.5"/>
+            </g>
+
+            <!-- Silver Open Laptop -->
+            <g transform="translate(110, 200)">
+              <!-- Screen Base -->
+              <path d="M 10 0 L 110 0 L 120 70 L 0 70 Z" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.5"/>
+              <!-- Camera Dot -->
+              <circle cx="60" cy="35" r="5" fill="#FFFFFF"/>
+              <!-- Laptop Keyboard Base -->
+              <path d="M -10 70 L 130 70 L 135 76 L -15 76 Z" fill="#CBD5E1"/>
+            </g>
+
+            <!-- Right Character: Beard Man holding Tablet -->
+            <g id="man-right">
+              <path d="M 225 165 Q 275 150 325 165 L 335 280 L 215 280 Z" fill="url(#manJacketGrad)"/>
+              <ellipse cx="275" cy="120" rx="20" ry="22" fill="#FDBA74"/>
+              <!-- Hair & Beard -->
+              <path d="M 255 115 C 257 95 293 95 295 115 Z" fill="#1E293B"/>
+              <path d="M 258 128 C 258 142 292 142 292 128 Z" fill="#1E293B"/>
+              <!-- Black Tablet under arm -->
+              <rect x="270" y="185" width="45" height="55" rx="4" fill="#0F172A" stroke="#334155" stroke-width="1.5" transform="rotate(15, 290, 210)"/>
+            </g>
+
+            <!-- Table Base Line -->
+            <line x1="0" y1="280" x2="400" y2="280" stroke="#CBD5E1" stroke-width="2"/>
+
+            <!-- Potted Plant on Right Table -->
+            <g transform="translate(330, 235)">
+              <!-- White Pot -->
+              <path d="M 5 25 L 30 25 L 26 45 L 9 45 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+              <!-- Green Leaves -->
+              <path d="M 17 25 C 10 10 0 5 2 0 C 10 0 17 12 17 25 Z" fill="#16A34A"/>
+              <path d="M 17 25 C 25 10 35 5 33 0 C 25 0 17 12 17 25 Z" fill="#22C55E"/>
+              <path d="M 17 25 C 17 8 17 0 17 -5 C 20 0 20 12 17 25 Z" fill="#15803D"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- 4 Page Pagination Indicator Dots -->
+        <div class="flex items-center justify-center gap-2 my-2">
+          <span class="w-2.5 h-2.5 bg-[#1665F5] rounded-full"></span>
+          <span class="w-2.5 h-2.5 bg-blue-100 rounded-full"></span>
+          <span class="w-2.5 h-2.5 bg-blue-100 rounded-full"></span>
+          <span class="w-2.5 h-2.5 bg-blue-100 rounded-full"></span>
+        </div>
+
+        <!-- Get Started Button & Footer -->
+        <div class="w-full mt-auto pt-1 flex flex-col items-center">
+          <button onclick="goToPage(2)" class="w-full py-4 px-6 bg-[#1665F5] hover:bg-[#1354CD] text-white font-bold text-lg rounded-full shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2.5 cursor-pointer transition-all">
+            <span>Get Started</span>
+            <svg class="w-5 h-5 stroke-current stroke-[2.5]" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </button>
+
+          <!-- Divider Line with Sign In -->
+          <div class="w-full flex items-center justify-center gap-3 mt-4 text-xs text-slate-400 font-medium">
+            <div class="flex-1 h-[1px] bg-slate-200"></div>
+            <span>Already have an account? <button onclick="handleSignIn()" class="text-[#1665F5] font-bold hover:underline">Sign In</button></span>
+            <div class="flex-1 h-[1px] bg-slate-200"></div>
+          </div>
+          <div class="w-32 h-1 bg-slate-300 rounded-full mt-3 mb-1"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         PAGE 2: ROLE SELECTION (EXACT MOCKUP)
+    ==================================================================== -->
+    <div id="page2" class="hidden flex-1 flex flex-col justify-between transition-opacity duration-300">
+      <div class="pt-3 px-6 pb-2 flex items-center justify-between z-20 border-b border-slate-50/50">
+        <button onclick="goToPage(1)" class="p-2 -ml-2 text-slate-800 hover:text-blue-600 rounded-full hover:bg-slate-100">
+          <svg class="w-6 h-6 stroke-current stroke-[2.5]" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+        </button>
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 bg-[#1665F5] rounded-full"></div><div class="w-8 h-1 bg-slate-200 rounded-full"></div><div class="w-3 h-3 bg-slate-200 rounded-full"></div>
+        </div>
+        <span class="text-xs font-bold text-slate-400">2/5</span>
+      </div>
+
+      <div class="flex-1 flex flex-col px-6 pt-4 pb-2 overflow-y-auto justify-between">
+        <div class="text-center mt-1 mb-5">
+          <h1 class="text-2xl sm:text-[26px] font-extrabold text-[#0D1B3E]">What best describes you?</h1>
+          <p class="text-[#64748B] text-sm font-medium mt-2">Choose the option that fits you the most.<br>You can always change this later.</p>
+        </div>
+
+        <div class="flex flex-col gap-3.5 my-auto">
+          <div id="card-student" onclick="selectRole('student')" class="role-card active border-2 border-[#1665F5] bg-[#F0F7FF] rounded-2xl p-4 flex items-center gap-4 cursor-pointer shadow-sm">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#E2EDFF] flex items-center justify-center text-3xl overflow-hidden flex-shrink-0">🎓</div>
+            <div class="flex-1"><h3 class="text-base font-extrabold text-[#0D1B3E]">I am a Student</h3><p class="text-[#64748B] text-xs mt-0.5">Looking to learn, find mentors, join projects, and connect.</p></div>
+            <svg class="w-5 h-5 text-[#1665F5] stroke-current stroke-[2.5]" fill="none" viewBox="0 0 24 24"><path d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+          </div>
+          <div id="card-teacher" onclick="selectRole('teacher')" class="role-card border border-slate-200 bg-white rounded-2xl p-4 flex items-center gap-4 cursor-pointer hover:shadow-sm">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#FFE4E6] flex items-center justify-center text-3xl overflow-hidden flex-shrink-0">👩‍🏫</div>
+            <div class="flex-1"><h3 class="text-base font-extrabold text-[#0D1B3E]">I am a Teacher / Professor</h3><p class="text-[#64748B] text-xs mt-0.5">Looking to share knowledge, mentor students, and collaborate.</p></div>
+            <svg class="w-5 h-5 text-[#1665F5] stroke-current stroke-[2.5]" fill="none" viewBox="0 0 24 24"><path d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+          </div>
+          <div id="card-organization" onclick="selectRole('organization')" class="role-card border border-slate-200 bg-white rounded-2xl p-4 flex items-center gap-4 cursor-pointer hover:shadow-sm">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#E0F2FE] flex items-center justify-center text-3xl overflow-hidden flex-shrink-0">🏛️</div>
+            <div class="flex-1"><h3 class="text-base font-extrabold text-[#0D1B3E]">I am part of an Organization</h3><p class="text-[#64748B] text-xs mt-0.5">University, company, NGO, or other institution.</p></div>
+            <svg class="w-5 h-5 text-[#1665F5] stroke-current stroke-[2.5]" fill="none" viewBox="0 0 24 24"><path d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+          </div>
+        </div>
+
+        <div class="w-full mt-auto pt-4 flex flex-col items-center">
+          <button onclick="goToPage(3)" class="w-full py-4 px-6 bg-[#1665F5] text-white font-bold text-lg rounded-full shadow-lg flex items-center justify-center gap-2.5 cursor-pointer"><span>Continue →</span></button>
+          <div class="w-32 h-1 bg-slate-300 rounded-full mt-3 mb-1"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         PAGE 3: USER DETAILS (EXACT MOCKUP WITH VECTOR BOY ILLUSTRATION)
+    ==================================================================== -->
+    <div id="page3" class="hidden flex-1 flex flex-col justify-between transition-opacity duration-300">
+      <div class="pt-3 px-6 pb-2 flex items-center justify-between z-20">
+        <button onclick="goToPage(2)" class="p-2 -ml-2 text-slate-800 hover:text-blue-600 rounded-full hover:bg-slate-100">
+          <svg class="w-6 h-6 stroke-current stroke-[2.5]" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+        </button>
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 bg-[#1665F5] rounded-full"></div><div class="w-8 h-1 bg-[#1665F5] rounded-full"></div><div class="w-3 h-3 bg-slate-200 rounded-full"></div>
+        </div>
+        <span class="text-xs font-bold text-slate-400">3/4</span>
+      </div>
+
+      <div class="flex-1 flex flex-col px-6 pt-2 pb-2 overflow-y-auto">
+        <!-- Title & Vector Illustration Header Row -->
+        <div class="relative flex items-start justify-between mb-4">
+          <div class="pr-2 max-w-[210px]">
+            <h1 class="text-2xl font-extrabold text-[#0D1B3E] leading-tight">Let's get to know you</h1>
+            <p class="text-[#64748B] text-xs mt-1 leading-relaxed">This helps us find the right people, projects, and opportunities for you.</p>
+          </div>
+          <!-- Vector Illustration: Student Boy with Backpack & Blue Hoodie -->
+          <div class="w-28 h-28 relative flex-shrink-0 -mt-2">
+            <div class="absolute inset-0 bg-blue-100/70 rounded-full filter blur-md"></div>
+            <svg viewBox="0 0 120 120" class="w-full h-full relative z-10 overflow-visible">
+              <circle cx="60" cy="60" r="50" fill="#EBF3FF"/>
+              <!-- Student Boy with Blue Hoodie -->
+              <path d="M 35 100 Q 60 85 85 100 L 85 120 L 35 120 Z" fill="#2563EB"/>
+              <ellipse cx="60" cy="65" rx="18" ry="20" fill="#FDBA74"/>
+              <!-- Hair -->
+              <path d="M 42 60 C 42 40 78 40 78 60 C 78 45 42 45 42 60 Z" fill="#1E293B"/>
+              <!-- Backpack strap & book -->
+              <rect x="45" y="85" width="30" height="25" rx="3" fill="#1D4ED8" transform="rotate(-10, 60, 95)"/>
+              <rect x="43" y="83" width="30" height="4" fill="#FFFFFF" transform="rotate(-10, 60, 95)"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <!-- Dropdown 1: Field of Study -->
+          <div>
+            <label class="text-xs font-extrabold text-[#0D1B3E]">What is your field of study?</label>
+            <div class="relative mt-1.5">
+              <span class="absolute inset-y-0 left-3.5 flex items-center text-blue-600">🎓</span>
+              <select class="w-full bg-white border border-slate-200 text-slate-700 text-xs rounded-xl py-3 pl-10 pr-8 font-medium appearance-none focus:outline-none focus:border-[#1665F5]">
+                <option value="" disabled selected>Select your field</option>
+                <option>Computer Science & IT</option>
+                <option>Engineering & Technology</option>
+                <option>Business & Economics</option>
+                <option>Medical & Health Sciences</option>
+                <option>Arts & Design</option>
+              </select>
+              <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-slate-400">▼</div>
+            </div>
+          </div>
+
+          <!-- Dropdown 2: Year in College -->
+          <div>
+            <label class="text-xs font-extrabold text-[#0D1B3E]">What year are you in?</label>
+            <div class="relative mt-1.5">
+              <span class="absolute inset-y-0 left-3.5 flex items-center text-blue-600">📅</span>
+              <select class="w-full bg-white border border-slate-200 text-slate-700 text-xs rounded-xl py-3 pl-10 pr-8 font-medium appearance-none focus:outline-none focus:border-[#1665F5]">
+                <option value="" disabled selected>Select year</option>
+                <option>1st Year (Freshman)</option>
+                <option>2nd Year (Sophomore)</option>
+                <option>3rd Year (Junior)</option>
+                <option>4th Year (Senior)</option>
+                <option>Postgraduate / PhD</option>
+              </select>
+              <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-slate-400">▼</div>
+            </div>
+          </div>
+
+          <!-- Goals Section Checkboxes -->
+          <div>
+            <h3 class="text-xs font-extrabold text-[#0D1B3E]">Which best describes your goal?</h3>
+            <p class="text-[#94A3B8] text-[11px] font-medium mt-0.5">You can choose multiple options.</p>
+            <div class="flex flex-col gap-2 mt-2.5">
+              <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+                <span>Find a mentor</span>
+              </label>
+              <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 cursor-pointer">
+                <input type="checkbox" checked class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+                <span>Join a project</span>
+              </label>
+              <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+                <span>Learn new skills</span>
+              </label>
+              <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+                <span>Find study partners</span>
+              </label>
+              <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+                <span>Explore research opportunities</span>
+              </label>
+              <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 cursor-pointer">
+                <input type="checkbox" class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+                <span>Other</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full mt-auto pt-4 flex flex-col items-center">
+          <button onclick="goToPage(4)" class="w-full py-4 px-6 bg-[#1665F5] text-white font-bold text-lg rounded-full shadow-lg flex items-center justify-center gap-2.5 cursor-pointer">
+            <span>Next →</span>
+          </button>
+          <p class="font-['Caveat',cursive] text-blue-600 text-sm font-bold mt-2">🌱 Small steps. A brighter you.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         PAGE 4: INTERESTS (EXACT MOCKUP WITH GIRL & LIGHTBULB ARTWORK)
+    ==================================================================== -->
+    <div id="page4" class="hidden flex-1 flex flex-col justify-between transition-opacity duration-300">
+      <div class="pt-3 px-6 pb-2 flex items-center justify-between z-20">
+        <button onclick="goToPage(3)" class="p-2 -ml-2 text-slate-800 hover:text-blue-600 rounded-full hover:bg-slate-100">
+          <svg class="w-6 h-6 stroke-current stroke-[2.5]" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+        </button>
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 bg-[#1665F5] rounded-full"></div><div class="w-8 h-1 bg-[#1665F5] rounded-full"></div><div class="w-3 h-3 bg-[#1665F5] rounded-full"></div>
+        </div>
+        <span class="text-xs font-bold text-slate-400">4/4</span>
+      </div>
+
+      <div class="flex-1 flex flex-col px-6 pt-2 pb-2 overflow-y-auto">
+        <!-- Title & Girl Illustration Header Row -->
+        <div class="relative flex items-start justify-between mb-3">
+          <div class="pr-2 max-w-[210px]">
+            <h1 class="text-2xl font-extrabold text-[#0D1B3E] leading-tight">What are you interested in?</h1>
+            <p class="text-[#64748B] text-xs mt-1">Select topics that interest you (multiple choice).</p>
+          </div>
+          <!-- Vector Illustration: Girl with Glasses Thinking with Lightbulb -->
+          <div class="w-24 h-24 relative flex-shrink-0 -mt-2">
+            <svg viewBox="0 0 120 120" class="w-full h-full relative z-10 overflow-visible">
+              <circle cx="60" cy="65" r="45" fill="#EBF3FF"/>
+              <!-- Lightbulb -->
+              <path d="M 85 20 Q 95 10 100 20 C 105 30 95 38 90 42 L 90 48 L 82 48 L 82 42 Z" fill="#FBBF24"/>
+              <!-- Girl Pink Sweater -->
+              <path d="M 35 105 Q 60 90 85 105 L 85 120 L 35 120 Z" fill="#EC4899"/>
+              <ellipse cx="60" cy="70" rx="16" ry="18" fill="#FDBA74"/>
+              <!-- Glasses & Long Hair -->
+              <path d="M 40 60 C 40 40 80 40 80 65 L 82 95 L 38 95 Z" fill="#1E293B" opacity="0.9"/>
+              <circle cx="53" cy="70" r="5" fill="none" stroke="#000" stroke-width="1.5"/>
+              <circle cx="67" cy="70" r="5" fill="none" stroke="#000" stroke-width="1.5"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- 12 Topic Chips with Icons -->
+        <div class="flex flex-wrap gap-2 my-2">
+          <button class="py-2 px-3.5 bg-[#F0F7FF] border-2 border-[#1665F5] text-[#1665F5] font-bold text-xs rounded-full flex items-center gap-1.5 shadow-sm">
+            <span>🤖</span> AI / Machine Learning
+          </button>
+          <button class="py-2 px-3.5 bg-white border border-slate-200 text-slate-800 font-semibold text-xs rounded-full flex items-center gap-1.5 hover:border-slate-300">
+            <span>&lt;/&gt;</span> Web Development
+          </button>
+          <button class="py-2 px-3.5 bg-white border border-slate-200 text-slate-800 font-semibold text-xs rounded-full flex items-center gap-1.5 hover:border-slate-300">
+            <span>📊</span> Data Science
+          </button>
+          <button class="py-2 px-3.5 bg-[#F0F7FF] border-2 border-[#1665F5] text-[#1665F5] font-bold text-xs rounded-full flex items-center gap-1.5 shadow-sm">
+            <span>🛡️</span> Cybersecurity
+          </button>
+          <button class="py-2 px-3.5 bg-white border border-slate-200 text-slate-800 font-semibold text-xs rounded-full flex items-center gap-1.5 hover:border-slate-300">
+            <span>🤖</span> Robotics
+          </button>
+          <button class="py-2 px-3.5 bg-white border border-slate-200 text-slate-800 font-semibold text-xs rounded-full flex items-center gap-1.5 hover:border-slate-300">
+            <span>💼</span> Business
+          </button>
+          <button class="py-2 px-3.5 bg-white border border-slate-200 text-slate-800 font-semibold text-xs rounded-full flex items-center gap-1.5 hover:border-slate-300">
+            <span>🎨</span> Design
+          </button>
+          <button class="py-2 px-3.5 bg-[#F0F7FF] border-2 border-[#1665F5] text-[#1665F5] font-bold text-xs rounded-full flex items-center gap-1.5 shadow-sm">
+            <span>🍃</span> Environment & Sustainability
+          </button>
+          <button class="py-2 px-3.5 bg-white border border-slate-200 text-slate-800 font-semibold text-xs rounded-full flex items-center gap-1.5 hover:border-slate-300">
+            <span>💙</span> Health & Medicine
+          </button>
+          <button class="py-2 px-3.5 bg-white border border-slate-200 text-slate-800 font-semibold text-xs rounded-full flex items-center gap-1.5 hover:border-slate-300">
+            <span>👥</span> Social Impact
+          </button>
+          <button class="py-2 px-3.5 bg-white border border-slate-200 text-slate-800 font-semibold text-xs rounded-full flex items-center gap-1.5 hover:border-slate-300">
+            <span>🎓</span> Education
+          </button>
+          <button class="py-2 px-3.5 bg-white border border-slate-200 text-slate-800 font-semibold text-xs rounded-full flex items-center gap-1.5 hover:border-slate-300">
+            <span>...</span> Other
+          </button>
+        </div>
+
+        <!-- Info Callout Card with Compass -->
+        <div class="mt-3 p-3.5 bg-[#F0F7FF] border border-blue-100 rounded-2xl flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 flex-shrink-0">🧭</div>
+          <p class="text-xs text-[#4A60A1] font-medium leading-tight">You can always change these later in your profile settings.</p>
+        </div>
+
+        <div class="w-full mt-auto pt-4 flex flex-col items-center">
+          <div class="flex gap-3 w-full">
+            <button onclick="goToPage(3)" class="w-2/5 py-4 bg-[#EEF2FF] text-[#1665F5] font-bold text-base rounded-full hover:bg-blue-100 transition-colors">Back</button>
+            <button onclick="goToPage(5)" class="w-3/5 py-4 bg-[#1665F5] text-white font-bold text-base rounded-full shadow-lg hover:bg-blue-700 transition-colors">Next →</button>
+          </div>
+          <p class="font-['Caveat',cursive] text-blue-600 text-sm font-bold mt-2">🌱 Explore. Learn. Connect.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         PAGE 5: FINAL DETAILS (EXACT MOCKUP WITH GUY & CLIPBOARD ARTWORK)
+    ==================================================================== -->
+    <div id="page5" class="hidden flex-1 flex flex-col justify-between transition-opacity duration-300">
+      <div class="pt-3 px-6 pb-2 flex items-center justify-between z-20">
+        <button onclick="goToPage(4)" class="p-2 -ml-2 text-slate-800 hover:text-blue-600 rounded-full hover:bg-slate-100">
+          <svg class="w-6 h-6 stroke-current stroke-[2.5]" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+        </button>
+        <span class="text-xs font-bold text-slate-400">5/5</span>
+      </div>
+
+      <div class="flex-1 flex flex-col px-6 pt-2 pb-2 overflow-y-auto">
+        <!-- Title & Guy with Tablet Artwork Header Row -->
+        <div class="relative flex items-start justify-between mb-3">
+          <div class="pr-2 max-w-[210px]">
+            <h1 class="text-2xl font-extrabold text-[#0D1B3E] leading-tight">A few final details</h1>
+            <p class="text-[#64748B] text-xs mt-1">Tell us how you'd like to be involved.</p>
+          </div>
+          <!-- Vector Illustration: Guy with Blue Hoodie Holding Tablet & Clipboard -->
+          <div class="w-24 h-24 relative flex-shrink-0 -mt-2">
+            <svg viewBox="0 0 120 120" class="w-full h-full relative z-10 overflow-visible">
+              <circle cx="60" cy="65" r="45" fill="#EBF3FF"/>
+              <!-- Clipboard Top Right -->
+              <rect x="75" y="15" width="30" height="40" rx="3" fill="#3B82F6" transform="rotate(12, 90, 35)"/>
+              <!-- Guy with Blue Hoodie -->
+              <path d="M 35 105 Q 60 90 85 105 L 85 120 L 35 120 Z" fill="#2563EB"/>
+              <ellipse cx="60" cy="70" rx="16" ry="18" fill="#FDBA74"/>
+              <!-- Tablet -->
+              <rect x="42" y="85" width="25" height="30" rx="3" fill="#1E293B"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Section: I'm looking for -->
+        <div class="space-y-2 mb-3">
+          <h3 class="text-xs font-extrabold text-[#0D1B3E]">I'm looking for:</h3>
+          <div class="flex flex-col gap-2">
+            <label class="flex items-center gap-3 text-xs font-semibold text-slate-700 cursor-pointer">
+              <span class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs">👥</span>
+              <input type="checkbox" checked class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+              <span>Teachers / Professors</span>
+            </label>
+            <label class="flex items-center gap-3 text-xs font-semibold text-slate-700 cursor-pointer">
+              <span class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs">👥</span>
+              <input type="checkbox" checked class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+              <span>Project teammates</span>
+            </label>
+            <label class="flex items-center gap-3 text-xs font-semibold text-slate-700 cursor-pointer">
+              <span class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs">💼</span>
+              <input type="checkbox" class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+              <span>Internships / opportunities</span>
+            </label>
+            <label class="flex items-center gap-3 text-xs font-semibold text-slate-700 cursor-pointer">
+              <span class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs">📅</span>
+              <input type="checkbox" class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+              <span>Events / workshops</span>
+            </label>
+            <label class="flex items-center gap-3 text-xs font-semibold text-slate-700 cursor-pointer">
+              <span class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs">🎓</span>
+              <input type="checkbox" class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+              <span>Academic support</span>
+            </label>
+            <label class="flex items-center gap-3 text-xs font-semibold text-slate-700 cursor-pointer">
+              <span class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs">...</span>
+              <input type="checkbox" class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+              <span>Other</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Availability Dropdown -->
+        <div class="mb-3">
+          <label class="text-xs font-extrabold text-[#0D1B3E]">Availability <span class="font-normal text-slate-400">(optional)</span></label>
+          <div class="relative mt-1">
+            <span class="absolute inset-y-0 left-3.5 flex items-center text-blue-600">🕒</span>
+            <select class="w-full bg-white border border-slate-200 text-slate-700 text-xs rounded-xl py-3 pl-10 pr-8 font-medium appearance-none focus:outline-none focus:border-[#1665F5]">
+              <option value="" disabled selected>Select your availability</option>
+              <option>1-5 hours / week</option>
+              <option>5-10 hours / week</option>
+              <option>10+ hours / week</option>
+            </select>
+            <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-slate-400">▼</div>
+          </div>
+        </div>
+
+        <!-- Contact Toggle Card -->
+        <div class="p-3.5 bg-[#F0F7FF] border border-blue-100 rounded-2xl flex items-center justify-between gap-3">
+          <div class="w-9 h-9 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 text-lg flex-shrink-0">🏛️</div>
+          <div class="flex-1">
+            <h4 class="text-xs font-extrabold text-[#0D1B3E] leading-tight">I'm open to being contacted by organizations</h4>
+            <p class="text-[10px] text-slate-500 mt-0.5 leading-tight">This allows universities, companies, and organizations to reach out with relevant opportunities.</p>
+          </div>
+          <!-- Active Toggle Switch -->
+          <div class="w-12 h-6 bg-[#1665F5] rounded-full p-1 flex items-center justify-end cursor-pointer flex-shrink-0">
+            <div class="w-4 h-4 bg-white rounded-full shadow-md"></div>
+          </div>
+        </div>
+
+        <div class="w-full mt-auto pt-4 flex flex-col items-center">
+          <div class="flex gap-3 w-full">
+            <button onclick="goToPage(4)" class="w-2/5 py-4 bg-[#EEF2FF] text-[#1665F5] font-bold text-base rounded-full hover:bg-blue-100 transition-colors">Back</button>
+            <button onclick="goToPage(6)" class="w-3/5 py-4 bg-[#1665F5] text-white font-bold text-base rounded-full shadow-lg hover:bg-blue-700 transition-colors">Finish</button>
+          </div>
+          <p class="font-['Caveat',cursive] text-blue-600 text-sm font-bold mt-2">🌱 You're one step closer to new opportunities!</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         PAGE 6: ENGAGEMENT (EXACT MOCKUP WITH PINK SHIRT GIRL ARTWORK)
+    ==================================================================== -->
+    <div id="page6" class="hidden flex-1 flex flex-col justify-between transition-opacity duration-300">
+      <div class="pt-3 px-6 pb-2 flex items-center justify-between z-20">
+        <button onclick="goToPage(5)" class="p-2 -ml-2 text-slate-800 hover:text-blue-600 rounded-full hover:bg-slate-100">
+          <svg class="w-6 h-6 stroke-current stroke-[2.5]" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+        </button>
+        <span class="text-xs font-bold text-slate-400">10/10</span>
+      </div>
+
+      <div class="flex-1 flex flex-col px-6 pt-2 pb-2 overflow-y-auto">
+        <!-- Title & Pink Shirt Girl Artwork Header Row -->
+        <div class="relative flex items-start justify-between mb-3">
+          <div class="pr-2 max-w-[210px]">
+            <h1 class="text-2xl font-extrabold text-[#0D1B3E] leading-tight">How would you like to engage?</h1>
+            <p class="text-[#64748B] text-xs mt-1">Tell us what you're looking for.</p>
+          </div>
+          <!-- Vector Illustration: Pink Shirt Girl Thinking with Lightbulb -->
+          <div class="w-24 h-24 relative flex-shrink-0 -mt-2">
+            <svg viewBox="0 0 120 120" class="w-full h-full relative z-10 overflow-visible">
+              <circle cx="60" cy="65" r="45" fill="#EBF3FF"/>
+              <!-- Glowing Lightbulb -->
+              <path d="M 85 20 Q 95 10 100 20 C 105 30 95 38 90 42 L 90 48 L 82 48 L 82 42 Z" fill="#FBBF24"/>
+              <!-- Girl in Pink Shirt -->
+              <path d="M 35 105 Q 60 90 85 105 L 85 120 L 35 120 Z" fill="#DB2777"/>
+              <ellipse cx="60" cy="70" rx="16" ry="18" fill="#FED7AA"/>
+              <path d="M 40 60 C 40 40 80 40 80 65 L 82 95 L 38 95 Z" fill="#1E293B" opacity="0.9"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- 6 Engagement Checkboxes -->
+        <div class="flex flex-col gap-2.5 mb-3">
+          <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 cursor-pointer">
+            <input type="checkbox" checked class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+            <span>Find talented students</span>
+          </label>
+          <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+            <span>Post projects / opportunities</span>
+          </label>
+          <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+            <span>Collaborate with teachers</span>
+          </label>
+          <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+            <span>Host internships</span>
+          </label>
+          <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+            <span>Promote events</span>
+          </label>
+          <label class="flex items-center gap-2.5 text-xs font-semibold text-slate-700 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 text-[#1665F5] rounded border-slate-300 focus:ring-blue-500">
+            <span>Other</span>
+          </label>
+        </div>
+
+        <!-- Contact Person Inputs -->
+        <div class="space-y-2 mb-3">
+          <h3 class="text-xs font-extrabold text-[#0D1B3E]">Contact person <span class="font-normal text-slate-400">(optional)</span></h3>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-3.5 flex items-center text-slate-400">👤</span>
+            <input type="text" placeholder="Name" class="w-full bg-white border border-slate-200 text-xs rounded-xl py-3 pl-10 pr-4 font-medium focus:outline-none focus:border-[#1665F5]">
+          </div>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-3.5 flex items-center text-slate-400">✉️</span>
+            <input type="email" placeholder="Email" class="w-full bg-white border border-slate-200 text-xs rounded-xl py-3 pl-10 pr-4 font-medium focus:outline-none focus:border-[#1665F5]">
+          </div>
+        </div>
+
+        <!-- Info Card -->
+        <div class="p-3 bg-[#F0F7FF] border border-blue-100 rounded-2xl flex items-center gap-3">
+          <div class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-xs flex-shrink-0">ℹ️</div>
+          <p class="text-[11px] text-[#4A60A1] font-medium leading-tight">We'll use this information only to help connect you with the right people and opportunities.</p>
+        </div>
+
+        <div class="w-full mt-auto pt-4 flex flex-col items-center">
+          <div class="flex gap-3 w-full">
+            <button onclick="goToPage(5)" class="w-2/5 py-4 bg-[#EEF2FF] text-[#1665F5] font-bold text-base rounded-full hover:bg-blue-100 transition-colors">Back</button>
+            <button onclick="goToPage(7)" class="w-3/5 py-4 bg-[#1665F5] text-white font-bold text-base rounded-full shadow-lg hover:bg-blue-700 transition-colors">Finish → Feed</button>
+          </div>
+          <p class="font-['Caveat',cursive] text-blue-600 text-sm font-bold mt-2">🌱 Together for a brighter tomorrow.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ====================================================================
+         PAGE 7: MAIN DASHBOARD & PROJECT FEED (EXACT MOCKUP WITH VIDEO)
+    ==================================================================== -->
+    <div id="page7" class="hidden flex-1 flex flex-col justify-between relative bg-[#F8FAFC] h-full overflow-hidden">
+      
+      <!-- Top Sticky Header Area -->
+      <div class="bg-white px-5 pt-3 pb-1 border-b border-slate-100 shadow-sm z-30 flex flex-col gap-2.5">
+        
+        <!-- Status Bar -->
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-900 px-1">
+          <span>9:41</span>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.83A1 1 0 005.12 21h13.76a1 1 0 00.77-1.17l-.62-2.22C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"/></svg>
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M2 17h20v2H2zM4 12h16v2H4zM6 7h12v2H6z"/></svg>
+            <div class="w-5 h-2.5 border border-slate-900 rounded-sm p-0.5 flex items-center"><div class="w-full h-full bg-slate-900 rounded-2xs"></div></div>
+          </div>
+        </div>
+
+        <!-- Logo & Top Actions Row -->
+        <div class="flex items-center justify-between mt-0.5">
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-xs">
+                <path d="M50 15 L88 34 L50 52 L12 34 Z" fill="#2563EB" />
+                <path d="M24 40 L50 53 L76 40 L76 56 C76 68 64 78 50 78 C36 78 24 68 24 56 Z" fill="#1D4ED8" />
+                <path d="M52 50 C65 46 80 54 85 70 C70 76 55 68 52 50 Z" fill="#22C55E" />
+              </svg>
+            </div>
+            <div>
+              <h1 class="text-xl font-extrabold tracking-tight leading-tight">
+                <span class="text-[#0A1C3E]">Edu</span><span class="text-[#1A67ED]">Connect</span>
+              </h1>
+              <p class="text-[10px] font-medium text-slate-500 tracking-wide">
+                Projects • People • Possibilities
+              </p>
+            </div>
+          </div>
+
+          <!-- Notification Bell & Avatar -->
+          <div class="flex items-center gap-3">
+            <button class="relative text-slate-700 hover:text-blue-600 transition-colors p-1">
+              <svg class="w-6 h-6 stroke-current stroke-[2] fill-none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 01-5.714 0" />
+              </svg>
+              <span class="w-2.5 h-2.5 bg-red-500 rounded-full absolute top-1 right-1 border-2 border-white"></span>
+            </button>
+
+            <div class="w-9 h-9 rounded-full ring-2 ring-blue-100 overflow-hidden cursor-pointer shadow-sm">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Ranjeet Gupta Avatar" class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs: Projects | People | For You + Search -->
+        <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+          <div class="flex items-center gap-6">
+            <button onclick="switchMainTab('projects')" id="tab-projects" class="text-sm font-extrabold text-[#1665F5] pb-2 border-b-2 border-[#1665F5] transition-colors">
+              Projects
+            </button>
+            <button onclick="switchMainTab('people')" id="tab-people" class="text-sm font-semibold text-slate-500 hover:text-slate-900 pb-2 border-b-2 border-transparent transition-colors">
+              People
+            </button>
+            <button onclick="switchMainTab('foryou')" id="tab-foryou" class="text-sm font-semibold text-slate-500 hover:text-slate-900 pb-2 border-b-2 border-transparent transition-colors">
+              For You
+            </button>
+          </div>
+
+          <button class="p-1.5 text-slate-600 hover:text-blue-600 transition-colors rounded-full hover:bg-slate-100 -mt-1">
+            <svg class="w-5 h-5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Filter Chips -->
+      <div class="px-4 py-3 bg-white border-b border-slate-100 flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
+        <button onclick="filterCategory(this)" class="chip-filter py-1.5 px-3.5 bg-[#1665F5] text-white font-semibold text-xs rounded-full shadow-sm flex-shrink-0">
+          All
+        </button>
+        <button onclick="filterCategory(this)" class="chip-filter py-1.5 px-3.5 bg-white border border-slate-200 text-slate-700 hover:border-slate-300 font-medium text-xs rounded-full flex-shrink-0 transition-colors">
+          Looking for Team
+        </button>
+        <button onclick="filterCategory(this)" class="chip-filter py-1.5 px-3.5 bg-white border border-slate-200 text-slate-700 hover:border-slate-300 font-medium text-xs rounded-full flex-shrink-0 transition-colors">
+          Research
+        </button>
+        <button onclick="filterCategory(this)" class="chip-filter py-1.5 px-3.5 bg-white border border-slate-200 text-slate-700 hover:border-slate-300 font-medium text-xs rounded-full flex-shrink-0 transition-colors">
+          AI/Tech
+        </button>
+        <button onclick="filterCategory(this)" class="chip-filter py-1.5 px-3.5 bg-white border border-slate-200 text-slate-700 hover:border-slate-300 font-medium text-xs rounded-full flex-shrink-0 transition-colors">
+          Sustainability
+        </button>
+      </div>
+
+      <!-- Feed Area -->
+      <div class="flex-1 overflow-y-auto p-4 space-y-4 pb-20">
+
+        <!-- CARD 1: Smart Campus Energy Monitor (FEATURED VIDEO PLAYER) -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+          <div class="relative w-full h-52 bg-slate-900 group overflow-hidden">
+            <!-- Video tag referencing user mp4 -->
+            <video id="video-card1" class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop&q=80" loop muted playsinline>
+              <source src="/Users/ranjeet/Downloads/Corporate_office_buildings_exter…_1080p_20260918222830_gwr_video_mvp.mp4" type="video/mp4">
+            </video>
+
+            <div class="absolute top-3 inset-x-3 flex items-center justify-between z-10">
+              <span class="px-3 py-1 bg-white/90 backdrop-blur-md text-slate-900 font-extrabold text-xs rounded-full shadow-md flex items-center gap-1.5">
+                <span class="text-amber-500">★</span> Featured
+              </span>
+              <button onclick="toggleBookmark(this)" class="w-8 h-8 rounded-full bg-slate-900/60 backdrop-blur-md text-white flex items-center justify-center hover:bg-slate-900/80 transition-all">
+                <svg class="w-4 h-4 stroke-current stroke-[2] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" /></svg>
+              </button>
+            </div>
+
+            <button onclick="toggleVideoPlay('video-card1', this)" class="absolute inset-0 m-auto w-14 h-14 rounded-full bg-slate-900/60 backdrop-blur-md text-white flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all z-10">
+              <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+
+            <div class="absolute bottom-3 left-3 px-2.5 py-1 bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-semibold rounded-full flex items-center gap-1">
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <span>0:28</span>
+            </div>
+          </div>
+
+          <div class="p-4">
+            <h3 class="text-lg font-extrabold text-[#0D1B3E] leading-snug">Smart Campus Energy Monitor</h3>
+            <p class="text-slate-500 text-xs font-normal mt-1 leading-relaxed">Monitoring and visualizing energy consumption across university buildings.</p>
+
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-2.5 py-1 bg-[#F0F7FF] text-[#1665F5] font-semibold text-[11px] rounded-lg">IoT</span>
+              <span class="px-2.5 py-1 bg-[#F0F7FF] text-[#1665F5] font-semibold text-[11px] rounded-lg">Python</span>
+              <span class="px-2.5 py-1 bg-[#F0F7FF] text-[#1665F5] font-semibold text-[11px] rounded-lg">Data Visualization</span>
+            </div>
+
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-100">
+              <div class="flex items-center gap-2.5">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Ranjeet Gupta" class="w-8 h-8 rounded-full object-cover">
+                <div>
+                  <h4 class="text-xs font-extrabold text-[#0D1B3E] leading-none">Ranjeet Gupta</h4>
+                  <p class="text-[11px] text-slate-400 font-medium mt-0.5">Computer Systems Student</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 text-slate-500 text-xs font-semibold">
+                <button onclick="toggleLike(this, 24)" class="flex items-center gap-1.5 hover:text-red-500 transition-colors">
+                  <svg class="w-4 h-4 stroke-current stroke-[2] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>
+                  <span>24</span>
+                </button>
+                <button class="flex items-center gap-1.5 hover:text-blue-600 transition-colors">
+                  <svg class="w-4 h-4 stroke-current stroke-[2] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 0012 20.25z" /></svg>
+                  <span>5</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CARD 2: AI for Ocean Clean-Up -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+          <div class="relative w-full h-52 bg-slate-900 group overflow-hidden">
+            <video id="video-card2" class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&auto=format&fit=crop&q=80" loop muted playsinline>
+              <source src="/Users/ranjeet/Downloads/Corporate_office_buildings_exter…_1080p_20260918222830_gwr_video_mvp.mp4" type="video/mp4">
+            </video>
+
+            <div class="absolute top-3 right-3 z-10">
+              <button onclick="toggleBookmark(this)" class="w-8 h-8 rounded-full bg-slate-900/60 backdrop-blur-md text-white flex items-center justify-center hover:bg-slate-900/80 transition-all">
+                <svg class="w-4 h-4 stroke-current stroke-[2] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" /></svg>
+              </button>
+            </div>
+
+            <button onclick="toggleVideoPlay('video-card2', this)" class="absolute inset-0 m-auto w-14 h-14 rounded-full bg-slate-900/60 backdrop-blur-md text-white flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all z-10">
+              <svg class="w-7 h-7 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+
+            <div class="absolute bottom-3 left-3 px-2.5 py-1 bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-semibold rounded-full flex items-center gap-1">
+              <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <span>0:32</span>
+            </div>
+          </div>
+
+          <div class="p-4">
+            <h3 class="text-lg font-extrabold text-[#0D1B3E] leading-snug">AI for Ocean Clean-Up</h3>
+            <p class="text-slate-500 text-xs font-normal mt-1 leading-relaxed">Using computer vision and autonomous drones to detect and collect ocean waste.</p>
+
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="px-2.5 py-1 bg-[#F0F7FF] text-[#1665F5] font-semibold text-[11px] rounded-lg">AI</span>
+              <span class="px-2.5 py-1 bg-[#F0F7FF] text-[#1665F5] font-semibold text-[11px] rounded-lg">Computer Vision</span>
+              <span class="px-2.5 py-1 bg-[#F0F7FF] text-[#1665F5] font-semibold text-[11px] rounded-lg">Sustainability</span>
+            </div>
+
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-100">
+              <div class="flex items-center gap-2.5">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Sara Ahmed" class="w-8 h-8 rounded-full object-cover">
+                <div>
+                  <h4 class="text-xs font-extrabold text-[#0D1B3E] leading-none">Sara Ahmed</h4>
+                  <p class="text-[11px] text-slate-400 font-medium mt-0.5">Data Science Student</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 text-slate-500 text-xs font-semibold">
+                <button onclick="toggleLike(this, 18)" class="flex items-center gap-1.5 hover:text-red-500 transition-colors">
+                  <svg class="w-4 h-4 stroke-current stroke-[2] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>
+                  <span>18</span>
+                </button>
+                <button class="flex items-center gap-1.5 hover:text-blue-600 transition-colors">
+                  <svg class="w-4 h-4 stroke-current stroke-[2] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 0012 20.25z" /></svg>
+                  <span>3</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Fixed 5-Item Bottom Navigation Bar -->
+      <div class="bg-white border-t border-slate-200/80 px-4 py-2 flex items-center justify-around z-30 shadow-lg">
+        <button class="flex flex-col items-center gap-1 text-[#1665F5]">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span class="text-[11px] font-extrabold">Home</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-slate-500 hover:text-blue-600 relative">
+          <div class="relative">
+            <svg class="w-6 h-6 stroke-current stroke-[2] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.008v.008H8.625V12zm3.75 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.008v.008H12.375V12zm3.75 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.008v.008H16.125V12zM12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 0012 20.25z" /></svg>
+            <span class="w-2.5 h-2.5 bg-red-500 rounded-full absolute -top-0.5 -right-0.5 border-2 border-white"></span>
+          </div>
+          <span class="text-[11px] font-semibold">Messages</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-slate-500 hover:text-blue-600">
+          <svg class="w-6 h-6 stroke-current stroke-[2] fill-none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          <span class="text-[11px] font-semibold">Add</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-slate-500 hover:text-blue-600">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19 13c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2s2-.9 2-2v-2c0-1.1-.9-2-2-2zm-7-9c-1.66 0-3 1.34-3 3 0 .78.3 1.49.8 2.03L8 11.5V16c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4.5l-1.8-2.47c.5-.54.8-1.25.8-2.03 0-1.66-1.34-3-3-3z"/></svg>
+          <span class="text-[11px] font-semibold">Kangaroo</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 text-slate-500 hover:text-blue-600">
+          <svg class="w-6 h-6 stroke-current stroke-[2] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+          <span class="text-[11px] font-semibold">Profile</span>
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script class="AntigravityScript">
+    let isFramed = true;
+    let selectedRole = 'student';
+
+    function goToPage(pageNum) {
+      const p1 = document.getElementById('page1');
+      const p2 = document.getElementById('page2');
+      const p3 = document.getElementById('page3');
+      const p4 = document.getElementById('page4');
+      const p5 = document.getElementById('page5');
+      const p6 = document.getElementById('page6');
+      const p7 = document.getElementById('page7');
+      const titleLabel = document.getElementById('pageTitleLabel');
+
+      [p1, p2, p3, p4, p5, p6, p7].forEach(p => p.classList.add('hidden'));
+
+      if (pageNum === 7) { p7.classList.remove('hidden'); titleLabel.innerText = "Page 7: Main Dashboard Feed"; }
+      else if (pageNum === 6) { p6.classList.remove('hidden'); titleLabel.innerText = "Page 6: Engagement"; }
+      else if (pageNum === 5) { p5.classList.remove('hidden'); titleLabel.innerText = "Page 5: Final Details"; }
+      else if (pageNum === 4) { p4.classList.remove('hidden'); titleLabel.innerText = "Page 4: Interests"; }
+      else if (pageNum === 3) { p3.classList.remove('hidden'); titleLabel.innerText = "Page 3: User Details"; }
+      else if (pageNum === 2) { p2.classList.remove('hidden'); titleLabel.innerText = "Page 2: Role Selection"; }
+      else { p1.classList.remove('hidden'); titleLabel.innerText = "Page 1: Onboarding Landing"; }
+    }
+
+    function showAllPages() {
+      const pages = ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7'];
+      const titleLabel = document.getElementById('pageTitleLabel');
+      pages.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('hidden');
+      });
+      if (titleLabel) titleLabel.innerText = "All 7 Pages Visible Stacked";
+    }
+
+    function selectRole(roleId) {
+      selectedRole = roleId;
+      ['student', 'teacher', 'organization'].forEach(role => {
+        const card = document.getElementById(`card-${role}`);
+        if (role === roleId) {
+          card.className = "role-card active border-2 border-[#1665F5] bg-[#F0F7FF] rounded-2xl p-4 flex items-center gap-4 cursor-pointer transition-all duration-200 shadow-sm";
+        } else {
+          card.className = "role-card border border-slate-200 hover:border-slate-300 bg-white rounded-2xl p-4 flex items-center gap-4 cursor-pointer transition-all duration-200 hover:shadow-sm";
+        }
+      });
+    }
+
+    function switchMainTab(tab) {
+      ['projects', 'people', 'foryou'].forEach(t => {
+        const btn = document.getElementById(`tab-${t}`);
+        if (t === tab) {
+          btn.className = "text-sm font-extrabold text-[#1665F5] pb-2 border-b-2 border-[#1665F5] transition-colors";
+        } else {
+          btn.className = "text-sm font-semibold text-slate-500 hover:text-slate-900 pb-2 border-b-2 border-transparent transition-colors";
+        }
+      });
+    }
+
+    function filterCategory(btn) {
+      document.querySelectorAll('.chip-filter').forEach(c => {
+        c.className = "chip-filter py-1.5 px-3.5 bg-white border border-slate-200 text-slate-700 hover:border-slate-300 font-medium text-xs rounded-full flex-shrink-0 transition-colors";
+      });
+      btn.className = "chip-filter py-1.5 px-3.5 bg-[#1665F5] text-white font-semibold text-xs rounded-full shadow-sm flex-shrink-0";
+    }
+
+    function toggleVideoPlay(videoId, btn) {
+      const vid = document.getElementById(videoId);
+      if (vid.paused) {
+        vid.play();
+        btn.classList.add('opacity-0', 'hover:opacity-100');
+      } else {
+        vid.pause();
+        btn.classList.remove('opacity-0');
+      }
+    }
+
+    function toggleBookmark(btn) {
+      const svg = btn.querySelector('svg');
+      if (svg.getAttribute('fill') === 'currentColor') {
+        svg.setAttribute('fill', 'none');
+        btn.classList.remove('text-amber-400');
+      } else {
+        svg.setAttribute('fill', 'currentColor');
+        btn.classList.add('text-amber-400');
+      }
+    }
+
+    function toggleLike(btn, count) {
+      const svg = btn.querySelector('svg');
+      const span = btn.querySelector('span');
+      if (svg.getAttribute('fill') === 'currentColor') {
+        svg.setAttribute('fill', 'none');
+        btn.classList.remove('text-red-500');
+        span.innerText = count;
+      } else {
+        svg.setAttribute('fill', 'currentColor');
+        btn.classList.add('text-red-500');
+        span.innerText = count + 1;
+      }
+    }
+
+    function toggleViewMode() {
+      const app = document.getElementById('appContainer');
+      const btn = document.getElementById('toggleFrameBtn');
+      if (isFramed) {
+        app.classList.remove('sm:max-w-[420px]', 'sm:min-h-[860px]', 'sm:h-[860px]', 'sm:rounded-[44px]', 'sm:border-[8px]');
+        app.classList.add('max-w-2xl', 'rounded-2xl', 'shadow-lg');
+        btn.innerText = "Frame View";
+      } else {
+        app.classList.add('sm:max-w-[420px]', 'sm:min-h-[860px]', 'sm:h-[860px]', 'sm:rounded-[44px]', 'sm:border-[8px]');
+        app.classList.remove('max-w-2xl', 'rounded-2xl', 'shadow-lg');
+        btn.innerText = "Frame Mode";
+      }
+      isFramed = !isFramed;
+    }
+
+    function handleSignIn() { alert("Sign In clicked!"); }
+    function handleSkip() { alert("Skip clicked!"); }
+  </script>
+</body>
+</html>
