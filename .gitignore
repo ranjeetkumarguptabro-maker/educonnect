@@ -4,3 +4,4 @@ node_modules/
 *.log
 chrome_cache/
 
+.chrome_profile
