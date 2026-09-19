@@ -824,6 +824,63 @@
     </div>
 
     <!-- ====================================================================
+         LOGOUT CONFIRMATION MODAL (CROSS-PLATFORM NATIVE DIALOG FOR ANDROID & IOS)
+    ==================================================================== -->
+    <div id="logoutModal" class="hidden absolute inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fade-in select-none">
+      <div class="bg-white rounded-[28px] max-w-xs w-full p-6 shadow-2xl border border-slate-100 flex flex-col items-center text-center animate-scale-up">
+        <div class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mb-3 shadow-inner text-2xl">
+          <svg class="w-7 h-7 stroke-current stroke-[2.2] fill-none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-black text-[#0B132B] tracking-tight">Log Out of Kangaroo?</h3>
+        <p class="text-xs text-slate-500 font-medium mt-1.5 leading-relaxed">
+          You are currently signed in as <strong>Emma Wilson</strong>. Are you sure you want to log out?
+        </p>
+        <div class="w-full flex flex-col gap-2 mt-5">
+          <button onclick="confirmLogout()" class="w-full py-3.5 bg-rose-600 hover:bg-rose-700 active:scale-[0.98] text-white font-extrabold text-xs rounded-xl shadow-md transition-all cursor-pointer">
+            Yes, Log Out
+          </button>
+          <button onclick="closeLogoutModal()" class="w-full py-3 bg-slate-100 hover:bg-slate-200 active:scale-[0.98] text-slate-700 font-bold text-xs rounded-xl transition-all cursor-pointer">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SIGN IN MODAL (CROSS-PLATFORM NATIVE DIALOG FOR ANDROID & IOS)
+    ==================================================================== -->
+    <div id="signInModal" class="hidden absolute inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fade-in select-none">
+      <div class="bg-white rounded-[28px] max-w-xs w-full p-6 shadow-2xl border border-slate-100 flex flex-col animate-scale-up">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <img src="assets/landing_kangaroo_logo.png" alt="Logo" class="w-7 h-7 object-contain">
+            <span class="font-black text-[#0B132B] text-base">Sign In</span>
+          </div>
+          <button onclick="closeSignInModal()" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center text-xs font-bold cursor-pointer">✕</button>
+        </div>
+        <p class="text-xs text-slate-500 font-medium mb-4 leading-relaxed">
+          Welcome back to EduConnect Kangaroo. Sign in to access your projects and feed.
+        </p>
+        <div class="space-y-3 mb-4">
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">Email</label>
+            <input type="email" value="emma.wilson@riverside.edu" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#4C39F8]">
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">Password</label>
+            <input type="password" value="••••••••••••" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 focus:outline-none focus:border-[#4C39F8]">
+          </div>
+        </div>
+        <button onclick="handleConfirmSignIn()" class="w-full py-3.5 bg-[#4C39F8] hover:bg-[#3d2be2] active:scale-[0.98] text-white font-extrabold text-xs rounded-xl shadow-md transition-all cursor-pointer flex items-center justify-center gap-2">
+          <span>Sign In as Emma Wilson</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ====================================================================
          INTERACTIVE PDF PREVIEW MODAL (SUSTAINABILITY REPORT)
     ==================================================================== -->
     <div id="pdfPreviewModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fade-in">
@@ -2146,6 +2203,22 @@
               <span class="text-[14px] font-bold text-[#0B132B]">Settings</span>
             </div>
             <svg class="w-4 h-4 text-slate-400 group-hover:text-[#4C39F8] group-hover:translate-x-0.5 transition-all stroke-current stroke-2 fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+
+          <!-- Log Out -->
+          <button onclick="openLogoutModal()" class="w-full px-4 py-3.5 flex items-center justify-between hover:bg-rose-50/80 transition-colors group cursor-pointer text-left">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center group-hover:bg-rose-100 transition-colors">
+                <svg class="w-4 h-4 stroke-current stroke-[2.2] fill-none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                </svg>
+              </div>
+              <div>
+                <span class="text-[14px] font-bold text-rose-600">Log Out</span>
+                <p class="text-[10.5px] text-slate-400 font-medium">Sign out of Emma Wilson</p>
+              </div>
+            </div>
+            <svg class="w-4 h-4 text-rose-300 group-hover:text-rose-500 group-hover:translate-x-0.5 transition-all stroke-current stroke-2 fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </button>
 
         </div>
@@ -3951,6 +4024,7 @@
 
         const cardEl = document.createElement('div');
         cardEl.className = `swipe-card absolute inset-0 bg-white rounded-[26px] border border-slate-200/90 shadow-xl overflow-hidden flex flex-col justify-between select-none transition-all duration-300 ${isTop ? 'cursor-grab active:cursor-grabbing' : 'pointer-events-none'}`;
+        cardEl.style.touchAction = 'none';
         cardEl.id = `card-deck-${card.id}`;
 
         if (realIdx === 0) {
@@ -3969,7 +4043,7 @@
 
         cardEl.innerHTML = `
           <!-- Image Section with Overlay Badges -->
-          <div class="relative w-full h-44 bg-slate-100 overflow-hidden pointer-events-none">
+          <div class="relative w-full h-36 sm:h-44 bg-slate-100 overflow-hidden pointer-events-none">
             <img src="${card.image}" alt="${card.title}" class="w-full h-full object-cover">
 
             ${card.featured ? `
@@ -3998,23 +4072,23 @@
           </div>
 
           <!-- Card Content Area -->
-          <div class="p-3.5 flex-1 flex flex-col justify-between">
+          <div class="p-3 sm:p-3.5 flex-1 flex flex-col justify-between overflow-hidden">
             <div>
-              <h3 class="text-[16px] font-black text-[#0F172A] leading-snug tracking-tight">
+              <h3 class="text-[15px] sm:text-[16px] font-black text-[#0F172A] leading-snug tracking-tight">
                 ${card.title}
               </h3>
-              <p class="text-slate-500 text-[11.5px] font-normal mt-1 leading-relaxed line-clamp-2">
+              <p class="text-slate-500 text-[11px] sm:text-[11.5px] font-normal mt-0.5 sm:mt-1 leading-relaxed line-clamp-2">
                 ${card.desc}
               </p>
 
               <!-- Tags -->
-              <div class="flex flex-wrap gap-1 mt-2">
+              <div class="flex flex-wrap gap-1 mt-1.5 sm:mt-2">
                 ${card.tags.map(t => `<span class="px-2.5 py-0.5 bg-[#EDEBFE] text-[#4C39F8] font-bold text-[10.5px] rounded-full">${t}</span>`).join('')}
               </div>
             </div>
 
             <!-- Author & Stats Footer -->
-            <div class="flex items-center justify-between mt-2.5 pt-2 border-t border-slate-100">
+            <div class="flex items-center justify-between mt-2 pt-2 border-t border-slate-100">
               <div class="flex items-center gap-2">
                 <img src="${card.avatar}" alt="${card.author}" class="w-7 h-7 rounded-full object-cover ring-1 ring-slate-100">
                 <div>
@@ -4051,35 +4125,44 @@
       let startY = 0;
       let currentX = 0;
       let currentY = 0;
+      let startTime = 0;
 
-      function onPointerDown(e) {
+      cardEl.style.touchAction = 'none';
+
+      function handleDragStart(clientX, clientY, pointerId) {
         isDragging = true;
-        startX = e.clientX;
-        startY = e.clientY;
+        startX = clientX;
+        startY = clientY;
         currentX = 0;
         currentY = 0;
-        cardEl.setPointerCapture(e.pointerId);
+        startTime = Date.now();
         cardEl.style.transition = 'none';
-        cardEl.addEventListener('pointermove', onPointerMove);
-        cardEl.addEventListener('pointerup', onPointerUp);
-        cardEl.addEventListener('pointercancel', onPointerUp);
+        if (pointerId !== undefined && cardEl.setPointerCapture) {
+          try { cardEl.setPointerCapture(pointerId); } catch(e) {}
+        }
       }
 
-      function onPointerMove(e) {
+      function handleDragMove(clientX, clientY, e) {
         if (!isDragging) return;
-        currentX = e.clientX - startX;
-        currentY = e.clientY - startY;
+        currentX = clientX - startX;
+        currentY = clientY - startY;
+
+        // Prevent Android browser gesture navigation & scrolling
+        if (e && e.cancelable && (Math.abs(currentX) > 4 || Math.abs(currentY) > 4)) {
+          e.preventDefault();
+        }
+
         const rotate = currentX * 0.08;
-        cardEl.style.transform = `translate(${currentX}px, ${currentY * 0.25}px) rotate(${rotate}deg)`;
+        cardEl.style.transform = `translate(${currentX}px, ${currentY * 0.22}px) rotate(${rotate}deg)`;
 
         const passBadge = cardEl.querySelector('.badge-pass');
         const likeBadge = cardEl.querySelector('.badge-like');
 
         if (currentX < -15) {
-          if (passBadge) passBadge.style.opacity = Math.min(1, (-currentX - 15) / 50);
+          if (passBadge) passBadge.style.opacity = Math.min(1, (-currentX - 15) / 45);
           if (likeBadge) likeBadge.style.opacity = 0;
         } else if (currentX > 15) {
-          if (likeBadge) likeBadge.style.opacity = Math.min(1, (currentX - 15) / 50);
+          if (likeBadge) likeBadge.style.opacity = Math.min(1, (currentX - 15) / 45);
           if (passBadge) passBadge.style.opacity = 0;
         } else {
           if (passBadge) passBadge.style.opacity = 0;
@@ -4087,22 +4170,26 @@
         }
       }
 
-      function onPointerUp(e) {
+      function handleDragEnd(pointerId) {
         if (!isDragging) return;
         isDragging = false;
-        cardEl.removeEventListener('pointermove', onPointerMove);
-        cardEl.removeEventListener('pointerup', onPointerUp);
-        cardEl.removeEventListener('pointercancel', onPointerUp);
+        if (pointerId !== undefined && cardEl.releasePointerCapture) {
+          try { cardEl.releasePointerCapture(pointerId); } catch(e) {}
+        }
 
-        if (Math.hypot(currentX, currentY) < 8) {
+        const duration = Math.max(1, Date.now() - startTime);
+        const velocityX = currentX / duration;
+
+        if (Math.hypot(currentX, currentY) < 6) {
           cardEl.style.transition = 'transform 0.2s ease';
           cardEl.style.transform = 'translate(0, 0) rotate(0)';
           return;
         }
 
-        if (currentX > 75) {
+        // Swipe decision: threshold 55px or fast flick (velocity > 0.28)
+        if (currentX > 55 || (currentX > 20 && velocityX > 0.28)) {
           triggerSwipe('right');
-        } else if (currentX < -75) {
+        } else if (currentX < -55 || (currentX < -20 && velocityX < -0.28)) {
           triggerSwipe('left');
         } else {
           cardEl.style.transition = 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
@@ -4114,7 +4201,46 @@
         }
       }
 
-      cardEl.addEventListener('pointerdown', onPointerDown);
+      // 1. Pointer Events (Modern Chromium & Safari)
+      cardEl.addEventListener('pointerdown', (e) => {
+        if (e.button !== undefined && e.button !== 0) return;
+        handleDragStart(e.clientX, e.clientY, e.pointerId);
+
+        const onPointerMove = (ev) => {
+          handleDragMove(ev.clientX, ev.clientY, ev);
+        };
+        const onPointerUp = (ev) => {
+          window.removeEventListener('pointermove', onPointerMove);
+          window.removeEventListener('pointerup', onPointerUp);
+          window.removeEventListener('pointercancel', onPointerUp);
+          handleDragEnd(ev.pointerId);
+        };
+
+        window.addEventListener('pointermove', onPointerMove, { passive: false });
+        window.addEventListener('pointerup', onPointerUp);
+        window.addEventListener('pointercancel', onPointerUp);
+      });
+
+      // 2. Touch Events Fallback (Rock-solid on Android WebViews)
+      cardEl.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length > 0) {
+          handleDragStart(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      cardEl.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches.length > 0) {
+          handleDragMove(e.touches[0].clientX, e.touches[0].clientY, e);
+        }
+      }, { passive: false });
+
+      cardEl.addEventListener('touchend', () => {
+        handleDragEnd();
+      });
+
+      cardEl.addEventListener('touchcancel', () => {
+        handleDragEnd();
+      });
     }
 
     function triggerSwipe(direction) {
@@ -4385,10 +4511,62 @@
     }
 
     function handleSignIn() {
-      goToPage('profile');
-      playCalmChime(587.33, 0.3);
-      showActionToast("Welcome back! Please sign in to your Kangaroo account.");
+      openSignInModal();
     }
+
+    function openSignInModal() {
+      const m = document.getElementById('signInModal');
+      if (m) {
+        m.classList.remove('hidden');
+        m.classList.add('flex');
+      }
+      playCalmChime(587.33, 0.25);
+    }
+
+    function closeSignInModal() {
+      const m = document.getElementById('signInModal');
+      if (m) {
+        m.classList.add('hidden');
+        m.classList.remove('flex');
+      }
+    }
+
+    function handleConfirmSignIn() {
+      closeSignInModal();
+      goToPage(7);
+      playCalmChime(659.25, 0.4);
+      showActionToast("Welcome back, Emma Wilson! Logged in successfully.");
+    }
+
+    function openLogoutModal() {
+      const m = document.getElementById('logoutModal');
+      if (m) {
+        m.classList.remove('hidden');
+        m.classList.add('flex');
+      }
+      playCalmChime(440, 0.2);
+    }
+
+    function closeLogoutModal() {
+      const m = document.getElementById('logoutModal');
+      if (m) {
+        m.classList.add('hidden');
+        m.classList.remove('flex');
+      }
+    }
+
+    function confirmLogout() {
+      closeLogoutModal();
+      selectedRole = 'student';
+      goToPage(1);
+      playCalmChime(440, 0.35);
+      showActionToast("You have been safely logged out.");
+    }
+
+    function handleLogout() {
+      openLogoutModal();
+    }
+
     function handleSkip() {
       goToPage(7);
       playCalmChime(659.25, 0.4);

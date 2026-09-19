@@ -14,6 +14,28 @@ html, body {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Prevent text collapse & Android font boosting */
+*, *::before, *::after {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Touch gesture protection for swipe deck on Android and iOS */
+.swipe-card {
+  touch-action: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -webkit-user-drag: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+#deckContainer {
+  touch-action: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
 /* On mobile phones (under 640px), hide fake phone status indicators and home bars */
 @media (max-width: 639px) {
   .fake-status-bar-time {
