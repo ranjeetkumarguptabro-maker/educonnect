@@ -81,24 +81,27 @@ The application features a complete **7-page onboarding and discovery flow**, bu
 
 ### 🚀 7. Main Dashboard & Project Feed (`Page 7`)
 - **Top Sticky Header**:
-  - EduConnect brand emblem & live clock.
-  - 🔔 Notification bell with unread badge indicator.
-  - User profile avatar for **Ranjeet Gupta**.
-- **Navigation Tabs**: **Projects** (active indicator), **People**, **For You**, plus Search 🔍.
-- **Filter Chips**: Horizontal scrollable sub-category chips (*All*, *Looking for Team*, *Research*, *AI/Tech*, *Sustainability*).
+  - Dual-leaf sprout brand logo & solid navy **EduConnect** title.
+  - 🔔 Notification bell icon.
+  - User profile avatar with subtle ring.
+- **Navigation Tabs**: **Projects** (active pill tab in `#EDEBFE` with `#4C39F8` underline), **People**, **For You**, plus Search 🔍.
+- **Filter Chips**: Horizontal scrollable sub-category chips (*All* [active in `#4C39F8`], *AI/Tech*, *Sustainability*, *Health*, *Startups*).
 - **Project Cards**:
-  - **Featured Card 1 ("Smart Campus Energy Monitor")**:
-    - Embedded video player with responsive thumbnail and duration badge (`▶ 0:28`).
-    - Custom play/pause center overlay button.
-    - `★ Featured` badge and interactive bookmarking (🔖).
-    - Tech tags: `IoT`, `Python`, `Data Visualization`.
-    - Author info, like counter (`🤍 24`), and comments count (`💬 5`).
-  - **Project Card 2 ("AI for Ocean Clean-Up")**:
-    - Ocean drone video preview (`▶ 0:32`), `AI` and `Sustainability` tags, author stats, and likes.
+  - **Card 1 ("Autonomous Campus Rover")**:
+    - High-resolution rover vehicle media preview.
+    - Top badges: `★ Featured` pill badge and interactive heart toggle button.
+    - Title: *"Autonomous Campus Rover"* & subtitle: *"Building a self-navigating rover for campus delivery using computer vision and embedded systems."*
+    - Tech tags: `Robotics`, `AI`, `Embedded Systems` (styled in `#E0E4FE` with `#3525D3` text).
+    - Author info: **Daniel Kim** (*Mechanical Engineering*) with avatar.
+    - Social stats: `👥 12` collaborators and `💬 5` discussions.
+  - **Card 2 ("AI for Ocean Clean-Up")**:
+    - High-resolution ocean sea turtle media preview with bookmark ribbon badge.
+    - Title: *"AI for Ocean Clean-Up"* & subtitle: *"Using computer vision to detect and classify ocean waste from underwater footage."*
+    - Tech tags: `AI`, `Sustainability`, `Computer Vision`.
 - **Fixed 5-Item Bottom Navigation**:
-  - 🏠 **Home** (active royal blue)
-  - 💬 **Messages** (with red notification badge)
-  - ➕ **Add Project**
+  - 🏠 **Home** (active electric indigo `#4C39F8`)
+  - 💬 **Messages**
+  - ➕ **Add**
   - 🦘 **Kangaroo**
   - 👤 **Profile**
 
@@ -117,8 +120,11 @@ Included at the top of the app is a responsive toolbar allowing you to test:
 
 | Token | Hex Value | Usage |
 |---|---|---|
-| **Primary Blue** | `#1665F5` | Primary buttons, active tabs, brand accents |
-| **Dark Navy** | `#0D1B3E` | Primary headings, brand text, dark borders |
+| **Electric Violet / Indigo** | `#4C39F8` | Page 7 active chip, tab underline, brand accents |
+| **Primary Blue** | `#1665F5` | Onboarding primary buttons, active tabs, brand accents |
+| **Dark Navy / Slate** | `#0F172A` / `#0D1B3E` | Primary headings, brand titles, text |
+| **Pill Background** | `#EDEBFE` | Page 7 active "Projects" pill tab |
+| **Topic Chip Background** | `#E0E4FE` | Page 7 project tag chips (text `#3525D3`) |
 | **Accent Green** | `#22C55E` | Plant vector artwork, motivational taglines |
 | **Muted Slate** | `#64748B` / `#7E8BA0` | Body subtitles, unselected labels, borders |
 | **Background Blue** | `#F0F7FF` | Highlighted selection cards, chips, badges |
@@ -133,10 +139,11 @@ Included at the top of the app is a responsive toolbar allowing you to test:
 
 ```plaintext
 educonnect/
-├── index.html       # Complete 7-page standalone web application
-├── styles.css       # Custom layout, animations, and typography styles
-├── README.md        # Project documentation and feature breakdown
-└── .gitignore       # Git ignore rules
+├── assets/                  # High-resolution cropped assets (rover, turtle, avatars, logos)
+├── index.html               # Complete 7-page standalone web application
+├── styles.css               # Custom layout, animations, and typography styles
+├── README.md                # Project documentation and feature breakdown
+└── .gitignore               # Git ignore rules
 ```
 
 ---
