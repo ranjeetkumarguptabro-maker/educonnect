@@ -1,0 +1,218 @@
+{
+  "ada-lovelace": {
+    "name": "Ada Lovelace",
+    "category": "Scientist",
+    "categoryType": "scientists",
+    "role": "Mathematician & First Computer Programmer",
+    "dates": "1815 \u2013 1852",
+    "pronoun": "Her",
+    "heroImage": "assets/hero_ada_lovelace.png",
+    "avatar": "assets/avatar_ada_lovelace.png",
+    "quote": "\u201cThe more I study, the more insatiable do I feel my genius for it to be.\u201d",
+    "about": "Ada Lovelace was a brilliant mathematician who wrote the first algorithm intended for a machine. She is considered the world\u2019s first computer programmer. Her imaginative thinking laid the foundation for modern computing.",
+    "achievements": [
+      "Wrote the first computer algorithm (1843)",
+      "Pioneered the idea of machines doing more than math",
+      "Inspired future generations in science and technology"
+    ],
+    "whyInspires": "Ada showed that imagination and curiosity can open doors to a brighter future. You don't have to know exactly what the future will look like to help create it."
+  },
+  "tebello-nyokong": {
+    "name": "Tebello Nyokong",
+    "category": "Scientist",
+    "categoryType": "scientists",
+    "role": "Distinguished Chemist & Nanotechnology Pioneer",
+    "dates": "1951 \u2013 Present",
+    "pronoun": "Her",
+    "heroImage": "assets/hero_tebello-nyokong.png",
+    "avatar": "assets/avatar_tebello_nyokong.png",
+    "quote": "\u201cScience is about passion. Where you come from does not decide what you can achieve.\u201d",
+    "about": "Professor Tebello Nyokong is a renowned chemist at Rhodes University in South Africa. Growing up in a rural area, she overcame doubt and financial barriers to become one of the world's most cited scientists in cancer research.",
+    "achievements": [
+      "Pioneered photodynamic cancer therapy using light and nanochemistry",
+      "Awarded the prestigious L'Or\u00e9al-UNESCO Award for Women in Science",
+      "Directs the DST/Mintek Nanotechnology Innovation Centre"
+    ],
+    "whyInspires": "Tebello proves that where you start does not decide how far you can go. Staying curious, believing in yourself, and persisting through challenges makes anything possible."
+  },
+  "chevarra-hansraj": {
+    "name": "Chevarra Hansraj",
+    "category": "Scientist",
+    "categoryType": "scientists changemakers",
+    "role": "Mathematician & Black Hole Astrophysicist",
+    "dates": "1990 \u2013 Present",
+    "pronoun": "Her",
+    "heroImage": "assets/hero_chevarra-hansraj.png",
+    "avatar": "assets/avatar_chevarra_hansraj.png",
+    "quote": "\u201cCuriosity and courage can take you to the furthest corners of the universe.\u201d",
+    "about": "Dr. Chevarra Hansraj is a South African mathematician and scientist from Durban, KwaZulu-Natal. Inspired by space as a child, she uses mathematics to research black holes, gravitational waves, and extreme cosmic phenomena.",
+    "achievements": [
+      "Researches gravitational physics and Einstein's general relativity",
+      "Turned school challenges in geometry into her greatest research strength",
+      "Empowers young African women to enter mathematics and space science"
+    ],
+    "whyInspires": "Chevarra reminds us that you don't have to love every part of a subject immediately. Keep asking questions and give yourself time to discover what excites you!"
+  },
+  "thifhelimbilu-bucher": {
+    "name": "Thifhelimbilu Daphney Bucher",
+    "category": "Scientist",
+    "categoryType": "scientists",
+    "role": "Experimental Nuclear Physicist",
+    "dates": "1984 \u2013 Present",
+    "pronoun": "Her",
+    "heroImage": "assets/hero_thifhelimbilu-bucher.png",
+    "avatar": "assets/avatar_thifhelimbilu_bucher.png",
+    "quote": "\u201cEvery barrier broken clears the path for the next generation.\u201d",
+    "about": "Dr. Thifhelimbilu Daphney Bucher is a South African nuclear physicist who grew up in rural Limpopo. With her family's support, she earned a PhD in experimental nuclear physics and became a senior researcher at South Africa's iThemba LABS.",
+    "achievements": [
+      "Researches atomic nucleus behavior at iThemba LABS",
+      "First woman from her village to earn a doctorate in nuclear physics",
+      "Trains and mentors university students in experimental physics"
+    ],
+    "whyInspires": "Daphney shows that your circumstances do not limit your potential. Hard work, curiosity, and community support can take you to the cutting edge of science."
+  },
+  "seymour-papert": {
+    "name": "Seymour Papert",
+    "category": "Scientist & Leader",
+    "categoryType": "scientists leaders",
+    "role": "Computer Scientist & Creator of Logo Programming",
+    "dates": "1928 \u2013 2016",
+    "pronoun": "Him",
+    "heroImage": "assets/hero_seymour-papert.png",
+    "avatar": "assets/avatar_seymour_papert.png",
+    "quote": "\u201cYou don\u2019t just have to use technology \u2014 you can create with it.\u201d",
+    "about": "Born in Pretoria, South Africa, Seymour Papert was a mathematician, computer scientist, and MIT professor who believed children learn best by exploring, making, and experimenting with computers.",
+    "achievements": [
+      "Created Logo, the programming language that taught millions of kids to code",
+      "Co-founded the MIT Artificial Intelligence Lab and MIT Media Lab",
+      "Pioneered constructionist learning theory in global education"
+    ],
+    "whyInspires": "Seymour showed that making mistakes is essential to learning. Technology is a canvas for your imagination and creativity!"
+  },
+  "katherine-johnson": {
+    "name": "Katherine Johnson",
+    "category": "Scientist",
+    "categoryType": "scientists",
+    "role": "Legendary NASA Space Mathematician",
+    "dates": "1918 \u2013 2020",
+    "pronoun": "Her",
+    "heroImage": "assets/hero_katherine-johnson.png",
+    "avatar": "assets/avatar_katherine_johnson.png",
+    "quote": "\u201cLike what you do, and then you will do your best.\u201d",
+    "about": "Katherine Johnson was an American mathematician whose orbital mechanics calculations at NASA were critical to the success of the first U.S. crewed spaceflights and the Apollo 11 Moon landing.",
+    "achievements": [
+      "Calculated flight trajectories for Project Mercury and John Glenn",
+      "Calculated launch windows and moon landing paths for Apollo 11",
+      "Awarded the Presidential Medal of Freedom for space pioneering"
+    ],
+    "whyInspires": "Katherine proved that math can solve the greatest human challenges. Careful thinking, accuracy, and courage can literally take us to the Moon."
+  },
+  "maggie-aphane": {
+    "name": "Maggie Aphane",
+    "category": "Leader & Scientist",
+    "categoryType": "leaders changemakers",
+    "role": "Mathematician & Academic Department Head",
+    "dates": "1976 \u2013 Present",
+    "pronoun": "Her",
+    "heroImage": "assets/hero_maggie-aphane.png",
+    "avatar": "assets/avatar_maggie_aphane.png",
+    "quote": "\u201cYou don\u2019t have to see many people like yourself in a subject to belong there.\u201d",
+    "about": "Professor Maggie Aphane is a South African mathematician specializing in topology and interconnected mathematical spaces. She is the Head of Mathematics and Applied Mathematics at Sefako Makgatho Health Sciences University.",
+    "achievements": [
+      "First South African woman to earn a PhD in Mathematics from UNISA (2016)",
+      "Connects pure topology with data science and medical imaging networks",
+      "Trailblazing leader advocating for African women in high-level mathematics"
+    ],
+    "whyInspires": "Maggie teaches that you belong wherever your intellect and passion lead you. Keep learning, ask bold questions, and pave your own way in mathematics."
+  },
+  "allan-cormack": {
+    "name": "Allan McLeod Cormack",
+    "category": "Scientist",
+    "categoryType": "scientists",
+    "role": "Nobel Laureate & Co-Inventor of the CT Scan",
+    "dates": "1924 \u2013 1998",
+    "pronoun": "Him",
+    "heroImage": "assets/hero_allan-cormack.png",
+    "avatar": "assets/avatar_allan_cormack.png",
+    "quote": "\u201cMathematics is not only about numbers; it can heal human lives.\u201d",
+    "about": "Born in Johannesburg, South Africa, Allan McLeod Cormack was a physicist and mathematician whose theoretical formulations laid the mathematical foundation for computer-assisted tomography (CT scanning).",
+    "achievements": [
+      "Formulated the mathematical reconstruction algorithms for CT imaging",
+      "Awarded the 1979 Nobel Prize in Physiology or Medicine",
+      "Revolutionized healthcare diagnosis for hundreds of millions worldwide"
+    ],
+    "whyInspires": "Cormack showed how mathematical problem-solving directly translates into medical breakthroughs that save lives every single day."
+  },
+  "marie-curie": {
+    "name": "Marie Curie",
+    "category": "Scientist",
+    "categoryType": "scientists",
+    "role": "Double Nobel Laureate in Physics & Chemistry",
+    "dates": "1867 \u2013 1934",
+    "pronoun": "Her",
+    "heroImage": "assets/hero_marie-curie.png",
+    "avatar": "assets/avatar_marie_curie.png",
+    "quote": "\u201cNothing in life is to be feared, it is only to be understood.\u201d",
+    "about": "Born in Poland, Marie Curie researched radioactivity in Paris. She was the first woman to win a Nobel Prize and the only person to win Nobel Prizes in two different scientific fields (Physics and Chemistry).",
+    "achievements": [
+      "Discovered the radioactive elements polonium and radium",
+      "First person to win two Nobel Prizes in distinct scientific fields",
+      "Pioneered mobile X-ray radiography units for wounded soldiers"
+    ],
+    "whyInspires": "Marie showed that relentless patience, dedication, and fearlessness in the face of the unknown can transform human knowledge forever."
+  },
+  "kuhlula-vilakazi": {
+    "name": "Dr. Kuhlula Vilakazi",
+    "category": "Scientist & Changemaker",
+    "categoryType": "scientists changemakers",
+    "role": "Veterinary Surgeon & Public Health Innovator",
+    "dates": "1987 \u2013 Present",
+    "pronoun": "Her",
+    "heroImage": "assets/hero_kuhlula-vilakazi.png",
+    "avatar": "assets/avatar_kuhlula_vilakazi.png",
+    "quote": "\u201cHealing and science begin with empathy for all living beings.\u201d",
+    "about": "Dr. Kuhlula Vilakazi is a South African veterinary surgeon and public health leader dedicated to community animal health, one-health epidemiological research, and inspiring black youth in STEM.",
+    "achievements": [
+      "Trailblazing veterinary surgeon and community health educator",
+      "Founder of mentorship initiatives for aspiring young African veterinarians",
+      "Advocate for rural animal welfare and one-health community wellness"
+    ],
+    "whyInspires": "Dr. Vilakazi demonstrates how empathy, scientific skill, and social purpose work together to uplift both human communities and animals."
+  },
+  "patrice-motsepe": {
+    "name": "Patrice Motsepe",
+    "category": "Leader & Changemaker",
+    "categoryType": "leaders changemakers",
+    "role": "Entrepreneur & Education Philanthropist",
+    "dates": "1962 \u2013 Present",
+    "pronoun": "Him",
+    "heroImage": "assets/hero_patrice-motsepe.png",
+    "avatar": "assets/avatar_patrice_motsepe.png",
+    "quote": "\u201cIf we work together, there is no limit to what our youth can achieve.\u201d",
+    "about": "Patrice Motsepe is a South African entrepreneur and philanthropist whose foundation funds university bursaries, healthcare clinics, and youth entrepreneurship initiatives across the continent.",
+    "achievements": [
+      "Founded the Motsepe Foundation, funding thousands of university bursaries",
+      "First black African to join The Giving Pledge, donating half his wealth",
+      "President of the Confederation of African Football (CAF)"
+    ],
+    "whyInspires": "Patrice shows that genuine leadership means using resources and influence to lift others up and empower the next generation."
+  },
+  "sarah-al-amiri": {
+    "name": "Sarah Al Amiri",
+    "category": "Leader & Scientist",
+    "categoryType": "scientists leaders",
+    "role": "Chair of UAE Space Agency & Minister of State",
+    "dates": "1987 \u2013 Present",
+    "pronoun": "Her",
+    "heroImage": "assets/hero_sarah-al-amiri.png",
+    "avatar": "assets/avatar_sarah_al_amiri.png",
+    "quote": "\u201cWhen you push boundaries in science, you redefine what is possible for everyone.\u201d",
+    "about": "Sarah Al Amiri is the UAE Minister of State for Public Education & Advanced Technology and Chair of the UAE Space Agency. She was the science lead and deputy project manager for the Emirates Mars Mission (Hope Probe).",
+    "achievements": [
+      "Science lead for the historic Hope Mars Mission to study Martian atmosphere",
+      "Youngest government minister championing public STEM education and space",
+      "Named in Time's 100 Next list of emerging global leaders"
+    ],
+    "whyInspires": "Sarah inspires young people to dream boldly, proving that youth and determination can successfully lead interplanetary exploration."
+  }
+}

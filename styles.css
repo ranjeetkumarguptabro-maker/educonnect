@@ -42,6 +42,19 @@ html, body {
   animation: softPulse 2.5s ease-in-out infinite;
 }
 
+@keyframes bounceSubtle {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.03);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounceSubtle 3s ease-in-out infinite;
+}
+
 /* Button hover ripple effect */
 button {
   -webkit-tap-highlight-color: transparent;

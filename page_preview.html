@@ -1,0 +1,2727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduConnect Full App Preview</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .role-card.active { border-color: #1665F5; background-color: #F0F7FF; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-800 antialiased p-3 flex flex-col justify-center items-center select-none">
+
+  <!-- Interactive Page Switcher Header -->
+  <div class="flex items-center gap-1.5 mb-3 bg-white/95 border border-slate-200 rounded-full p-1.5 shadow-md text-xs font-semibold overflow-x-auto max-w-full">
+    <button id="p1Btn" onclick="showPreviewPage(1)" class="px-2.5 py-1 rounded-full bg-[#1665F5] text-white font-bold shadow-sm">P1</button>
+    <button id="p2Btn" onclick="showPreviewPage(2)" class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-bold hover:bg-slate-200 transition-colors">P2</button>
+    <button id="p3Btn" onclick="showPreviewPage(3)" class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-bold hover:bg-slate-200 transition-colors">P3</button>
+    <button id="p4Btn" onclick="showPreviewPage(4)" class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-bold hover:bg-slate-200 transition-colors">P4</button>
+    <button id="p5Btn" onclick="showPreviewPage(5)" class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-bold hover:bg-slate-200 transition-colors">P5</button>
+    <button id="p6Btn" onclick="showPreviewPage(6)" class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-bold hover:bg-slate-200 transition-colors">P6</button>
+    <button id="p7Btn" onclick="showPreviewPage(7)" class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-bold hover:bg-slate-200 transition-colors">Feed (P7)</button>
+    <button id="pSpaceBtn" onclick="showPreviewPage('space')" class="px-3 py-1 rounded-full bg-slate-100 text-[#4C39F8] font-bold hover:bg-slate-200 transition-colors">Project Space</button>
+    <button id="pStudentsBtn" onclick="showPreviewPage('students')" class="px-3 py-1 rounded-full bg-slate-100 text-indigo-700 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1">
+      <img src="assets/graduation_cap_logo.png" alt="Cap" class="w-3.5 h-3.5 object-contain">
+      <span>Students</span>
+    </button>
+    <button id="pChatBtn" onclick="showPreviewPage('chat')" class="px-3 py-1 rounded-full bg-slate-100 text-[#4C39F8] font-bold hover:bg-slate-200 transition-colors flex items-center gap-1">
+      <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.141 2 11.25c0 2.87 1.42 5.433 3.66 7.114L5 22l4.027-1.342C10.007 20.874 10.985 21 12 21c5.523 0 10-4.141 10-9.25S17.523 2 12 2zm-3.5 10a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg>
+      <span>Chat</span>
+    </button>
+    <button id="pProgressBtn" onclick="showPreviewPage('progress')" class="px-3 py-1 rounded-full bg-slate-100 text-emerald-700 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1">
+      <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+      <span>Progress</span>
+    </button>
+    <button id="pProfileBtn" onclick="showPreviewPage('profile')" class="px-3 py-1 rounded-full bg-slate-100 text-[#4C39F8] font-bold hover:bg-slate-200 transition-colors flex items-center gap-1">
+      <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      <span>Profile</span>
+    </button>
+    <button id="pKangarooBtn" onclick="showPreviewPage('kangaroo')" class="px-3 py-1 rounded-full bg-slate-100 text-amber-800 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1">
+      <img src="assets/kangaroo_head.png" alt="Kangaroo" class="w-3.5 h-3.5 object-contain">
+      <span>Kangaroo</span>
+    </button>
+    <button id="pCalmDownBtn" onclick="showPreviewPage('calm-down')" class="px-3 py-1 rounded-full bg-slate-100 text-sky-700 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1">
+      <span>🌬️ Calm</span>
+    </button>
+    <button id="pInspiredBtn" onclick="showPreviewPage('get-inspired')" class="px-3 py-1 rounded-full bg-slate-100 text-amber-800 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1">
+      <span>✨ Inspired</span>
+    </button>
+    <button id="pConfidentBtn" onclick="showPreviewPage('get-confident')" class="px-3 py-1 rounded-full bg-slate-100 text-rose-800 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1">
+      <span>💪 Confident</span>
+    </button>
+    <button id="pHelpBtn" onclick="showPreviewPage('get-help')" class="px-3 py-1 rounded-full bg-slate-100 text-purple-800 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1">
+      <span>💜 Help</span>
+    </button>
+    <button id="showAllBtn" onclick="showAllPreviewPages()" class="px-3.5 py-1 rounded-full bg-emerald-600 text-white font-bold shadow-sm hover:bg-emerald-700 transition-colors">Show All</button>
+  </div>
+  
+  <!-- Mobile Device Frame Container -->
+  <div id="previewContainer" class="w-full max-w-[420px] bg-white text-slate-900 rounded-[44px] shadow-2xl border-[8px] border-slate-900 overflow-hidden flex flex-col justify-between relative min-h-[840px] max-h-[840px]">
+    
+    <!-- ================= PAGE 1 PREVIEW ================= -->
+    <div id="prevPage1" class="flex flex-1 flex-col justify-between h-full p-4 overflow-y-auto bg-white">
+      <div class="pt-1 px-2 flex items-center justify-between text-xs font-semibold text-slate-900">
+        <span>9:41</span>
+        <button onclick="showPreviewPage(2)" class="text-[#1665F5] font-semibold text-sm">Skip</button>
+      </div>
+
+      <div class="flex-1 flex flex-col items-center px-3 pt-2 pb-4 justify-between">
+        <!-- Logo Header -->
+        <div class="flex flex-col items-center text-center mt-1">
+          <div class="flex items-center gap-2 mb-0.5">
+            <div class="w-8 h-8 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-sm">
+                <path d="M50 15 L88 34 L50 52 L12 34 Z" fill="#1665F5" />
+                <path d="M24 40 L50 53 L76 40 L76 56 C76 68 64 78 50 78 C36 78 24 68 24 56 Z" fill="#0D47A1" />
+              </svg>
+            </div>
+            <h1 class="text-2xl font-extrabold tracking-tight">
+              <span class="text-[#0D1B3E]">Edu</span><span class="text-[#1665F5]">Connect</span>
+            </h1>
+          </div>
+          <p class="text-slate-400 text-[10px] font-semibold tracking-wide">Projects • People • Possibilities</p>
+        </div>
+
+        <div class="text-center px-1 mt-2 mb-1">
+          <h2 class="text-xl leading-snug font-extrabold text-[#0D1B3E]">
+            Find the right people,<br>projects, and opportunities<br><span class="text-[#1665F5]">in your academic journey.</span>
+          </h2>
+          <p class="text-[#7E8BA0] text-xs font-medium mt-1">Learn. Collaborate. Grow together.</p>
+        </div>
+
+        <!-- Central Vector Illustration -->
+        <div class="w-full relative flex-1 min-h-[260px] flex items-center justify-center my-1">
+          <svg viewBox="0 0 400 320" class="w-full h-full relative z-10">
+            <defs>
+              <linearGradient id="blueHoodieP" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient>
+              <linearGradient id="yellowSweaterP" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FBBF24"/><stop offset="100%" stop-color="#D97706"/></linearGradient>
+            </defs>
+
+            <!-- Floating Badges -->
+            <g transform="translate(60, 30)"><circle cx="20" cy="20" r="20" fill="#EBF3FF"/><circle cx="20" cy="20" r="12" fill="#FBBF24" opacity="0.2"/><path d="M 20 12 Q 25 12 25 18 C 25 21 22 23 22 25 L 18 25 Z" fill="#F59E0B"/></g>
+            <g transform="translate(180, 20)"><circle cx="25" cy="25" r="22" fill="#EBF3FF"/><path d="M 25 15 A 5 5 0 1 0 25 25 Z M 16 33 Q 16 27 25 27 Z" fill="#1D4ED8"/></g>
+            <g transform="translate(300, 30)"><circle cx="20" cy="20" r="20" fill="#EBF3FF"/><rect x="13" y="12" width="14" height="18" rx="2" fill="#2563EB"/></g>
+
+            <g id="character-left">
+              <path d="M 50 185 Q 90 170 135 185 L 130 300 L 40 300 Z" fill="url(#blueHoodieP)"/>
+              <ellipse cx="95" cy="140" rx="25" ry="28" fill="#FDBA74"/>
+            </g>
+            <g transform="translate(10, 200)">
+              <g transform="translate(0, 42)"><rect x="0" y="0" width="100" height="18" fill="#1E3A8A"/><text x="45" y="12" fill="#FFF" font-size="10" font-weight="800" text-anchor="middle">Connect</text></g>
+              <g transform="translate(5, 21)"><rect x="0" y="0" width="95" height="18" fill="#1D4ED8"/><text x="42" y="12" fill="#FFF" font-size="10" font-weight="800" text-anchor="middle">Build</text></g>
+              <g transform="translate(10, 0)"><rect x="0" y="0" width="90" height="18" fill="#2563EB"/><text x="40" y="12" fill="#FFF" font-size="10" font-weight="800" text-anchor="middle">Learn</text></g>
+            </g>
+            <g id="character-center">
+              <path d="M 145 190 Q 185 175 225 190 L 235 300 L 135 300 Z" fill="url(#yellowSweaterP)"/>
+              <ellipse cx="185" cy="142" rx="24" ry="26" fill="#FED7AA"/>
+            </g>
+            <g id="character-right">
+              <path d="M 235 185 Q 285 170 335 185 L 345 300 L 225 300 Z" fill="#1E3A8A"/>
+              <ellipse cx="285" cy="140" rx="24" ry="26" fill="#FDBA74"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- 4 Pagination Dots -->
+        <div class="flex items-center justify-center gap-1.5 my-2">
+          <span class="w-2 h-2 bg-[#1665F5] rounded-full"></span>
+          <span class="w-2 h-2 bg-blue-100 rounded-full"></span>
+          <span class="w-2 h-2 bg-blue-100 rounded-full"></span>
+          <span class="w-2 h-2 bg-blue-100 rounded-full"></span>
+        </div>
+
+        <div class="w-full mt-auto pt-1 flex flex-col items-center">
+          <button onclick="showPreviewPage(2)" class="w-full py-3 px-6 bg-[#1665F5] text-white font-bold text-base rounded-full shadow-lg flex items-center justify-center gap-2">
+            <span>Get Started →</span>
+          </button>
+          <div class="w-full flex items-center justify-center gap-2 mt-3 text-[11px] text-slate-400 font-medium">
+            <div class="flex-1 h-[1px] bg-slate-200"></div>
+            <span>Already have an account? <button onclick="handleSignIn()" class="text-[#1665F5] font-bold">Sign In</button></span>
+            <div class="flex-1 h-[1px] bg-slate-200"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= PAGE 2 PREVIEW ================= -->
+    <div id="prevPage2" class="hidden flex-1 flex-col justify-between h-full p-5 overflow-y-auto">
+      <div class="pt-1 flex items-center justify-between">
+        <button onclick="showPreviewPage(1)" class="text-slate-700 font-bold text-lg">←</button>
+        <div class="flex gap-1.5"><span class="w-3 h-3 bg-[#1665F5] rounded-full"></span><span class="w-8 h-1 bg-slate-200 rounded-full"></span></div>
+        <span class="text-xs font-bold text-slate-400">2/5</span>
+      </div>
+      <div class="text-center mt-3">
+        <h1 class="text-xl font-extrabold text-[#0D1B3E]">What best describes you?</h1>
+        <p class="text-slate-500 text-xs mt-1">Choose the option that fits you the most.</p>
+      </div>
+      <div class="flex flex-col gap-3 my-auto">
+        <div class="p-3.5 border-2 border-[#1665F5] bg-[#F0F7FF] rounded-xl flex items-center gap-3">
+          <span class="text-3xl">🎓</span>
+          <div><h3 class="font-extrabold text-sm text-[#0D1B3E]">I am a Student</h3><p class="text-xs text-slate-500">Looking to learn & join projects.</p></div>
+        </div>
+        <div class="p-3.5 border border-slate-200 bg-white rounded-xl flex items-center gap-3">
+          <span class="text-3xl">👩‍🏫</span>
+          <div><h3 class="font-extrabold text-sm text-[#0D1B3E]">I am a Teacher / Professor</h3><p class="text-xs text-slate-500">Mentoring students & research.</p></div>
+        </div>
+        <div class="p-3.5 border border-slate-200 bg-white rounded-xl flex items-center gap-3">
+          <span class="text-3xl">🏛️</span>
+          <div><h3 class="font-extrabold text-sm text-[#0D1B3E]">I am part of an Organization</h3><p class="text-xs text-slate-500">University, company or NGO.</p></div>
+        </div>
+      </div>
+      <button onclick="showPreviewPage(3)" class="w-full py-3.5 bg-[#1665F5] text-white font-bold rounded-full">Continue →</button>
+    </div>
+
+    <!-- ================= PAGE 3 PREVIEW ================= -->
+    <div id="prevPage3" class="hidden flex-1 flex-col justify-between h-full p-5 overflow-y-auto">
+      <div class="pt-1 flex items-center justify-between">
+        <button onclick="showPreviewPage(2)" class="text-slate-700 font-bold text-lg">←</button>
+        <span class="text-xs font-bold text-slate-400">3/4</span>
+      </div>
+
+      <div class="relative flex items-start justify-between mt-2 mb-3">
+        <div class="pr-2 max-w-[210px]">
+          <h1 class="text-xl font-extrabold text-[#0D1B3E]">Let's get to know you</h1>
+          <p class="text-xs text-slate-500 mt-1">This helps us find the right opportunities for you.</p>
+        </div>
+        <!-- Vector Student Boy Artwork -->
+        <div class="w-20 h-20 relative flex-shrink-0">
+          <svg viewBox="0 0 120 120" class="w-full h-full relative z-10">
+            <circle cx="60" cy="60" r="50" fill="#EBF3FF"/>
+            <path d="M 35 100 Q 60 85 85 100 L 85 120 L 35 120 Z" fill="#2563EB"/>
+            <ellipse cx="60" cy="65" rx="18" ry="20" fill="#FDBA74"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-3 my-auto">
+        <div>
+          <label class="text-xs font-bold text-[#0D1B3E]">What is your field of study?</label>
+          <div class="relative mt-1">
+            <span class="absolute inset-y-0 left-3 flex items-center">🎓</span>
+            <select class="w-full border border-slate-200 rounded-xl py-2.5 pl-9 pr-3 text-xs font-medium"><option>Computer Science & IT</option><option>Engineering</option></select>
+          </div>
+        </div>
+        <div>
+          <label class="text-xs font-bold text-[#0D1B3E]">What year are you in?</label>
+          <div class="relative mt-1">
+            <span class="absolute inset-y-0 left-3 flex items-center">📅</span>
+            <select class="w-full border border-slate-200 rounded-xl py-2.5 pl-9 pr-3 text-xs font-medium"><option>1st Year (Freshman)</option><option>2nd Year</option></select>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xs font-bold text-[#0D1B3E]">Which best describes your goal?</h3>
+          <div class="flex flex-col gap-1.5 mt-1.5 text-xs text-slate-700 font-semibold">
+            <label class="flex items-center gap-2"><input type="checkbox" checked class="rounded text-blue-600"> Find a mentor</label>
+            <label class="flex items-center gap-2"><input type="checkbox" checked class="rounded text-blue-600"> Join a project</label>
+            <label class="flex items-center gap-2"><input type="checkbox" class="rounded text-blue-600"> Learn new skills</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center mt-2">
+        <button onclick="showPreviewPage(4)" class="w-full py-3.5 bg-[#1665F5] text-white font-bold rounded-full">Next →</button>
+        <p class="font-['Caveat',cursive] text-blue-600 text-xs font-bold mt-1">🌱 Small steps. A brighter you.</p>
+      </div>
+    </div>
+
+    <!-- ================= PAGE 4 PREVIEW ================= -->
+    <div id="prevPage4" class="hidden flex-1 flex-col justify-between h-full p-5 overflow-y-auto">
+      <div class="pt-1 flex items-center justify-between">
+        <button onclick="showPreviewPage(3)" class="text-slate-700 font-bold text-lg">←</button>
+        <span class="text-xs font-bold text-slate-400">4/4</span>
+      </div>
+
+      <div class="relative flex items-start justify-between mt-2 mb-2">
+        <div class="pr-2 max-w-[210px]">
+          <h1 class="text-xl font-extrabold text-[#0D1B3E]">What are you interested in?</h1>
+          <p class="text-xs text-slate-500 mt-1">Select topics that interest you.</p>
+        </div>
+        <!-- Vector Thinking Girl Artwork -->
+        <div class="w-20 h-20 relative flex-shrink-0">
+          <svg viewBox="0 0 120 120" class="w-full h-full relative z-10">
+            <circle cx="60" cy="65" r="45" fill="#EBF3FF"/>
+            <path d="M 85 20 Q 95 10 100 20 Z" fill="#FBBF24"/>
+            <path d="M 35 105 Q 60 90 85 105 Z" fill="#EC4899"/>
+            <ellipse cx="60" cy="70" rx="16" ry="18" fill="#FDBA74"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-2 my-auto text-xs">
+        <span class="py-1.5 px-3 bg-[#F0F7FF] border-2 border-[#1665F5] text-[#1665F5] font-bold rounded-full">🤖 AI / Machine Learning</span>
+        <span class="py-1.5 px-3 bg-white border border-slate-200 text-slate-800 font-semibold rounded-full">&lt;/&gt; Web Development</span>
+        <span class="py-1.5 px-3 bg-white border border-slate-200 text-slate-800 font-semibold rounded-full">📊 Data Science</span>
+        <span class="py-1.5 px-3 bg-[#F0F7FF] border-2 border-[#1665F5] text-[#1665F5] font-bold rounded-full">🛡️ Cybersecurity</span>
+        <span class="py-1.5 px-3 bg-white border border-slate-200 text-slate-800 font-semibold rounded-full">🤖 Robotics</span>
+        <span class="py-1.5 px-3 bg-[#F0F7FF] border-2 border-[#1665F5] text-[#1665F5] font-bold rounded-full">🍃 Sustainability</span>
+      </div>
+
+      <div class="p-3 bg-[#F0F7FF] rounded-xl flex items-center gap-2 text-xs text-blue-700 my-2">
+        <span>🧭</span> You can always change these later in settings.
+      </div>
+
+      <div class="flex flex-col items-center mt-2">
+        <button onclick="showPreviewPage(5)" class="w-full py-3.5 bg-[#1665F5] text-white font-bold rounded-full">Next →</button>
+        <p class="font-['Caveat',cursive] text-blue-600 text-xs font-bold mt-1">🌱 Explore. Learn. Connect.</p>
+      </div>
+    </div>
+
+    <!-- ================= PAGE 5 PREVIEW ================= -->
+    <div id="prevPage5" class="hidden flex-1 flex-col justify-between h-full p-5 overflow-y-auto">
+      <div class="pt-1 flex items-center justify-between">
+        <button onclick="showPreviewPage(4)" class="text-slate-700 font-bold text-lg">←</button>
+        <span class="text-xs font-bold text-slate-400">5/5</span>
+      </div>
+
+      <div class="mt-2 mb-2">
+        <h1 class="text-xl font-extrabold text-[#0D1B3E]">A few final details</h1>
+        <p class="text-xs text-slate-500 mt-1">Tell us how you'd like to be involved.</p>
+      </div>
+
+      <div class="flex flex-col gap-2 my-auto text-xs font-semibold text-slate-700">
+        <label class="flex items-center gap-2.5 p-2 bg-slate-50 rounded-lg"><span class="text-blue-600">👥</span><input type="checkbox" checked class="rounded text-blue-600"> Teachers / Professors</label>
+        <label class="flex items-center gap-2.5 p-2 bg-slate-50 rounded-lg"><span class="text-blue-600">👥</span><input type="checkbox" checked class="rounded text-blue-600"> Project teammates</label>
+        <label class="flex items-center gap-2.5 p-2 bg-slate-50 rounded-lg"><span class="text-blue-600">💼</span><input type="checkbox" class="rounded text-blue-600"> Internships / opportunities</label>
+        <div class="p-3 bg-[#F0F7FF] rounded-xl flex items-center justify-between mt-2">
+          <div class="text-xs"><h4 class="font-extrabold text-[#0D1B3E]">Open to contact by orgs</h4></div>
+          <span class="w-8 h-4 bg-blue-600 rounded-full inline-block"></span>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center mt-2">
+        <button onclick="showPreviewPage(6)" class="w-full py-3.5 bg-[#1665F5] text-white font-bold rounded-full">Finish →</button>
+        <p class="font-['Caveat',cursive] text-blue-600 text-xs font-bold mt-1">🌱 You're one step closer!</p>
+      </div>
+    </div>
+
+    <!-- ================= PAGE 6 PREVIEW ================= -->
+    <div id="prevPage6" class="hidden flex-1 flex-col justify-between h-full p-5 overflow-y-auto">
+      <div class="pt-1 flex items-center justify-between">
+        <button onclick="showPreviewPage(5)" class="text-slate-700 font-bold text-lg">←</button>
+        <span class="text-xs font-bold text-slate-400">10/10</span>
+      </div>
+
+      <div class="mt-2 mb-2">
+        <h1 class="text-xl font-extrabold text-[#0D1B3E]">How would you like to engage?</h1>
+      </div>
+
+      <div class="flex flex-col gap-2 my-auto text-xs text-slate-700 font-semibold">
+        <label class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg"><input type="checkbox" checked class="rounded text-blue-600"> Find talented students</label>
+        <label class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg"><input type="checkbox" class="rounded text-blue-600"> Post projects / opportunities</label>
+        <label class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg"><input type="checkbox" class="rounded text-blue-600"> Collaborate with teachers</label>
+        <div class="mt-2 space-y-1.5">
+          <input type="text" placeholder="Contact Person Name" class="w-full border rounded-lg p-2 text-xs">
+          <input type="email" placeholder="Contact Email" class="w-full border rounded-lg p-2 text-xs">
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center mt-2">
+        <button onclick="showPreviewPage(7)" class="w-full py-3.5 bg-[#1665F5] text-white font-bold rounded-full">Complete → Feed</button>
+        <p class="font-['Caveat',cursive] text-blue-600 text-xs font-bold mt-1">🌱 Together for a brighter tomorrow.</p>
+      </div>
+    </div>
+
+    <!-- ================= PAGE 7: DASHBOARD & FEED PREVIEW ================= -->
+    <div id="prevPage7" class="hidden flex-1 flex flex-col justify-between relative bg-[#FFFFFF] h-full overflow-hidden">
+      
+      <!-- Top Sticky Header Area -->
+      <div class="bg-white px-5 pt-3 pb-2 border-b border-slate-100/80 z-30 flex flex-col gap-3">
+        
+        <!-- Status Bar -->
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-900 px-1">
+          <span>9:41</span>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.83A1 1 0 005.12 21h13.76a1 1 0 00.77-1.17l-.62-2.22C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"/></svg>
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M2 17h20v2H2zM4 12h16v2H4zM6 7h12v2H6z"/></svg>
+            <div class="w-5 h-2.5 border border-slate-900 rounded-sm p-0.5 flex items-center"><div class="w-full h-full bg-slate-900 rounded-2xs"></div></div>
+          </div>
+        </div>
+
+        <!-- Brand Row: Dual Leaf Logo + EduConnect (Solid Navy) + Bell + Avatar -->
+        <div class="flex items-center justify-between mt-0.5 px-0.5">
+          <div class="flex items-center gap-2">
+            <img src="assets/leaf_logo.png" alt="EduConnect Leaf" class="w-8 h-8 object-contain">
+            <h1 class="text-2xl font-black text-[#0F172A] tracking-tight leading-none">
+              EduConnect
+            </h1>
+          </div>
+
+          <div class="flex items-center gap-3.5">
+            <button onclick="togglePreviewMatchModal(true)" class="relative text-[#0F172A] hover:text-[#4C39F8] transition-colors p-1 cursor-pointer">
+              <svg class="w-6 h-6 stroke-current stroke-[2] fill-none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 01-5.714 0" />
+              </svg>
+              <span id="prevNotifBadge" class="absolute top-0.5 right-0.5 w-2.5 h-2.5 bg-[#4C39F8] border-2 border-white rounded-full animate-pulse"></span>
+            </button>
+
+            <div class="w-9 h-9 rounded-full ring-2 ring-slate-100 overflow-hidden cursor-pointer shadow-xs">
+              <img src="assets/header_avatar.png" alt="User Avatar" class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Tabs: Projects | People | For You + Search -->
+        <div class="flex items-center justify-between pt-1">
+          <div class="flex items-center gap-2">
+            <button class="py-2 px-4.5 bg-[#EDEBFE] text-[#4C39F8] font-extrabold text-sm rounded-2xl relative flex flex-col items-center">
+              <span>Projects</span>
+              <span class="absolute bottom-1 w-8 h-[2px] bg-[#4C39F8] rounded-full"></span>
+            </button>
+            <button class="py-2 px-3 text-sm font-semibold text-slate-500">
+              People
+            </button>
+            <button class="py-2 px-3 text-sm font-semibold text-slate-500">
+              For You
+            </button>
+          </div>
+
+          <button class="w-9 h-9 flex items-center justify-center rounded-full border border-slate-200 text-slate-700">
+            <svg class="w-4 h-4 stroke-current stroke-[2.2] fill-none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Filter Chips Row -->
+      <div class="px-5 py-2.5 bg-white flex items-center gap-2 overflow-x-auto no-scrollbar">
+        <button class="py-1.5 px-4 bg-[#4C39F8] text-white font-bold text-xs rounded-full shadow-xs flex-shrink-0">
+          All
+        </button>
+        <button class="py-1.5 px-3.5 bg-white border border-slate-200 text-slate-700 font-semibold text-xs rounded-full flex-shrink-0">
+          AI/Tech
+        </button>
+        <button class="py-1.5 px-3.5 bg-white border border-slate-200 text-slate-700 font-semibold text-xs rounded-full flex-shrink-0">
+          Sustainability
+        </button>
+        <button class="py-1.5 px-3.5 bg-white border border-slate-200 text-slate-700 font-semibold text-xs rounded-full flex-shrink-0">
+          Health
+        </button>
+        <button class="py-1.5 px-3.5 bg-white border border-slate-200 text-slate-700 font-semibold text-xs rounded-full flex-shrink-0">
+          Education
+        </button>
+      </div>
+
+      <!-- Interactive Swipe Deck Area (Exact Mockup Match) -->
+      <div class="flex-1 flex flex-col items-center justify-between p-3 relative overflow-hidden select-none bg-[#F9FAFB]/60">
+
+        <!-- Dynamic Stack Container -->
+        <div id="prevDeckContainer" class="relative w-full max-w-[340px] h-[480px] flex items-center justify-center my-auto">
+          <!-- Rendered dynamically by renderPreviewCardDeck() -->
+        </div>
+
+        <!-- Gesture Instruction Pill (Matching Mockup) -->
+        <div class="mt-2 mb-1 py-1.5 px-4.5 bg-[#F0EFFF] text-[#4C39F8] rounded-full flex items-center gap-2 text-xs font-bold shadow-2xs border border-purple-100">
+          <span class="text-sm font-black">←</span>
+          <span class="text-sm">👆</span>
+          <span class="text-sm font-black">→</span>
+          <span class="tracking-tight text-[11px]">Swipe left or right to explore projects</span>
+        </div>
+
+        <!-- Quick Action Trigger Buttons (Pass ❌ / Reset 🔄 / Like 💚) -->
+        <div class="flex items-center justify-center gap-6 my-1">
+          <button onclick="triggerPreviewSwipe('left')" title="Swipe Left (Pass)" class="w-10 h-10 rounded-full bg-white border-2 border-red-200 text-red-500 hover:bg-red-50 hover:border-red-400 hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-md cursor-pointer">
+            <svg class="w-5 h-5 stroke-current stroke-[2.8]" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+          <button onclick="resetPreviewDeck()" title="Reset Deck" class="w-7 h-7 rounded-full bg-white border border-slate-200 text-slate-400 hover:text-slate-700 hover:bg-slate-100 active:scale-95 transition-all flex items-center justify-center shadow-xs text-xs font-bold cursor-pointer">
+            🔄
+          </button>
+          <button onclick="triggerPreviewSwipe('right')" title="Swipe Right (Like)" class="w-10 h-10 rounded-full bg-white border-2 border-emerald-200 text-emerald-500 hover:bg-emerald-50 hover:border-emerald-400 hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-md cursor-pointer">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Fixed 5-Item Bottom Navigation Bar -->
+      <div class="bg-white border-t border-slate-100 px-4 py-2 flex items-center justify-around z-30 shadow-lg">
+        <div class="flex flex-col items-center gap-1 text-[#4C39F8]">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span class="text-[11px] font-bold">Home</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-slate-600">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.141 2 11.25c0 2.87 1.42 5.433 3.66 7.114L5 22l4.027-1.342C10.007 20.874 10.985 21 12 21c5.523 0 10-4.141 10-9.25S17.523 2 12 2zm-3.5 10a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg>
+          <span class="text-[11px] font-semibold">Messages</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 text-slate-600">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+          <span class="text-[11px] font-semibold">Add</span>
+        </div>
+        <button onclick="showPreviewPage('kangaroo')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-[#4C39F8] transition-colors cursor-pointer">
+          <img src="assets/kangaroo_head.png" alt="Kangaroo" class="w-6 h-6 object-contain opacity-70 hover:opacity-100 transition-opacity">
+          <span class="text-[11px] font-semibold">Kangaroo</span>
+        </button>
+        <button onclick="showPreviewPage('profile')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-[#4C39F8] transition-colors cursor-pointer">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span class="text-[11px] font-semibold">Profile</span>
+        </button>
+      </div>
+
+      <!-- iOS Home Indicator Pill -->
+      <div class="w-full bg-white pb-1 pt-0.5 flex justify-center">
+        <div class="w-32 h-1 bg-slate-300 rounded-full"></div>
+      </div>
+
+      <!-- Match Modal Screen Matching Uploaded Mockup -->
+      <div id="prevMatchModal" class="hidden absolute inset-0 z-50 bg-[#F9FAFD] flex flex-col justify-between p-5 animate-fade-in select-none">
+        <div class="pt-1 flex items-center justify-between text-xs font-semibold text-slate-900 w-full">
+          <button onclick="togglePreviewMatchModal(false)" class="w-9 h-9 -ml-2 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-900 transition-colors">
+            <svg class="w-6 h-6 stroke-[#0F172A] stroke-[2.5] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+          </button>
+          <span>9:41 📶 🔋</span>
+        </div>
+
+        <div class="flex-1 flex flex-col items-center justify-center text-center px-2">
+          <div class="w-56 h-56 flex items-center justify-center mb-2">
+            <img src="assets/educonnect_third_image_clear_enhanced.png" alt="It's a Match!" class="w-full h-full object-contain">
+          </div>
+          <h2 class="text-2xl font-black text-[#0F172A] tracking-tight">It’s a Match! 🎉</h2>
+          <p class="text-sm font-bold text-[#0F172A] mt-2 leading-snug">
+            Riverside High School and GreenFuture NGO want to connect!
+          </p>
+          <p class="text-xs font-medium text-slate-500 mt-2 leading-relaxed max-w-[260px]">
+            Now you can plan projects, invite students, and start collaborating.
+          </p>
+        </div>
+
+        <div class="w-full flex flex-col items-center gap-2.5 pb-2">
+          <button onclick="togglePreviewMatchModal(false); showPreviewPage('space')" class="w-full py-3.5 bg-[#4C39F8] text-white font-extrabold text-sm rounded-xl shadow-md active:scale-98 transition-all cursor-pointer">Start Planning</button>
+          <button onclick="togglePreviewMatchModal(false)" class="w-full py-3 bg-[#EDEBFE] text-[#4C39F8] font-extrabold text-sm rounded-xl active:scale-98 transition-all cursor-pointer">View Profile</button>
+          <div class="w-28 h-1 bg-slate-300 rounded-full mt-1"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= PROJECT SPACE PREVIEW (EXACT CHATGPT SCREEN) ================= -->
+    <div id="prevProjectSpace" class="hidden flex-1 flex-col justify-between relative bg-[#FFFFFF] h-full overflow-hidden select-none">
+      <div class="bg-white px-4 pt-3 pb-2 border-b border-slate-100 flex items-center justify-between z-20">
+        <button onclick="showPreviewPage(7)" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-[#0F172A] cursor-pointer">
+          <svg class="w-5 h-5 stroke-current stroke-[2.8] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" /></svg>
+        </button>
+        <h1 class="text-base font-black text-[#0F172A]">Project Space</h1>
+        <div class="text-[#0F172A] font-bold text-lg cursor-pointer">•••</div>
+      </div>
+
+      <div class="flex-1 overflow-y-auto no-scrollbar p-3.5 space-y-3 pb-20 bg-[#FAFBFD]">
+        <!-- Hero Project Card -->
+        <div class="bg-gradient-to-b from-[#EFF5FF] to-[#F5F8FF] border border-blue-100/70 rounded-2xl p-4 flex flex-col items-center text-center">
+          <div class="flex items-center justify-center gap-3 mb-1.5">
+            <div class="flex flex-col items-center">
+              <div class="w-13 h-13 rounded-xl overflow-hidden shadow-xs border border-blue-200/60 bg-white">
+                <img src="assets/riverside_school_logo.png" alt="Riverside" class="w-full h-full object-cover">
+              </div>
+              <span class="text-[10px] font-bold text-slate-500 mt-1">Riverside High School</span>
+            </div>
+            <span class="text-xl font-black text-slate-400 mb-4">+</span>
+            <div class="flex flex-col items-center">
+              <div class="w-13 h-13 rounded-xl overflow-hidden shadow-xs border border-emerald-200/60 bg-white">
+                <img src="assets/greenfuture_leaf_logo.png" alt="GreenFuture" class="w-full h-full object-cover">
+              </div>
+              <span class="text-[10px] font-bold text-slate-500 mt-1">GreenFuture NGO</span>
+            </div>
+          </div>
+
+          <h2 class="text-lg font-black text-[#0F172A] flex items-center justify-center gap-1 mt-1">
+            <span>Clean Campus, Green Future</span>
+            <span>🍃</span>
+          </h2>
+          <p class="text-[11px] font-medium text-slate-500 mt-0.5 leading-tight max-w-[280px]">
+            Students collaborating to design and implement sustainability solutions on campus.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-1.5 mt-3">
+            <span class="px-2.5 py-0.5 bg-[#EDF3FF] text-[#2563EB] font-bold text-[10px] rounded-lg">Sustainability</span>
+            <span class="px-2.5 py-0.5 bg-[#EEF2FF] text-[#4F46E5] font-bold text-[10px] rounded-lg">STEM</span>
+            <span class="px-2.5 py-0.5 bg-[#ECFDF5] text-[#059669] font-bold text-[10px] rounded-lg">Community</span>
+            <span class="px-2.5 py-0.5 bg-[#F5F3FF] text-[#7C3AED] font-bold text-[10px] rounded-lg">Environment</span>
+          </div>
+        </div>
+
+        <!-- Sub Tabs -->
+        <div class="bg-[#F1F3F9] p-1 rounded-xl flex items-center justify-between text-xs font-extrabold">
+          <button class="flex-1 py-1.5 bg-[#4C39F8] text-white rounded-lg text-center shadow-xs">Overview</button>
+          <button class="flex-1 py-1.5 text-slate-600 rounded-lg text-center">Tasks</button>
+          <button onclick="showPreviewPage('students')" class="flex-1 py-1.5 text-slate-600 hover:text-[#4C39F8] rounded-lg text-center cursor-pointer transition-colors">Students</button>
+          <button onclick="showPreviewPage('progress')" class="flex-1 py-1.5 text-slate-600 hover:text-[#4C39F8] rounded-lg text-center cursor-pointer transition-colors">Progress</button>
+        </div>
+
+        <!-- About Card -->
+        <div class="bg-white rounded-xl p-3 border border-slate-100 shadow-2xs">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-black text-[#0F172A]">About This Project</h3>
+            <span class="text-slate-400 text-xs font-bold">›</span>
+          </div>
+          <p class="text-[11px] text-slate-600 font-normal leading-relaxed mt-1.5">
+            Students from Riverside High School and GreenFuture NGO are working together to create a cleaner, greener campus through research, innovation, and real-world action.
+          </p>
+        </div>
+
+        <!-- Team Members Card -->
+        <div class="bg-white rounded-xl p-3 border border-slate-100 shadow-2xs">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-xs font-black text-[#0F172A]">Team Members</h3>
+            <span class="text-[11px] font-extrabold text-[#4C39F8]">See All ›</span>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between pb-1.5 border-b border-slate-100">
+              <div class="flex items-center gap-2.5">
+                <img src="assets/ms_carter_avatar.png" alt="Ms. Carter" class="w-9 h-9 rounded-full object-cover">
+                <div>
+                  <h4 class="text-xs font-bold text-[#0F172A] leading-tight">Ms. Carter</h4>
+                  <p class="text-[10px] text-slate-400 font-medium">Teacher • Riverside High School</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 bg-[#EEF2FF] text-[#4C39F8] text-[10px] font-extrabold rounded-lg">Teacher</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <img src="assets/alex_kim_avatar.png" alt="Alex Kim" class="w-9 h-9 rounded-full object-cover">
+                <div>
+                  <h4 class="text-xs font-bold text-[#0F172A] leading-tight">Alex Kim</h4>
+                  <p class="text-[10px] text-slate-400 font-medium">Coordinator • GreenFuture NGO</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-0.5 bg-[#E8F8F0] text-[#059669] text-[10px] font-extrabold rounded-lg">Partner</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="bg-white rounded-xl p-3 border border-slate-100 shadow-2xs">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-xs font-black text-[#0F172A]">Recent Activity</h3>
+            <span class="text-[11px] font-extrabold text-[#4C39F8]">See All ›</span>
+          </div>
+          <div class="flex items-center justify-between p-2 bg-[#F9FAFD] rounded-lg">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-md bg-[#EEF2FF] text-[#4C39F8] flex items-center justify-center font-bold text-xs">📄</div>
+              <span class="text-[11px] font-semibold text-slate-700">You created the project space.</span>
+            </div>
+            <span class="text-[10px] text-slate-400">2h ago</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-2 pt-1">
+          <button class="flex-1 py-3 bg-[#EEF2FF] text-[#4C39F8] font-extrabold text-xs rounded-xl flex items-center justify-center gap-1 shadow-2xs">
+            <span>Invite More Students</span>
+          </button>
+          <button class="flex-1 py-3 bg-[#4C39F8] text-white font-extrabold text-xs rounded-xl flex items-center justify-center gap-1 shadow-md">
+            <span>Start Planning</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom Nav -->
+      <div class="bg-white border-t border-slate-100 px-3 py-1.5 flex items-center justify-around z-30 shadow-lg text-xs">
+        <button onclick="showPreviewPage(7)" class="flex flex-col items-center gap-0.5 text-[#4C39F8] font-bold">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span class="text-[10px]">Home</span>
+        </button>
+        <button onclick="showPreviewPage('chat')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#4C39F8] transition-colors cursor-pointer">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.141 2 11.25c0 2.87 1.42 5.433 3.66 7.114L5 22l4.027-1.342C10.007 20.874 10.985 21 12 21c5.523 0 10-4.141 10-9.25S17.523 2 12 2zm-3.5 10a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg>
+          <span class="text-[10px]">Messages</span>
+        </button>
+        <button class="flex flex-col items-center gap-0.5 text-slate-500">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+          <span class="text-[10px]">Add</span>
+        </button>
+        <button onclick="showPreviewPage('kangaroo')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#6D28D9] transition-colors cursor-pointer">
+          <img src="assets/kangaroo_head.png" alt="Kangaroo" class="w-5 h-5 object-contain opacity-70 hover:opacity-100 transition-opacity">
+          <span class="text-[10px]">Kangaroo</span>
+        </button>
+        <button onclick="showPreviewPage('profile')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#4C39F8] transition-colors cursor-pointer">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span class="text-[10px]">Profile</span>
+        </button>
+      </div>
+
+      <div class="w-full bg-white pb-1 pt-0.5 flex justify-center">
+        <div class="w-28 h-1 bg-slate-300 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- ================= STUDENTS PREVIEW (EXACT CHATGPT SCREEN) ================= -->
+    <div id="prevStudentsSpace" class="hidden flex-1 flex-col justify-between relative bg-[#FFFFFF] h-full overflow-hidden select-none">
+      <div class="bg-white px-4 pt-3 pb-2 border-b border-slate-100 flex items-center justify-between z-20">
+        <button onclick="showPreviewPage('space')" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-[#0F172A] cursor-pointer">
+          <svg class="w-5 h-5 stroke-current stroke-[2.8] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" /></svg>
+        </button>
+        <div class="flex items-center gap-1.5">
+          <img src="assets/graduation_cap_logo.png" alt="Cap" class="w-5 h-5 object-contain">
+          <h1 class="text-base font-black text-[#0F172A]">Students</h1>
+        </div>
+        <div class="text-[#0F172A] font-bold text-lg cursor-pointer">•••</div>
+      </div>
+
+      <div class="bg-white px-3 pt-2 border-b border-slate-100">
+        <div class="bg-[#F1F3F9] p-1 rounded-xl flex items-center justify-between text-xs font-extrabold">
+          <button class="flex-1 py-1.5 bg-white text-[#4C39F8] rounded-lg text-center shadow-xs border-b-2 border-[#4C39F8]">Members</button>
+          <button onclick="showPreviewPage('chat')" class="flex-1 py-1.5 text-slate-500 hover:text-slate-900 rounded-lg text-center cursor-pointer transition-colors">Discussions</button>
+          <button class="flex-1 py-1.5 text-slate-500 rounded-lg text-center">Files</button>
+        </div>
+      </div>
+
+      <div class="flex-1 overflow-y-auto no-scrollbar p-3 space-y-2 pb-20 bg-white">
+        <!-- Emma -->
+        <div class="flex items-center justify-between p-2.5 bg-white border border-slate-100 rounded-xl shadow-2xs">
+          <div class="flex items-center gap-2.5">
+            <img src="assets/student_emma.png" alt="Emma" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <h4 class="text-xs font-black text-[#0F172A]">Emma Wilson</h4>
+              <p class="text-[10px] text-slate-400 font-medium">Student</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 bg-[#E8F8F0] text-[#059669] font-bold text-[10px] rounded-full">● Active</span>
+        </div>
+        <!-- Liam -->
+        <div class="flex items-center justify-between p-2.5 bg-white border border-slate-100 rounded-xl shadow-2xs">
+          <div class="flex items-center gap-2.5">
+            <img src="assets/student_liam.png" alt="Liam" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <h4 class="text-xs font-black text-[#0F172A]">Liam Patel</h4>
+              <p class="text-[10px] text-slate-400 font-medium">Student</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 bg-[#E8F8F0] text-[#059669] font-bold text-[10px] rounded-full">● Active</span>
+        </div>
+        <!-- Sophia -->
+        <div class="flex items-center justify-between p-2.5 bg-white border border-slate-100 rounded-xl shadow-2xs">
+          <div class="flex items-center gap-2.5">
+            <img src="assets/student_sophia.png" alt="Sophia" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <h4 class="text-xs font-black text-[#0F172A]">Sophia Chen</h4>
+              <p class="text-[10px] text-slate-400 font-medium">Student</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 bg-[#FFF7ED] text-[#D97706] font-bold text-[10px] rounded-full">● Working</span>
+        </div>
+        <!-- Noah -->
+        <div class="flex items-center justify-between p-2.5 bg-white border border-slate-100 rounded-xl shadow-2xs">
+          <div class="flex items-center gap-2.5">
+            <img src="assets/student_noah.png" alt="Noah" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <h4 class="text-xs font-black text-[#0F172A]">Noah Garcia</h4>
+              <p class="text-[10px] text-slate-400 font-medium">Student</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 bg-[#FFF7ED] text-[#D97706] font-bold text-[10px] rounded-full">● Working</span>
+        </div>
+        <!-- Ava -->
+        <div class="flex items-center justify-between p-2.5 bg-white border border-slate-100 rounded-xl shadow-2xs">
+          <div class="flex items-center gap-2.5">
+            <img src="assets/student_ava.png" alt="Ava" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <h4 class="text-xs font-black text-[#0F172A]">Ava Martinez</h4>
+              <p class="text-[10px] text-slate-400 font-medium">Student</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 bg-[#F1F5F9] text-[#64748B] font-bold text-[10px] rounded-full">● Offline</span>
+        </div>
+        <!-- Ethan -->
+        <div class="flex items-center justify-between p-2.5 bg-white border border-slate-100 rounded-xl shadow-2xs">
+          <div class="flex items-center gap-2.5">
+            <img src="assets/student_ethan.png" alt="Ethan" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <h4 class="text-xs font-black text-[#0F172A]">Ethan Brown</h4>
+              <p class="text-[10px] text-slate-400 font-medium">Student</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-0.5 bg-[#F1F5F9] text-[#64748B] font-bold text-[10px] rounded-full">● Offline</span>
+        </div>
+
+        <div class="pt-2">
+          <button onclick="alert('Student invitation prompt opened!')" class="w-full py-3 bg-[#EDEBFE] text-[#4C39F8] font-extrabold text-xs rounded-xl flex items-center justify-center gap-1.5 shadow-2xs">
+            <span class="text-base font-black">+</span>
+            <span>Invite More Students</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom Nav -->
+      <div class="bg-white border-t border-slate-100 px-3 py-1.5 flex items-center justify-around z-30 shadow-lg text-xs">
+        <button onclick="showPreviewPage(7)" class="flex flex-col items-center gap-0.5 text-slate-500">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span class="text-[10px]">Home</span>
+        </button>
+        <button onclick="showPreviewPage('chat')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#4C39F8] transition-colors cursor-pointer">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.141 2 11.25c0 2.87 1.42 5.433 3.66 7.114L5 22l4.027-1.342C10.007 20.874 10.985 21 12 21c5.523 0 10-4.141 10-9.25S17.523 2 12 2zm-3.5 10a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg>
+          <span class="text-[10px]">Messages</span>
+        </button>
+        <button class="flex flex-col items-center gap-0.5 text-slate-500">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+          <span class="text-[11px] font-semibold">Add</span>
+        </button>
+        <button onclick="showPreviewPage('kangaroo')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#6D28D9] transition-colors cursor-pointer">
+          <img src="assets/kangaroo_head.png" alt="Kangaroo" class="w-5 h-5 object-contain opacity-70 hover:opacity-100 transition-opacity">
+          <span class="text-[10px]">Kangaroo</span>
+        </button>
+        <button onclick="showPreviewPage('profile')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#4C39F8] transition-colors cursor-pointer">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span class="text-[10px]">Profile</span>
+        </button>
+      </div>
+
+      <div class="w-full bg-white pb-1 pt-0.5 flex justify-center">
+        <div class="w-28 h-1 bg-slate-300 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- ================= CHAT PREVIEW (EXACT CHATGPT SCREEN) ================= -->
+    <div id="prevChatSpace" class="hidden flex-1 flex-col justify-between relative bg-white h-full overflow-hidden select-none">
+      <!-- Status bar -->
+      <div class="pt-2 px-4 flex items-center justify-between text-xs font-semibold text-slate-900 bg-white">
+        <span>9:41</span>
+        <div class="flex items-center gap-1 text-slate-800">
+          <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.32 19.66 10.61 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/></svg>
+          <div class="w-4 h-2 border border-slate-800 rounded-2xs p-0.5"><div class="w-full h-full bg-slate-800"></div></div>
+        </div>
+      </div>
+
+      <!-- Top Header -->
+      <div class="bg-white px-4 pt-2 pb-2 border-b border-slate-100 flex items-center justify-between z-20">
+        <button onclick="showPreviewPage('students')" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-[#0F172A] cursor-pointer">
+          <svg class="w-5 h-5 stroke-current stroke-[2.8] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+        </button>
+        <h1 class="text-base font-black text-[#0F172A]">Project Chat</h1>
+        <div class="text-[#0F172A] font-bold text-lg cursor-pointer">•••</div>
+      </div>
+
+      <!-- Segmented Nav -->
+      <div class="bg-white px-3 pt-2 border-b border-slate-100">
+        <div class="bg-[#F1F3F9] p-1 rounded-xl flex items-center justify-between text-xs font-extrabold">
+          <button class="flex-1 py-1.5 bg-white text-[#4C39F8] rounded-lg text-center shadow-xs border-b-2 border-[#4C39F8] font-black">Chat</button>
+          <button onclick="alert('Viewing Tasks');" class="flex-1 py-1.5 text-slate-500 rounded-lg text-center cursor-pointer">Tasks</button>
+          <button onclick="alert('Viewing Resources');" class="flex-1 py-1.5 text-slate-500 rounded-lg text-center cursor-pointer">Resources</button>
+        </div>
+      </div>
+
+      <!-- Messages Stream -->
+      <div id="prevChatScrollArea" class="flex-1 overflow-y-auto no-scrollbar p-3 space-y-3.5 pb-16 bg-white">
+        <!-- Carter -->
+        <div class="flex items-start gap-2.5">
+          <img src="assets/chat_avatar_carter.png" alt="Ms. Carter" class="w-9 h-9 rounded-full object-cover shadow-2xs">
+          <div class="flex-1 max-w-[85%]">
+            <div class="flex items-baseline gap-1.5 mb-0.5">
+              <span class="text-[11px] font-black text-[#0F172A]">Ms. Carter</span>
+              <span class="text-[9px] font-medium text-slate-400">10:24 AM</span>
+            </div>
+            <div class="bg-[#EFF4FF] text-[#0F172A] text-xs font-medium px-3.5 py-2.5 rounded-xl rounded-tl-2xs shadow-2xs">
+              Great work on the prototype everyone!
+            </div>
+          </div>
+        </div>
+
+        <!-- Liam -->
+        <div class="flex items-start gap-2.5">
+          <img src="assets/chat_avatar_liam.png" alt="Liam" class="w-9 h-9 rounded-full object-cover shadow-2xs">
+          <div class="flex-1 max-w-[85%]">
+            <div class="flex items-baseline gap-1.5 mb-0.5">
+              <span class="text-[11px] font-black text-[#0F172A]">Liam</span>
+              <span class="text-[9px] font-medium text-slate-400">10:26 AM</span>
+            </div>
+            <div class="bg-[#EFF4FF] text-[#0F172A] text-xs font-medium px-3.5 py-2.5 rounded-xl rounded-tl-2xs shadow-2xs">
+              Thanks! Excited for the next steps. 🚀
+            </div>
+          </div>
+        </div>
+
+        <!-- Sophia with PDF -->
+        <div class="flex items-start gap-2.5">
+          <img src="assets/chat_avatar_sophia.png" alt="Sophia" class="w-9 h-9 rounded-full object-cover shadow-2xs">
+          <div class="flex-1 max-w-[90%]">
+            <div class="flex items-baseline gap-1.5 mb-0.5">
+              <span class="text-[11px] font-black text-[#0F172A]">Sophia</span>
+              <span class="text-[9px] font-medium text-slate-400">10:28 AM</span>
+            </div>
+            <div class="bg-[#EFF4FF] text-[#0F172A] text-xs font-medium p-3 rounded-xl rounded-tl-2xs shadow-2xs">
+              <p class="mb-2 font-medium">I found some interesting data for our research. Check this out!</p>
+              <div onclick="alert('Viewing Sustainability_Report.pdf (2.4 MB)')" class="bg-white hover:bg-slate-50 border border-slate-200/80 rounded-xl p-2 flex items-center gap-2.5 cursor-pointer shadow-xs">
+                <img src="assets/pdf_icon.png" alt="PDF" class="w-7 h-9 object-contain">
+                <div class="flex-1 min-w-0">
+                  <div class="text-[11px] font-black text-[#0F172A] truncate">Sustainability_Report.pdf</div>
+                  <div class="text-[9px] font-medium text-slate-400">2.4 MB</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GreenFuture NGO -->
+        <div class="flex items-start gap-2.5">
+          <img src="assets/chat_avatar_greenfuture.png" alt="GreenFuture NGO" class="w-9 h-9 rounded-full object-cover shadow-2xs">
+          <div class="flex-1 max-w-[85%]">
+            <div class="flex items-baseline gap-1.5 mb-0.5">
+              <span class="text-[11px] font-black text-[#0F172A]">GreenFuture NGO</span>
+              <span class="text-[9px] font-medium text-slate-400">10:30 AM</span>
+            </div>
+            <div class="bg-[#EFF4FF] text-[#0F172A] text-xs font-medium px-3.5 py-2.5 rounded-xl rounded-tl-2xs shadow-2xs">
+              This looks amazing! Let’s discuss it in our next meeting.
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic preview message container -->
+        <div id="prevDynamicChat" class="space-y-3"></div>
+      </div>
+
+      <!-- Input bar -->
+      <div class="bg-white px-3 py-2 border-t border-slate-100 flex items-center gap-2">
+        <div class="flex-1 bg-[#F1F4F9] rounded-full px-3.5 py-2 flex items-center">
+          <input id="prevChatInput" type="text" placeholder="Type a message..." class="w-full bg-transparent text-xs text-[#0F172A] outline-none" onkeydown="if(event.key==='Enter') sendPrevChatMessage()">
+        </div>
+        <button onclick="sendPrevChatMessage()" class="w-8 h-8 rounded-full bg-[#4C39F8] text-white flex items-center justify-center shadow-md cursor-pointer flex-shrink-0">
+          <svg class="w-3.5 h-3.5 fill-current rotate-45 -translate-y-0.5 translate-x-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </div>
+
+      <!-- Bottom Nav -->
+      <div class="bg-white border-t border-slate-100 px-3 py-1.5 flex items-center justify-around z-30 shadow-lg text-xs">
+        <button onclick="showPreviewPage(7)" class="flex flex-col items-center gap-0.5 text-slate-500">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span class="text-[10px]">Home</span>
+        </button>
+        <button class="flex flex-col items-center gap-0.5 text-[#4C39F8] font-bold">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.141 2 11.25c0 2.87 1.42 5.433 3.66 7.114L5 22l4.027-1.342C10.007 20.874 10.985 21 12 21c5.523 0 10-4.141 10-9.25S17.523 2 12 2zm-3.5 10a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg>
+          <span class="text-[10px]">Messages</span>
+        </button>
+        <button class="flex flex-col items-center gap-0.5 text-slate-500">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+          <span class="text-[11px] font-semibold">Add</span>
+        </button>
+        <button onclick="showPreviewPage('kangaroo')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#6D28D9] transition-colors cursor-pointer">
+          <img src="assets/kangaroo_head.png" alt="Kangaroo" class="w-5 h-5 object-contain opacity-70 hover:opacity-100 transition-opacity">
+          <span class="text-[10px]">Kangaroo</span>
+        </button>
+        <button onclick="showPreviewPage('profile')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#4C39F8] transition-colors cursor-pointer">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span class="text-[10px]">Profile</span>
+        </button>
+      </div>
+
+      <div class="w-full bg-white pb-1 pt-0.5 flex justify-center">
+        <div class="w-28 h-1 bg-slate-300 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- ================= PROGRESS PREVIEW (EXACT CHATGPT SCREEN) ================= -->
+    <div id="prevProgressSpace" class="hidden flex-1 flex-col justify-between relative bg-[#FAFBFD] h-full overflow-hidden select-none">
+      <!-- Status bar -->
+      <div class="pt-2 px-4 flex items-center justify-between text-xs font-semibold text-slate-900 bg-white">
+        <span>9:41</span>
+        <div class="flex items-center gap-1 text-slate-800">
+          <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.32 19.66 10.61 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/></svg>
+          <div class="w-4 h-2 border border-slate-800 rounded-2xs p-0.5"><div class="w-full h-full bg-slate-800"></div></div>
+        </div>
+      </div>
+
+      <!-- Header -->
+      <div class="bg-white px-4 pt-2 pb-2.5 border-b border-slate-100 flex items-center justify-between z-20">
+        <button onclick="showPreviewPage('space')" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-[#0F172A] cursor-pointer">
+          <svg class="w-5 h-5 stroke-current stroke-[2.8] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+        </button>
+        <h1 class="text-base font-black text-[#0F172A]">Project Progress</h1>
+        <div class="w-8 h-8"></div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 overflow-y-auto no-scrollbar p-3 space-y-3 pb-16 bg-[#FAFBFD]">
+        <!-- 75% Gauge Card -->
+        <div class="bg-white rounded-[24px] border border-slate-100 p-5 flex flex-col items-center justify-center text-center shadow-xs">
+          <div class="relative w-36 h-36 flex items-center justify-center">
+            <svg class="w-full h-full -rotate-90" viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="62" stroke="#E2E8F0" stroke-width="15" fill="transparent" stroke-linecap="round"/>
+              <circle cx="80" cy="80" r="62" stroke="#00C48C" stroke-width="15" fill="transparent" stroke-dasharray="389.5" stroke-dashoffset="97.4" stroke-linecap="round"/>
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span class="text-3xl font-black text-[#0F172A]">75%</span>
+            </div>
+          </div>
+          <h2 class="text-xl font-black text-[#00C48C] mt-3">On Track</h2>
+          <p class="text-xs font-semibold text-slate-400 mt-1">Great progress! Keep going!</p>
+        </div>
+
+        <!-- Milestones Card -->
+        <div class="bg-white rounded-[24px] border border-slate-100 shadow-xs divide-y divide-slate-100 overflow-hidden">
+          <!-- Proposal -->
+          <div class="p-3 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#00C48C] text-white flex items-center justify-center flex-shrink-0 font-bold">
+              ✓
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-xs font-black text-[#0F172A]">Project Proposal</h3>
+              <p class="text-[10px] text-slate-400 font-semibold">Completed • Mar 10</p>
+            </div>
+          </div>
+          <!-- Research -->
+          <div class="p-3 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#00C48C] text-white flex items-center justify-center flex-shrink-0 font-bold">
+              ✓
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-xs font-black text-[#0F172A]">Research & Planning</h3>
+              <p class="text-[10px] text-slate-400 font-semibold">Completed • Mar 18</p>
+            </div>
+          </div>
+          <!-- Prototype -->
+          <div class="p-3 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#0080FF] text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">
+              •••
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-xs font-black text-[#0F172A]">Prototype Development</h3>
+              <p class="text-[10px] text-slate-400 font-semibold">In Progress • Due Apr 5</p>
+            </div>
+          </div>
+          <!-- Presentation -->
+          <div class="p-3 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#B0BAC9] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold">
+              🕒
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-xs font-black text-[#0F172A]">Final Presentation</h3>
+              <p class="text-[10px] text-slate-400 font-semibold">Not Started • Apr 20</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Nav -->
+      <div class="bg-white border-t border-slate-100 px-3 py-1.5 flex items-center justify-around z-30 shadow-lg text-xs">
+        <button onclick="showPreviewPage('space')" class="flex flex-col items-center gap-0.5 text-[#4C39F8] font-bold">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span class="text-[10px]">Home</span>
+        </button>
+        <button onclick="showPreviewPage('chat')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#4C39F8] transition-colors cursor-pointer">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.141 2 11.25c0 2.87 1.42 5.433 3.66 7.114L5 22l4.027-1.342C10.007 20.874 10.985 21 12 21c5.523 0 10-4.141 10-9.25S17.523 2 12 2zm-3.5 10a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg>
+          <span class="text-[10px]">Messages</span>
+        </button>
+        <button class="flex flex-col items-center gap-0.5 text-slate-500">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+          <span class="text-[11px] font-semibold">Add</span>
+        </button>
+        <button onclick="showPreviewPage('kangaroo')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#6D28D9] transition-colors cursor-pointer">
+          <img src="assets/kangaroo_head.png" alt="Kangaroo" class="w-5 h-5 object-contain opacity-70 hover:opacity-100 transition-opacity">
+          <span class="text-[10px]">Kangaroo</span>
+        </button>
+        <button onclick="showPreviewPage('profile')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#4C39F8] transition-colors cursor-pointer">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span class="text-[10px]">Profile</span>
+        </button>
+      </div>
+
+      <div class="w-full bg-white pb-1 pt-0.5 flex justify-center">
+        <div class="w-28 h-1 bg-slate-300 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- ================= PROFILE PREVIEW ================= -->
+    <div id="prevProfileSpace" class="hidden flex-1 flex-col justify-between h-full overflow-y-auto bg-[#FAFBFD]">
+      <div class="pt-2 px-5 flex justify-between items-center text-xs font-semibold text-slate-800 shrink-0">
+        <span>9:41</span>
+        <div class="flex items-center gap-1.5">
+          <span class="text-xs">••••</span>
+          <span class="text-xs">📶</span>
+          <div class="w-4 h-2 border border-slate-700 rounded-xs p-0.5"><div class="h-full w-full bg-slate-800"></div></div>
+        </div>
+      </div>
+
+      <!-- Header: Title Centered + Settings Cog -->
+      <div class="px-5 py-2 flex items-center justify-between shrink-0">
+        <div class="w-6"></div>
+        <h1 class="text-base font-black text-[#0B132B]">Profile</h1>
+        <button onclick="alert('Settings modal')" class="text-slate-800 hover:text-[#4C39F8]">
+          <svg class="w-4 h-4 stroke-current stroke-2 fill-none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        </button>
+      </div>
+
+      <div class="px-4 py-1 flex-1 flex flex-col space-y-3.5">
+        <!-- Identity -->
+        <div class="flex flex-col items-center text-center">
+          <div class="w-20 h-20 rounded-full overflow-hidden mb-2 shadow-sm ring-1 ring-slate-200">
+            <img src="assets/emma_profile_large.png" alt="Emma Wilson" class="w-full h-full object-cover">
+          </div>
+          <h2 class="text-lg font-black text-[#0B132B]">Emma Wilson</h2>
+          <p class="text-[11px] text-slate-500 font-medium">Student • Riverside High School</p>
+        </div>
+
+        <!-- 3-Col Stats -->
+        <div class="bg-white rounded-xl border border-slate-100 shadow-2xs py-2.5 px-1 flex items-center justify-around divide-x divide-slate-100 text-center">
+          <div class="flex-1">
+            <div class="text-lg font-black text-[#0B132B]">3</div>
+            <div class="text-[10px] text-slate-500 font-medium">Projects</div>
+          </div>
+          <div class="flex-1">
+            <div class="text-lg font-black text-[#0B132B]">12</div>
+            <div class="text-[10px] text-slate-500 font-medium">Tasks Done</div>
+          </div>
+          <div class="flex-1">
+            <div class="text-lg font-black text-[#0B132B]">8</div>
+            <div class="text-[10px] text-slate-500 font-medium">Collaborators</div>
+          </div>
+        </div>
+
+        <!-- Menu items -->
+        <div class="bg-white rounded-xl border border-slate-100 shadow-2xs overflow-hidden divide-y divide-slate-100">
+          <button onclick="showPreviewPage('space')" class="w-full px-3.5 py-2.5 flex items-center justify-between text-left hover:bg-slate-50 cursor-pointer">
+            <span class="text-xs font-bold text-[#0B132B] flex items-center gap-2">📁 My Projects</span>
+            <span class="text-slate-400 text-xs">›</span>
+          </button>
+          <button onclick="showPreviewPage('chat')" class="w-full px-3.5 py-2.5 flex items-center justify-between text-left hover:bg-slate-50 cursor-pointer">
+            <span class="text-xs font-bold text-[#0B132B] flex items-center gap-2">💬 Messages</span>
+            <span class="text-slate-400 text-xs">›</span>
+          </button>
+          <button onclick="showPreviewPage('kangaroo')" class="w-full px-3.5 py-2.5 flex items-center justify-between text-left hover:bg-slate-50 cursor-pointer">
+            <span class="text-xs font-bold text-[#0B132B] flex items-center gap-2">🦘 Kangaroo</span>
+            <span class="text-slate-400 text-xs">›</span>
+          </button>
+          <button onclick="alert('Settings')" class="w-full px-3.5 py-2.5 flex items-center justify-between text-left hover:bg-slate-50 cursor-pointer">
+            <span class="text-xs font-bold text-[#0B132B] flex items-center gap-2">⚙️ Settings</span>
+            <span class="text-slate-400 text-xs">›</span>
+          </button>
+        </div>
+
+        <!-- Banner -->
+        <div class="bg-[#F4F1FE] rounded-xl p-3 border border-[#E9E4FC] flex items-center gap-3">
+          <img src="assets/purple_sprout_transparent.png" alt="Sprout" class="w-8 h-8 object-contain">
+          <div>
+            <h4 class="text-xs font-black text-[#0B132B]">Keep Learning, Keep Growing</h4>
+            <p class="text-[10px] text-slate-500 font-medium">Together we can build a cleaner, brighter future.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Nav (Profile active) -->
+      <div class="bg-white border-t border-slate-100 px-3 py-1.5 flex items-center justify-around z-30 shadow-lg text-xs">
+        <button onclick="showPreviewPage('space')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#4C39F8]">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span class="text-[10px]">Home</span>
+        </button>
+        <button onclick="showPreviewPage('chat')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#4C39F8]">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.141 2 11.25c0 2.87 1.42 5.433 3.66 7.114L5 22l4.027-1.342C10.007 20.874 10.985 21 12 21c5.523 0 10-4.141 10-9.25S17.523 2 12 2zm-3.5 10a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg>
+          <span class="text-[10px]">Messages</span>
+        </button>
+        <button class="flex flex-col items-center gap-0.5 text-slate-500">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+          <span class="text-[11px] font-semibold">Add</span>
+        </button>
+        <button onclick="showPreviewPage('kangaroo')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#6D28D9] transition-colors cursor-pointer">
+          <img src="assets/kangaroo_head.png" alt="Kangaroo" class="w-5 h-5 object-contain opacity-70 hover:opacity-100 transition-opacity">
+          <span class="text-[10px]">Kangaroo</span>
+        </button>
+        <button class="flex flex-col items-center gap-0.5 text-[#4C39F8] font-black">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span class="text-[10px] font-bold">Profile</span>
+        </button>
+      </div>
+
+      <div class="w-full bg-white pb-1 pt-0.5 flex justify-center">
+        <div class="w-28 h-1 bg-slate-300 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- ================= KANGAROO PREVIEW ================= -->
+    <div id="prevKangarooSpace" class="hidden flex-1 flex-col justify-between h-full overflow-y-auto bg-white">
+      <div class="pt-2 px-5 flex justify-between items-center text-xs font-semibold text-slate-800 shrink-0">
+        <span>9:41</span>
+        <div class="flex items-center gap-1.5">
+          <span class="text-xs">••••</span>
+          <span class="text-xs">📶</span>
+          <div class="w-4 h-2 border border-slate-700 rounded-xs p-0.5"><div class="h-full w-full bg-slate-800"></div></div>
+        </div>
+      </div>
+
+      <div class="flex-1 overflow-y-auto flex flex-col pb-1">
+        <!-- Top banner -->
+        <div class="w-full px-3 pt-0.5">
+          <img src="assets/kangaroo_top_banner.png" alt="Kangaroo Companion" class="w-full object-contain">
+        </div>
+
+        <!-- Section title -->
+        <div class="px-4 pt-2 pb-1.5">
+          <h2 class="text-base font-black text-[#0B132B]">Take a moment for yourself</h2>
+          <p class="text-[11px] text-slate-500 font-medium">What would you like to do?</p>
+        </div>
+
+        <!-- 2x2 Grid -->
+        <div class="grid grid-cols-2 gap-2.5 px-4">
+          <!-- Calm Down -->
+          <div onclick="showPreviewPage('calm-down')" class="bg-[#EBF5FE] rounded-2xl p-3 flex flex-col justify-between h-[125px] cursor-pointer hover:shadow-sm border border-[#D8EDFC] active:scale-95 transition-all">
+            <div class="flex items-start justify-between">
+              <img src="assets/icon_breeze.png" alt="Calm Down" class="w-8 h-8 object-contain">
+              <div class="w-5 h-5 rounded-full bg-[#D4ECFC] text-[#0284C7] flex items-center justify-center text-[10px] font-black">›</div>
+            </div>
+            <div>
+              <h3 class="text-xs font-black text-[#0B132B]">Calm Down</h3>
+              <p class="text-[9px] text-slate-500 font-medium leading-tight">Breathe and relax.</p>
+            </div>
+          </div>
+
+          <!-- Get Inspired -->
+          <div onclick="showPreviewPage('get-inspired')" class="bg-[#FFF8E6] rounded-2xl p-3 flex flex-col justify-between h-[125px] cursor-pointer hover:shadow-sm border border-[#FEF0C7] active:scale-95 transition-all">
+            <div class="flex items-start justify-between">
+              <img src="assets/icon_sun.png" alt="Get Inspired" class="w-8 h-8 object-contain">
+              <div class="w-5 h-5 rounded-full bg-[#FEE8A9] text-[#D97706] flex items-center justify-center text-[10px] font-black">›</div>
+            </div>
+            <div>
+              <h3 class="text-xs font-black text-[#0B132B]">Get Inspired</h3>
+              <p class="text-[9px] text-slate-500 font-medium leading-tight">Discover positive quotes.</p>
+            </div>
+          </div>
+
+          <!-- Get Confident -->
+          <div onclick="showPreviewPage('get-confident')" class="bg-[#FFF0EB] rounded-2xl p-3 flex flex-col justify-between h-[125px] cursor-pointer hover:shadow-sm border border-[#FFE2D9] active:scale-95 transition-all">
+            <div class="flex items-start justify-between">
+              <img src="assets/icon_muscle.png" alt="Get Confident" class="w-8 h-8 object-contain">
+              <div class="w-5 h-5 rounded-full bg-[#FFD8CC] text-[#EA580C] flex items-center justify-center text-[10px] font-black">›</div>
+            </div>
+            <div>
+              <h3 class="text-xs font-black text-[#0B132B]">Get Confident</h3>
+              <p class="text-[9px] text-slate-500 font-medium leading-tight">Build a kinder mindset.</p>
+            </div>
+          </div>
+
+          <!-- Get Help -->
+          <div onclick="showPreviewPage('get-help')" class="bg-[#F1EEFE] rounded-2xl p-3 flex flex-col justify-between h-[125px] cursor-pointer hover:shadow-sm border border-[#E5DEFD] active:scale-95 transition-all">
+            <div class="flex items-start justify-between">
+              <img src="assets/icon_heart.png" alt="Get Help" class="w-8 h-8 object-contain">
+              <div class="w-5 h-5 rounded-full bg-[#DDD3FC] text-[#7C3AED] flex items-center justify-center text-[10px] font-black">›</div>
+            </div>
+            <div>
+              <h3 class="text-xs font-black text-[#0B132B]">Get Help</h3>
+              <p class="text-[9px] text-slate-500 font-medium leading-tight">Find support resources.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pill -->
+        <div class="mx-4 my-2.5 bg-[#F5F4FE] rounded-xl p-2.5 flex items-center gap-2.5 border border-purple-100">
+          <img src="assets/icon_star.png" alt="Star" class="w-7 h-7 object-contain">
+          <div>
+            <h4 class="text-[11px] font-black text-[#0B132B]">Small steps make a big difference!</h4>
+            <p class="text-[9px] text-slate-500 font-medium">Take care of your mind, one moment at a time.</p>
+          </div>
+        </div>
+
+        <!-- Bottom art -->
+        <div class="w-full mt-auto cursor-pointer" onclick="alert('🦘 You’ve got this!')">
+          <img src="assets/kangaroo_bottom_landscape.png" alt="You've got this!" class="w-full object-cover">
+        </div>
+      </div>
+
+      <!-- Bottom Nav (Kangaroo active) -->
+      <div class="bg-white border-t border-slate-100 px-3 py-1.5 flex items-center justify-around z-30 shadow-lg text-xs">
+        <button onclick="showPreviewPage('space')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#4C39F8]">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span class="text-[10px]">Home</span>
+        </button>
+        <button onclick="showPreviewPage('chat')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#4C39F8]">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.141 2 11.25c0 2.87 1.42 5.433 3.66 7.114L5 22l4.027-1.342C10.007 20.874 10.985 21 12 21c5.523 0 10-4.141 10-9.25S17.523 2 12 2zm-3.5 10a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg>
+          <span class="text-[10px]">Messages</span>
+        </button>
+        <button class="flex flex-col items-center gap-0.5 text-slate-500">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+          <span class="text-[11px] font-semibold">Add</span>
+        </button>
+        <button onclick="showPreviewPage('kangaroo')" class="flex flex-col items-center gap-0.5 text-[#6D28D9] font-black cursor-pointer">
+          <img src="assets/kangaroo_head.png" alt="Kangaroo" class="w-5 h-5 object-contain">
+          <span class="text-[10px] font-black">Kangaroo</span>
+        </button>
+        <button onclick="showPreviewPage('profile')" class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-[#4C39F8]">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span class="text-[10px]">Profile</span>
+        </button>
+      </div>
+
+      <div class="w-full bg-white pb-1 pt-0.5 flex justify-center">
+        <div class="w-28 h-1 bg-slate-300 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- ================= CALM DOWN PREVIEW ================= -->
+    <div id="prevCalmDownSpace" class="hidden flex-1 flex-col justify-between h-full relative overflow-hidden select-none bg-[#D7EDFC]" style="background-image: url('assets/calm_down_screen_bg.png'); background-size: cover; background-position: center;">
+      <!-- iOS Status Bar -->
+      <div class="w-full pt-3 px-6 pb-1 flex justify-between items-center text-xs font-semibold text-slate-800 shrink-0 select-none z-30">
+        <span>9:41</span>
+        <div class="flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4z"/></svg>
+          <div class="w-4 h-2 border border-slate-700 rounded-2xs p-0.5 flex items-center"><div class="h-full w-full bg-slate-800 rounded-3xs"></div></div>
+        </div>
+      </div>
+
+      <!-- Top Header Nav -->
+      <div class="px-5 pt-1.5 pb-2 flex items-center justify-between shrink-0 relative z-30">
+        <button onclick="showPreviewPage('kangaroo')" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-800 hover:text-[#4C39F8] transition-colors cursor-pointer text-xl font-bold -ml-1">
+          <svg class="w-5 h-5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <h1 class="text-base font-black text-[#0B132B] tracking-tight">Calm Down</h1>
+        <div class="w-8"></div>
+      </div>
+
+      <!-- Progress Track -->
+      <div class="px-6 pb-1 flex items-center gap-3 shrink-0 z-30">
+        <div class="flex-1 h-2 bg-slate-300/60 rounded-full overflow-hidden">
+          <div id="prevBreathProgressBar" class="h-full bg-[#5B3CF7] rounded-full transition-all duration-700" style="width: 40%;"></div>
+        </div>
+        <span id="prevBreathCycleCounter" class="text-xs font-bold text-slate-600">2/5</span>
+      </div>
+
+      <!-- Dynamic Header Instruction -->
+      <div class="text-center pt-2 select-none z-20">
+        <h2 id="prevBreathMainTitle" class="text-2xl font-black text-[#0B132B] tracking-tight leading-tight transition-all duration-500">Breathe In ...</h2>
+        <p id="prevBreathSubTitle" class="text-sm text-slate-600 font-medium mt-0.5 transition-all duration-500">Follow the circle</p>
+      </div>
+
+      <!-- Interactive Breathing Circle Dial -->
+      <div class="relative flex-1 flex items-center justify-center -mt-2 select-none z-20">
+        <div class="relative flex items-center justify-center cursor-pointer group" onclick="handlePrevBreathingCircleClick()" title="Click to Breathe In / Breathe Out">
+          <div id="prevBreathRing3" class="absolute w-[250px] h-[250px] rounded-full bg-[#38BDF8]/15 border border-[#38BDF8]/30 transition-transform duration-[5000ms] ease-in-out"></div>
+          <div id="prevBreathRing2" class="absolute w-[210px] h-[210px] rounded-full bg-[#0EA5E9]/20 border-2 border-[#0284C7]/30 transition-transform duration-[5000ms] ease-in-out"></div>
+          <div id="prevBreathRing1" class="absolute w-[170px] h-[170px] rounded-full bg-[#38BDF8]/35 shadow-inner transition-transform duration-[5000ms] ease-in-out"></div>
+          <div id="prevBreathCenterCircle" class="relative w-[130px] h-[130px] rounded-full bg-white shadow-[0_8px_30px_rgba(2,132,199,0.35)] flex flex-col items-center justify-center border-4 border-white select-none transition-transform duration-[5000ms] ease-in-out hover:scale-105 active:scale-95">
+            <div id="prevBreathStateLabel" class="text-xl font-black text-[#0B132B] tracking-tight transition-all duration-300">Inhale</div>
+            <div id="prevBreathTimerDisplay" class="text-sm font-bold text-slate-500 mt-0.5 transition-all duration-300">5s</div>
+            <div class="text-[8px] text-[#5B3CF7] font-extrabold mt-0.5 tracking-wider uppercase opacity-80">Tap to Switch</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Motivational Pill -->
+      <div class="mx-5 mb-3 z-20">
+        <div class="bg-white/85 rounded-2xl p-3 border border-white/70 shadow-xs flex items-center gap-3">
+          <img src="assets/green_sprout_icon.png" alt="Sprout" class="w-7 h-7 object-contain shrink-0">
+          <div>
+            <h4 class="text-xs font-black text-[#0B132B]">A Calmer, Happier You</h4>
+            <p class="text-[10px] text-slate-600 font-medium leading-tight">Take a deep breath and focus on the present moment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Interactive Controls -->
+      <div class="px-6 pb-5 flex items-center justify-between z-30">
+        <button id="prevBreathPauseBtn" onclick="togglePrevBreathingPause()" class="flex flex-col items-center gap-1 cursor-pointer group">
+          <div class="w-14 h-14 rounded-full bg-white/80 group-hover:bg-white backdrop-blur-md border border-white/70 shadow-sm flex items-center justify-center text-slate-800 transition-all active:scale-95">
+            <span id="prevPauseIcon" class="text-sm font-black">❚❚</span>
+          </div>
+          <span id="prevPauseLabel" class="text-[10px] font-bold text-slate-700">Pause</span>
+        </button>
+
+        <button onclick="skipPrevBreathingPhase()" class="px-6 py-3 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-white/70 shadow-sm flex items-center justify-center gap-1.5 text-sm font-black text-[#0B132B] transition-all active:scale-95 cursor-pointer">
+          <span>Skip</span>
+          <svg class="w-3.5 h-3.5 stroke-current stroke-[3] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+
+        <button onclick="togglePrevNatureSounds()" class="flex flex-col items-center gap-1 cursor-pointer group">
+          <div id="prevNatureSoundIconCircle" class="w-14 h-14 rounded-full bg-white/80 group-hover:bg-white backdrop-blur-md border border-white/70 shadow-sm flex items-center justify-center text-slate-800 transition-all active:scale-95">
+            <span class="text-lg leading-none">♫</span>
+          </div>
+          <span class="text-[10px] font-bold text-slate-700">Sounds</span>
+        </button>
+      </div>
+
+      <!-- iOS Home Indicator -->
+      <div class="w-full pb-1 pt-0.5 flex justify-center z-30">
+        <div class="w-28 h-1 bg-slate-700/60 rounded-full"></div>
+      </div>
+    </div>
+
+    <!-- ================= PREVIEW: GET INSPIRED SCREEN (EXACT MATCH TO USER MOCKUP) ================= -->
+    <div id="prevGetInspiredSpace" class="hidden flex-1 flex-col justify-between h-full bg-[#FEFCF3] text-slate-800 animate-fade-in relative overflow-hidden select-none">
+      
+      <!-- iOS Status Bar (Apple HIG) -->
+      <div class="w-full pt-3 px-5 pb-1 flex justify-between items-center text-[11px] font-semibold text-slate-800 shrink-0 select-none z-30">
+        <span>9:41</span>
+        <div class="flex items-center gap-1">
+          <svg class="w-3.5 h-2.5 fill-current" viewBox="0 0 17 11"><rect x="0" y="8" width="3" height="3" rx="0.5"/><rect x="4.5" y="5.5" width="3" height="5.5" rx="0.5"/><rect x="9" y="3" width="3" height="8" rx="0.5"/><rect x="13.5" y="0" width="3" height="11" rx="0.5"/></svg>
+          <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4zm0 3.5c3.6 0 6.9 1.4 9.3 3.7L12 19.3 2.7 11.2C5.1 8.9 8.4 7.5 12 7.5z"/></svg>
+          <div class="w-4 h-2 border border-slate-700 rounded-2xs p-0.5 flex items-center"><div class="h-full w-full bg-slate-800 rounded-3xs"></div></div>
+        </div>
+      </div>
+
+      <!-- Top Header (Kangaroo + Subtitle + Search Icon) -->
+      <div class="px-4 pt-0.5 pb-1 flex items-center justify-between shrink-0 relative z-30">
+        <div class="w-7"></div>
+        <div class="text-center">
+          <h1 class="text-base font-black text-[#0B132B] tracking-tight">Kangaroo</h1>
+          <p class="text-[10px] text-slate-500 font-medium -mt-0.5">Be kinder. Brighter. You.</p>
+        </div>
+        <button onclick="togglePrevInspiredSearch()" class="w-7 h-7 rounded-full hover:bg-black/5 flex items-center justify-center text-slate-700 active:scale-90 transition-all cursor-pointer">
+          <svg class="w-4 h-4 stroke-current stroke-2 fill-none" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/></svg>
+        </button>
+      </div>
+
+      <!-- Category Navigation Tabs (5 Tabs) -->
+      <div class="px-2.5 py-1 flex items-center gap-1 overflow-x-auto scrollbar-none shrink-0 z-20">
+        <!-- Tab 1: Calm Down -->
+        <button onclick="showPreviewPage('calmDown')" class="flex-1 min-w-[58px] py-1 px-1 rounded-xl bg-[#F0F7FF] hover:bg-sky-100 flex flex-col items-center justify-center cursor-pointer border border-sky-100">
+          <img src="assets/icon_breeze.png" class="w-4 h-4 object-contain mb-0.5" alt="Calm Down">
+          <span class="text-[9px] font-bold text-slate-700 leading-tight">Calm Down</span>
+        </button>
+        <!-- Tab 2: Get Inspired (Active) -->
+        <button class="flex-1 min-w-[64px] py-1 px-1 rounded-xl bg-[#FEF3C7] border-2 border-[#FDE68A] flex flex-col items-center justify-center cursor-pointer">
+          <img src="assets/icon_sun.png" class="w-4 h-4 object-contain mb-0.5" alt="Get Inspired">
+          <span class="text-[9px] font-black text-[#0B132B] leading-tight">Get Inspired</span>
+        </button>
+        <!-- Tab 3: Get Confident -->
+        <button onclick="showPreviewPage('getConfident')" class="flex-1 min-w-[62px] py-1 px-1 rounded-xl bg-[#FFF1F2] hover:bg-rose-100 flex flex-col items-center justify-center cursor-pointer border border-rose-100">
+          <img src="assets/icon_heart.png" class="w-4 h-4 object-contain mb-0.5" alt="Get Confident">
+          <span class="text-[9px] font-bold text-slate-700 leading-tight">Get Confident</span>
+        </button>
+        <!-- Tab 4: Get Help -->
+        <button onclick="showPreviewPage('getHelp')" class="flex-1 min-w-[56px] py-1 px-1 rounded-xl bg-[#F5F3FF] hover:bg-purple-100 flex flex-col items-center justify-center cursor-pointer border border-purple-100">
+          <div class="w-4 h-4 flex items-center justify-center text-indigo-600 mb-0.5">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 3s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <span class="text-[9px] font-bold text-slate-700 leading-tight">Get Help</span>
+        </button>
+        <!-- Tab 5: Guided Exercises -->
+        <button onclick="showPreviewPage('kangaroo')" class="flex-1 min-w-[68px] py-1 px-1 rounded-xl bg-[#FAF5FF] hover:bg-purple-100 flex flex-col items-center justify-center cursor-pointer border border-purple-100">
+          <img src="assets/icon_muscle.png" class="w-4 h-4 object-contain mb-0.5" alt="Guided Exercises">
+          <span class="text-[8.5px] font-bold text-slate-700 leading-tight">Guided Exercises</span>
+        </button>
+      </div>
+
+      <!-- Scrollable Main Content -->
+      <div class="flex-1 overflow-y-auto px-3.5 py-1.5 space-y-2 scrollbar-none z-10">
+        
+        <!-- Search bar -->
+        <div id="prevInspiredSearchBar" class="hidden">
+          <input type="text" id="prevInspiredSearchInput" oninput="filterPrevInspiredBySearch(this.value)" placeholder="Search by name, role, or keyword..." class="w-full bg-white border border-slate-200 rounded-full px-3.5 py-1.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 shadow-2xs">
+        </div>
+
+        <!-- Hero Kangaroo Banner Card -->
+        <div class="w-full rounded-2xl overflow-hidden shadow-sm border border-amber-100/80 bg-[#FFF7D9]">
+          <img src="assets/inspired_hero_banner.png" alt="Every small step counts. Discover amazing people who made a difference." class="w-full h-auto object-cover select-none">
+        </div>
+
+        <!-- Filter Category Pills -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5 scrollbar-none text-[11px] font-bold select-none">
+          <button onclick="filterPrevInspiredCategory('all', this)" class="prev-inspired-filter-pill px-3 py-1 rounded-full bg-[#FFBE1A] text-[#0B132B] shadow-2xs cursor-pointer shrink-0">
+            All
+          </button>
+          <button onclick="filterPrevInspiredCategory('scientists', this)" class="prev-inspired-filter-pill px-3 py-1 rounded-full bg-slate-100/90 text-slate-700 shadow-2xs cursor-pointer shrink-0">
+            Scientists
+          </button>
+          <button onclick="filterPrevInspiredCategory('leaders', this)" class="prev-inspired-filter-pill px-3 py-1 rounded-full bg-slate-100/90 text-slate-700 shadow-2xs cursor-pointer shrink-0">
+            Leaders
+          </button>
+          <button onclick="filterPrevInspiredCategory('changemakers', this)" class="prev-inspired-filter-pill px-3 py-1 rounded-full bg-slate-100/90 text-slate-700 shadow-2xs cursor-pointer shrink-0">
+            Changemakers
+          </button>
+          <button onclick="filterPrevInspiredCategory('artists', this)" class="prev-inspired-filter-pill px-3 py-1 rounded-full bg-slate-100/90 text-slate-700 shadow-2xs cursor-pointer shrink-0">
+            Artists
+          </button>
+          <button onclick="filterPrevInspiredCategory('athletes', this)" class="prev-inspired-filter-pill px-3 py-1 rounded-full bg-slate-100/90 text-slate-700 shadow-2xs cursor-pointer shrink-0">
+            Athletes
+          </button>
+        </div>
+
+        <!-- 12 Inspiring People Grid -->
+        <div id="prevInspiredPeopleGrid" class="grid grid-cols-4 gap-x-1 gap-y-2.5 pt-0.5">
+          
+          <!-- 1. Ada Lovelace -->
+          <div onclick="openPrevInspiringFigure('ada-lovelace')" data-category="scientists" class="prev-inspired-person-card flex flex-col items-center cursor-pointer group select-none">
+            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-[#10B981] to-[#34D399] shadow-sm group-hover:scale-105 transition-all">
+              <img src="assets/avatar_ada_lovelace.png" alt="Ada Lovelace" class="w-full h-full rounded-full object-cover">
+            </div>
+            <p class="mt-1 text-[9.5px] font-bold text-[#0B132B] text-center leading-tight tracking-tight line-clamp-2 max-w-[68px]">
+              Ada Lovelace
+            </p>
+          </div>
+
+          <!-- 2. Tebello Nyokong -->
+          <div onclick="openPrevInspiringFigure('tebello-nyokong')" data-category="scientists" class="prev-inspired-person-card flex flex-col items-center cursor-pointer group select-none">
+            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-[#10B981] to-[#34D399] shadow-sm group-hover:scale-105 transition-all">
+              <img src="assets/avatar_tebello_nyokong.png" alt="Tebello Nyokong" class="w-full h-full rounded-full object-cover">
+            </div>
+            <p class="mt-1 text-[9.5px] font-bold text-[#0B132B] text-center leading-tight tracking-tight line-clamp-2 max-w-[68px]">
+              Tebello Nyokong
+            </p>
+          </div>
+
+          <!-- 3. Chevarra Hansraj -->
+          <div onclick="openPrevInspiringFigure('chevarra-hansraj')" data-category="scientists changemakers" class="prev-inspired-person-card flex flex-col items-center cursor-pointer group select-none">
+            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-[#10B981] to-[#34D399] shadow-sm group-hover:scale-105 transition-all">
+              <img src="assets/avatar_chevarra_hansraj.png" alt="Chevarra Hansraj" class="w-full h-full rounded-full object-cover">
+            </div>
+            <p class="mt-1 text-[9.5px] font-bold text-[#0B132B] text-center leading-tight tracking-tight line-clamp-2 max-w-[68px]">
+              Chevarra Hansraj
+            </p>
+          </div>
+
+          <!-- 4. Thifhelimbilu Daphney Bucher -->
+          <div onclick="openPrevInspiringFigure('thifhelimbilu-bucher')" data-category="scientists" class="prev-inspired-person-card flex flex-col items-center cursor-pointer group select-none">
+            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-[#10B981] to-[#34D399] shadow-sm group-hover:scale-105 transition-all">
+              <img src="assets/avatar_thifhelimbilu_bucher.png" alt="Thifhelimbilu Daphney Bucher" class="w-full h-full rounded-full object-cover">
+            </div>
+            <p class="mt-1 text-[9px] font-bold text-[#0B132B] text-center leading-tight tracking-tight line-clamp-2 max-w-[68px]">
+              Thifhelimbilu Daphney Bucher
+            </p>
+          </div>
+
+          <!-- 5. Seymour Papert -->
+          <div onclick="openPrevInspiringFigure('seymour-papert')" data-category="scientists leaders" class="prev-inspired-person-card flex flex-col items-center cursor-pointer group select-none">
+            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-[#10B981] to-[#34D399] shadow-sm group-hover:scale-105 transition-all">
+              <img src="assets/avatar_seymour_papert.png" alt="Seymour Papert" class="w-full h-full rounded-full object-cover">
+            </div>
+            <p class="mt-1 text-[9.5px] font-bold text-[#0B132B] text-center leading-tight tracking-tight line-clamp-2 max-w-[68px]">
+              Seymour Papert
+            </p>
+          </div>
+
+          <!-- 6. Katherine Johnson -->
+          <div onclick="openPrevInspiringFigure('katherine-johnson')" data-category="scientists" class="prev-inspired-person-card flex flex-col items-center cursor-pointer group select-none">
+            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-[#10B981] to-[#34D399] shadow-sm group-hover:scale-105 transition-all">
+              <img src="assets/avatar_katherine_johnson.png" alt="Katherine Johnson" class="w-full h-full rounded-full object-cover">
+            </div>
+            <p class="mt-1 text-[9.5px] font-bold text-[#0B132B] text-center leading-tight tracking-tight line-clamp-2 max-w-[68px]">
+              Katherine Johnson
+            </p>
+          </div>
+
+          <!-- 7. Maggie Aphane -->
+          <div onclick="openPrevInspiringFigure('maggie-aphane')" data-category="leaders changemakers" class="prev-inspired-person-card flex flex-col items-center cursor-pointer group select-none">
+            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-[#10B981] to-[#34D399] shadow-sm group-hover:scale-105 transition-all">
+              <img src="assets/avatar_maggie_aphane.png" alt="Maggie Aphane" class="w-full h-full rounded-full object-cover">
+            </div>
+            <p class="mt-1 text-[9.5px] font-bold text-[#0B132B] text-center leading-tight tracking-tight line-clamp-2 max-w-[68px]">
+              Maggie Aphane
+            </p>
+          </div>
+
+          <!-- 8. Allan McLeod Cormack -->
+          <div onclick="openPrevInspiringFigure('allan-cormack')" data-category="scientists" class="prev-inspired-person-card flex flex-col items-center cursor-pointer group select-none">
+            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-[#10B981] to-[#34D399] shadow-sm group-hover:scale-105 transition-all">
+              <img src="assets/avatar_allan_cormack.png" alt="Allan McLeod Cormack" class="w-full h-full rounded-full object-cover">
+            </div>
+            <p class="mt-1 text-[9px] font-bold text-[#0B132B] text-center leading-tight tracking-tight line-clamp-2 max-w-[68px]">
+              Allan McLeod Cormack
+            </p>
+          </div>
+
+          <!-- 9. Marie Curie -->
+          <div onclick="openPrevInspiringFigure('marie-curie')" data-category="scientists" class="prev-inspired-person-card flex flex-col items-center cursor-pointer group select-none">
+            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-[#10B981] to-[#34D399] shadow-sm group-hover:scale-105 transition-all">
+              <img src="assets/avatar_marie_curie.png" alt="Marie Curie" class="w-full h-full rounded-full object-cover">
+            </div>
+            <p class="mt-1 text-[9.5px] font-bold text-[#0B132B] text-center leading-tight tracking-tight line-clamp-2 max-w-[68px]">
+              Marie Curie
+            </p>
+          </div>
+
+          <!-- 10. Dr. Kuhlula Vilakazi -->
+          <div onclick="openPrevInspiringFigure('kuhlula-vilakazi')" data-category="scientists changemakers" class="prev-inspired-person-card flex flex-col items-center cursor-pointer group select-none">
+            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-[#10B981] to-[#34D399] shadow-sm group-hover:scale-105 transition-all">
+              <img src="assets/avatar_kuhlula_vilakazi.png" alt="Dr. Kuhlula Vilakazi" class="w-full h-full rounded-full object-cover">
+            </div>
+            <p class="mt-1 text-[9px] font-bold text-[#0B132B] text-center leading-tight tracking-tight line-clamp-2 max-w-[68px]">
+              Dr. Kuhlula Vilakazi
+            </p>
+          </div>
+
+          <!-- 11. Patrice Motsepe -->
+          <div onclick="openPrevInspiringFigure('patrice-motsepe')" data-category="leaders changemakers" class="prev-inspired-person-card flex flex-col items-center cursor-pointer group select-none">
+            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-[#10B981] to-[#34D399] shadow-sm group-hover:scale-105 transition-all">
+              <img src="assets/avatar_patrice_motsepe.png" alt="Patrice Motsepe" class="w-full h-full rounded-full object-cover">
+            </div>
+            <p class="mt-1 text-[9.5px] font-bold text-[#0B132B] text-center leading-tight tracking-tight line-clamp-2 max-w-[68px]">
+              Patrice Motsepe
+            </p>
+          </div>
+
+          <!-- 12. Sarah Al Amiri -->
+          <div onclick="openPrevInspiringFigure('sarah-al-amiri')" data-category="scientists leaders" class="prev-inspired-person-card flex flex-col items-center cursor-pointer group select-none">
+            <div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-[#10B981] to-[#34D399] shadow-sm group-hover:scale-105 transition-all">
+              <img src="assets/avatar_sarah_al_amiri.png" alt="Sarah Al Amiri" class="w-full h-full rounded-full object-cover">
+            </div>
+            <p class="mt-1 text-[9.5px] font-bold text-[#0B132B] text-center leading-tight tracking-tight line-clamp-2 max-w-[68px]">
+              Sarah Al Amiri
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Bottom Green Quote Banner Card -->
+        <div class="w-full rounded-2xl overflow-hidden shadow-sm border border-emerald-100 bg-[#E8F8EB] mt-1 select-none">
+          <img src="assets/inspired_green_banner.png" alt="Brighter tomorrows are built by people who didn't give up." class="w-full h-auto object-contain">
+        </div>
+
+      </div>
+
+      <!-- Bottom Navigation Bar -->
+      <div class="w-full bg-white border-t border-slate-100 px-5 py-1.5 flex items-center justify-between shrink-0 z-30 select-none">
+        <button onclick="showPreviewPage(1)" class="flex flex-col items-center text-slate-400">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span class="text-[9px]">Home</span>
+        </button>
+        <button onclick="showPreviewPage('chat')" class="flex flex-col items-center text-slate-400">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+          <span class="text-[9px]">Messages</span>
+        </button>
+        <button onclick="showPreviewPage('space')" class="w-8 h-8 -my-1.5 rounded-full bg-[#6D28D9] text-white flex items-center justify-center text-base font-bold shadow-sm">
+          +
+        </button>
+        <button onclick="showPreviewPage('kangaroo')" class="flex flex-col items-center text-[#6D28D9]">
+          <img src="assets/kangaroo_icon_exact.png" class="w-4 h-4 object-contain" alt="Kangaroo">
+          <span class="text-[9px] font-bold">Kangaroo</span>
+        </button>
+        <button onclick="showPreviewPage('profile')" class="flex flex-col items-center text-slate-400">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span class="text-[9px]">Profile</span>
+        </button>
+      </div>
+
+      <!-- iOS Home Indicator -->
+      <div class="w-full pb-0.5 pt-0.5 flex justify-center bg-white z-30">
+        <div class="w-28 h-1 bg-slate-300 rounded-full"></div>
+      </div>
+
+      <!-- Preview Figure Modal Dialog -->
+      <div id="prevInspiringFigureModal" class="hidden absolute inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
+        <div class="bg-white rounded-3xl p-4 text-center max-w-xs w-full shadow-2xl flex flex-col items-center border border-amber-100 animate-slide-up relative">
+          <button onclick="closePrevInspiringFigure()" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 font-bold flex items-center justify-center text-xs cursor-pointer">
+            ✕
+          </button>
+          <div class="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-[#10B981] to-[#34D399] shadow-md mt-1">
+            <img id="prevModalFigureAvatar" src="assets/avatar_ada_lovelace.png" alt="Avatar" class="w-full h-full rounded-full object-cover">
+          </div>
+          <h3 id="prevModalFigureName" class="text-base font-black text-[#0B132B] mt-2">Ada Lovelace</h3>
+          <p id="prevModalFigureRole" class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full mt-0.5 border border-emerald-200">
+            Pioneer of Computer Programming
+          </p>
+          <div class="bg-[#FFFDF5] border border-amber-200 rounded-xl p-2.5 my-2 text-center shadow-2xs w-full">
+            <p id="prevModalFigureQuote" class="text-[11px] text-slate-800 font-serif italic font-medium leading-relaxed">
+              “That brain of mine is something more than merely mortal; as time will show.”
+            </p>
+          </div>
+          <p id="prevModalFigureBio" class="text-[10.5px] text-slate-600 leading-relaxed font-normal px-1">
+            Recognized as the world’s first computer programmer.
+          </p>
+          <button onclick="playPrevChime(587.33); closePrevInspiringFigure();" class="mt-2.5 w-full py-2 rounded-full bg-[#FFBE1A] hover:bg-[#f5b30c] text-[#0B132B] font-black text-xs shadow-sm cursor-pointer">
+            ✨ Feeling Inspired
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= PREVIEW: GET CONFIDENT SCREEN (PIXEL-PERFECT NATIVE UI) ================= -->
+    <div id="prevGetConfidentSpace" class="hidden flex-1 flex-col justify-between h-full bg-[#FDE7DC] text-slate-800 animate-fade-in relative overflow-hidden select-none">
+      
+      <!-- iOS Status Bar (Apple HIG) -->
+      <div class="w-full pt-3 px-5 pb-1 flex justify-between items-center text-[11px] font-semibold text-slate-800 shrink-0 select-none z-30">
+        <span>9:41</span>
+        <div class="flex items-center gap-1">
+          <svg class="w-3.5 h-2.5 fill-current" viewBox="0 0 17 11"><rect x="0" y="8" width="3" height="3" rx="0.5"/><rect x="4.5" y="5.5" width="3" height="5.5" rx="0.5"/><rect x="9" y="3" width="3" height="8" rx="0.5"/><rect x="13.5" y="0" width="3" height="11" rx="0.5"/></svg>
+          <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4zm0 3.5c3.6 0 6.9 1.4 9.3 3.7L12 19.3 2.7 11.2C5.1 8.9 8.4 7.5 12 7.5z"/></svg>
+          <div class="w-4 h-2 border border-slate-700 rounded-2xs p-0.5 flex items-center"><div class="h-full w-full bg-slate-800 rounded-3xs"></div></div>
+        </div>
+      </div>
+
+      <!-- Top Header Navigation Bar (Back Arrow + Centered Title) -->
+      <div class="px-5 pt-1 pb-1.5 flex items-center justify-between shrink-0 relative z-30">
+        <button onclick="showPreviewPage('kangaroo')" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-800 hover:text-[#C5221F] hover:bg-black/5 active:scale-90 transition-all cursor-pointer text-xl font-bold -ml-2" title="Back">
+          <svg class="w-5 h-5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <h1 class="text-base font-black text-[#0B132B] tracking-tight">Get Confident</h1>
+        <div class="w-8"></div>
+      </div>
+
+      <!-- Speech Bubble Affirmation Card Container -->
+      <div class="px-4 pt-1 relative z-20 shrink-0">
+        <div id="prevConfidentCardBox" class="relative bg-[#FFFDFB] rounded-3xl px-4 py-4 shadow-sm border-2 border-white transition-all duration-300">
+          <h2 id="prevConfidentAffirmTitle" class="text-base sm:text-lg font-black text-[#C5221F] tracking-tight leading-snug text-center transition-all duration-300">
+            You're capable,<br>and you can do this.
+          </h2>
+          <p id="prevConfidentAffirmSub" class="text-xs text-[#1E293B] font-bold text-center mt-1.5 leading-snug transition-all duration-300">
+            Mistakes are part of learning.<br>Be proud of how far you've come!
+          </p>
+          <div class="absolute -bottom-2 left-10 w-4 h-4 bg-[#FFFDFB] border-r-2 border-b-2 border-white transform rotate-45"></div>
+        </div>
+      </div>
+
+      <!-- Middle Kangaroo Scenery (Clean Illustration) -->
+      <div class="flex-1 flex items-center justify-center relative overflow-hidden px-4 select-none z-10 min-h-[160px]">
+        <img id="prevConfidentKangarooHero" src="assets/confident_scenery_clean.png" alt="Kangaroo" class="w-full max-h-[220px] object-contain transition-transform duration-300 hover:scale-105">
+      </div>
+
+      <!-- Bottom Interactive Controls & Affirmation Actions -->
+      <div class="px-5 pb-4 pt-1 flex flex-col gap-2.5 shrink-0 z-30">
+        
+        <!-- Button 1: Solid Coral/Red Pill Button "❤️ I believe it" -->
+        <button id="prevBelieveItBtn" onclick="handlePrevBelieveIt()" class="w-full py-3.5 rounded-full bg-[#F85E4E] hover:bg-[#e44d3d] active:scale-[0.98] text-white font-black text-base flex items-center justify-center gap-2 shadow-[0_6px_16px_rgba(248,94,78,0.3)] transition-all cursor-pointer">
+          <span id="prevBelieveHeartIcon" class="text-xl">❤️</span>
+          <span id="prevBelieveBtnText">I believe it</span>
+        </button>
+
+        <!-- Button 2: Outlined Coral Pill Button "↻ Give me another one" -->
+        <button id="prevConfidentAnotherBtn" onclick="nextPrevConfidentAffirmation()" class="w-full py-3 rounded-full bg-white/60 hover:bg-white border-2 border-[#F85E4E] active:scale-[0.98] text-[#C5221F] font-black text-sm flex items-center justify-center gap-2 shadow-2xs transition-all cursor-pointer">
+          <span id="prevRefreshIcon" class="text-xl leading-none inline-block transition-transform duration-500">↻</span>
+          <span>Give me another one</span>
+        </button>
+
+        <!-- Streak Pill -->
+        <div id="prevMindsetStreakPill" class="hidden text-center text-[10px] font-extrabold text-[#C5221F] bg-white/80 py-1 px-3 rounded-full border border-orange-200 shadow-2xs mx-auto animate-fade-in">
+          ⭐ <span id="prevMindsetCount">1</span> Affirmation Believed Today!
+        </div>
+
+        <!-- iOS Home Indicator Pill -->
+        <div class="w-full pt-1 flex justify-center">
+          <div class="w-24 h-1 bg-slate-400/60 rounded-full"></div>
+        </div>
+
+      </div>
+
+      <!-- Floating Hearts Effect Container -->
+      <div id="prevConfidentHeartsContainer" class="absolute inset-0 pointer-events-none z-50 overflow-hidden"></div>
+
+      <!-- Toast Feedback Notification for 'I believe it' -->
+      <div id="prevConfidentSavedToast" class="hidden absolute top-14 left-1/2 -translate-x-1/2 bg-slate-900/90 backdrop-blur-md text-white px-4 py-2 rounded-full shadow-2xl z-50 flex items-center gap-1.5 border border-white/10 text-[11px] font-bold transition-all">
+        <span>❤️</span>
+        <span>Affirmation saved!</span>
+      </div>
+
+    </div>
+
+    <!-- ================= PREVIEW: GET HELP SCREEN (PIXEL-PERFECT NATIVE UI) ================= -->
+    <div id="prevGetHelpSpace" class="hidden flex-1 flex-col justify-between h-full bg-[#EDE7FE] text-slate-800 animate-fade-in relative overflow-hidden select-none">
+      
+      <!-- iOS Status Bar (Apple HIG - Safely Padded) -->
+      <div class="w-full pt-3 px-5 pb-1 flex justify-between items-center text-[11px] font-semibold text-slate-800 shrink-0 select-none z-30">
+        <span>9:41</span>
+        <div class="flex items-center gap-1">
+          <svg class="w-3.5 h-2.5 fill-current" viewBox="0 0 17 11"><rect x="0" y="8" width="3" height="3" rx="0.5"/><rect x="4.5" y="5.5" width="3" height="5.5" rx="0.5"/><rect x="9" y="3" width="3" height="8" rx="0.5"/><rect x="13.5" y="0" width="3" height="11" rx="0.5"/></svg>
+          <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4zm0 3.5c3.6 0 6.9 1.4 9.3 3.7L12 19.3 2.7 11.2C5.1 8.9 8.4 7.5 12 7.5z"/></svg>
+          <div class="w-4 h-2 border border-slate-700 rounded-2xs p-0.5 flex items-center"><div class="h-full w-full bg-slate-800 rounded-3xs"></div></div>
+        </div>
+      </div>
+
+      <!-- Top Header Navigation Bar (Back Arrow + Centered Title) -->
+      <div class="px-5 pt-1 pb-1 flex items-center justify-between shrink-0 relative z-30">
+        <button onclick="showPreviewPage('kangaroo')" class="w-8 h-8 rounded-full flex items-center justify-center text-slate-800 hover:text-[#6D28D9] hover:bg-black/5 active:scale-90 transition-all cursor-pointer text-xl font-bold -ml-2" title="Back">
+          <svg class="w-5 h-5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <h1 class="text-base font-black text-[#0B132B] tracking-tight">Get Help</h1>
+        <div class="w-8"></div>
+      </div>
+
+      <!-- Intro Card -->
+      <div class="px-4 pt-0.5 relative z-20 shrink-0">
+        <div class="bg-white/80 backdrop-blur-md rounded-2xl p-3 text-center border border-white/90 shadow-2xs">
+          <h2 class="text-lg font-black text-[#6D28D9] tracking-tight">You are not alone.</h2>
+          <p class="text-[11px] text-[#334155] font-semibold mt-0.5 leading-snug">
+            It's okay to ask for help. Talking to someone you trust makes a big difference.
+          </p>
+        </div>
+      </div>
+
+      <!-- Three Resource Cards -->
+      <div class="px-4 pt-2 flex flex-col gap-2 z-20 shrink-0">
+        <!-- Card 1 -->
+        <div onclick="openPrevHelpResource('childline')" class="bg-white hover:bg-purple-50/50 active:scale-[0.98] rounded-xl p-2.5 flex items-center justify-between shadow-2xs border border-white/80 cursor-pointer transition-all">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-full bg-[#E0EDFF] text-[#1665F5] flex items-center justify-center text-sm shrink-0">📞</div>
+            <div>
+              <h3 class="text-xs font-black text-[#0B132B]">Call Childline – 116</h3>
+              <p class="text-[10px] text-slate-500 font-medium">Free • 24/7</p>
+            </div>
+          </div>
+          <div class="text-[#1665F5] font-black text-base">›</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div onclick="openPrevHelpResource('sadag')" class="bg-white hover:bg-purple-50/50 active:scale-[0.98] rounded-xl p-2.5 flex items-center justify-between shadow-2xs border border-white/80 cursor-pointer transition-all">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-full bg-[#E0EDFF] text-[#1665F5] flex items-center justify-center text-sm shrink-0">📞</div>
+            <div>
+              <h3 class="text-xs font-black text-[#0B132B]">Call SADAG – 0800 567 567</h3>
+              <p class="text-[10px] text-slate-500 font-medium">24/7 crisis support</p>
+            </div>
+          </div>
+          <div class="text-[#1665F5] font-black text-base">›</div>
+        </div>
+
+        <!-- Card 3 -->
+        <div onclick="openPrevHelpResource('trusted-adult')" class="bg-white hover:bg-purple-50/50 active:scale-[0.98] rounded-xl p-2.5 flex items-center justify-between shadow-2xs border border-white/80 cursor-pointer transition-all">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-full bg-[#EDE7FE] text-[#7C3AED] flex items-center justify-center text-sm shrink-0">👥</div>
+            <div>
+              <h3 class="text-xs font-black text-[#0B132B]">Talk to a trusted adult</h3>
+              <p class="text-[10px] text-slate-500 font-medium">Teacher, parent, or guardian</p>
+            </div>
+          </div>
+          <div class="text-[#1665F5] font-black text-base">›</div>
+        </div>
+      </div>
+
+      <!-- Bottom Kangaroo Art Section -->
+      <div class="flex-1 flex items-end justify-center relative overflow-hidden px-4 select-none z-10 min-h-[150px] pb-1">
+        <img id="prevHelpKangarooHero" src="assets/help_kangaroo_bottom.png" alt="You're stronger than you think" onclick="triggerPrevStrongerChime()" class="w-full max-h-[200px] object-contain object-bottom transition-transform duration-300 hover:scale-105 cursor-pointer">
+      </div>
+
+      <!-- iOS Home Indicator -->
+      <div class="w-full pb-2 pt-0.5 flex justify-center z-30">
+        <div class="w-24 h-1 bg-slate-400/50 rounded-full"></div>
+      </div>
+
+      <!-- Floating Encouragement Toast -->
+      <div id="prevHelpToast" class="hidden absolute top-14 left-1/2 -translate-x-1/2 bg-slate-900/90 backdrop-blur-md text-white px-4 py-2 rounded-full shadow-2xl z-50 flex items-center gap-1.5 border border-white/10 text-[11px] font-bold transition-all">
+        <span>💜</span>
+        <span>You're stronger than you think!</span>
+      </div>
+
+      <!-- Help Resource Modal Dialog -->
+      <div id="prevHelpResourceModal" class="hidden absolute inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
+        <div class="bg-white rounded-3xl p-5 text-center max-w-xs w-full shadow-2xl flex flex-col items-center border border-purple-100 animate-slide-up">
+          <div id="prevHelpModalIcon" class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-2">
+            📞
+          </div>
+          <h3 id="prevHelpModalTitle" class="text-base font-black text-[#0B132B]">Call Childline – 116</h3>
+          <p id="prevHelpModalSubtitle" class="text-[11px] font-bold text-purple-600">Free • 24/7 Helpline</p>
+          <p id="prevHelpModalDesc" class="text-[11px] text-slate-600 font-medium mt-2 leading-relaxed">
+            Counselors are ready to support you confidentially anytime.
+          </p>
+          <div class="flex gap-2 w-full mt-4">
+            <button onclick="closePrevHelpModal()" class="flex-1 py-2.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-[11px] hover:bg-slate-200 transition-colors cursor-pointer">
+              Cancel
+            </button>
+            <a id="prevHelpModalCallBtn" href="tel:116" class="flex-1 py-2.5 rounded-xl bg-[#6D28D9] text-white font-extrabold text-[11px] hover:bg-purple-800 transition-colors shadow-md flex items-center justify-center cursor-pointer">
+              <span>Call Now</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function showPreviewPage(num) {
+      const container = document.getElementById('previewContainer');
+      container.classList.remove('max-h-none', 'h-auto');
+      container.classList.add('max-h-[840px]');
+      
+      document.getElementById('showAllBtn').className = "px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 font-bold hover:bg-slate-200 transition-colors";
+      const pSpace = document.getElementById('prevProjectSpace');
+      const pSpaceBtn = document.getElementById('pSpaceBtn');
+      const pStudents = document.getElementById('prevStudentsSpace');
+      const pStudentsBtn = document.getElementById('pStudentsBtn');
+      const pChat = document.getElementById('prevChatSpace');
+      const pChatBtn = document.getElementById('pChatBtn');
+      const pProgress = document.getElementById('prevProgressSpace');
+      const pProgressBtn = document.getElementById('pProgressBtn');
+      const pProfile = document.getElementById('prevProfileSpace');
+      const pProfileBtn = document.getElementById('pProfileBtn');
+      const pKangaroo = document.getElementById('prevKangarooSpace');
+      const pKangarooBtn = document.getElementById('pKangarooBtn');
+      const pCalmDown = document.getElementById('prevCalmDownSpace');
+      const pCalmDownBtn = document.getElementById('pCalmDownBtn');
+      const pInspired = document.getElementById('prevGetInspiredSpace');
+      const pInspiredBtn = document.getElementById('pInspiredBtn');
+      const pConfident = document.getElementById('prevGetConfidentSpace');
+      const pConfidentBtn = document.getElementById('pConfidentBtn');
+      const pHelp = document.getElementById('prevGetHelpSpace');
+      const pHelpBtn = document.getElementById('pHelpBtn');
+      const prevMatchModal = document.getElementById('prevMatchModal');
+      if (prevMatchModal) prevMatchModal.classList.add('hidden');
+
+      for (let i = 1; i <= 7; i++) {
+        const page = document.getElementById(`prevPage${i}`);
+        const btn = document.getElementById(`p${i}Btn`);
+        if (!page) continue;
+        if (i === num) {
+          page.classList.remove('hidden');
+          page.classList.add('flex');
+          if (btn) btn.className = "px-3.5 py-1 rounded-full bg-[#1665F5] text-white font-bold shadow-sm";
+          if (i === 7) renderPreviewCardDeck();
+        } else {
+          page.classList.add('hidden');
+          page.classList.remove('flex');
+          if (btn) btn.className = "px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-bold hover:bg-slate-200 transition-colors";
+        }
+      }
+
+      if (num === 'space') {
+        if (pSpace) { pSpace.classList.remove('hidden'); pSpace.classList.add('flex'); }
+        if (pSpaceBtn) pSpaceBtn.className = "px-3 py-1 rounded-full bg-[#4C39F8] text-white font-bold shadow-sm";
+      } else {
+        if (pSpace) { pSpace.classList.add('hidden'); pSpace.classList.remove('flex'); }
+        if (pSpaceBtn) pSpaceBtn.className = "px-3 py-1 rounded-full bg-slate-100 text-[#4C39F8] font-bold hover:bg-slate-200 transition-colors";
+      }
+
+      if (num === 'students') {
+        if (pStudents) { pStudents.classList.remove('hidden'); pStudents.classList.add('flex'); }
+        if (pStudentsBtn) pStudentsBtn.className = "px-3 py-1 rounded-full bg-[#4C39F8] text-white font-bold shadow-sm flex items-center gap-1";
+      } else {
+        if (pStudents) { pStudents.classList.add('hidden'); pStudents.classList.remove('flex'); }
+        if (pStudentsBtn) pStudentsBtn.className = "px-3 py-1 rounded-full bg-slate-100 text-indigo-700 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1";
+      }
+
+      if (num === 'chat') {
+        if (pChat) { pChat.classList.remove('hidden'); pChat.classList.add('flex'); }
+        if (pChatBtn) pChatBtn.className = "px-3 py-1 rounded-full bg-[#4C39F8] text-white font-bold shadow-sm flex items-center gap-1";
+        const scroll = document.getElementById('prevChatScrollArea');
+        if (scroll) scroll.scrollTop = scroll.scrollHeight;
+      } else {
+        if (pChat) { pChat.classList.add('hidden'); pChat.classList.remove('flex'); }
+        if (pChatBtn) pChatBtn.className = "px-3 py-1 rounded-full bg-slate-100 text-[#4C39F8] font-bold hover:bg-slate-200 transition-colors flex items-center gap-1";
+      }
+
+      if (num === 'progress') {
+        if (pProgress) { pProgress.classList.remove('hidden'); pProgress.classList.add('flex'); }
+        if (pProgressBtn) pProgressBtn.className = "px-3 py-1 rounded-full bg-emerald-600 text-white font-bold shadow-sm flex items-center gap-1";
+      } else {
+        if (pProgress) { pProgress.classList.add('hidden'); pProgress.classList.remove('flex'); }
+        if (pProgressBtn) pProgressBtn.className = "px-3 py-1 rounded-full bg-slate-100 text-emerald-700 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1";
+      }
+
+      if (num === 'profile') {
+        if (pProfile) { pProfile.classList.remove('hidden'); pProfile.classList.add('flex'); }
+        if (pProfileBtn) pProfileBtn.className = "px-3 py-1 rounded-full bg-[#4C39F8] text-white font-bold shadow-sm flex items-center gap-1";
+      } else {
+        if (pProfile) { pProfile.classList.add('hidden'); pProfile.classList.remove('flex'); }
+        if (pProfileBtn) pProfileBtn.className = "px-3 py-1 rounded-full bg-slate-100 text-[#4C39F8] font-bold hover:bg-slate-200 transition-colors flex items-center gap-1";
+      }
+
+      if (num === 'kangaroo') {
+        if (pKangaroo) { pKangaroo.classList.remove('hidden'); pKangaroo.classList.add('flex'); }
+        if (pKangarooBtn) pKangarooBtn.className = "px-3 py-1 rounded-full bg-[#6D28D9] text-white font-bold shadow-sm flex items-center gap-1";
+      } else {
+        if (pKangaroo) { pKangaroo.classList.add('hidden'); pKangaroo.classList.remove('flex'); }
+        if (pKangarooBtn) pKangarooBtn.className = "px-3 py-1 rounded-full bg-slate-100 text-amber-800 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1";
+      }
+
+      if (num === 'calm-down' || num === 'calmDown') {
+        if (pCalmDown) { pCalmDown.classList.remove('hidden'); pCalmDown.classList.add('flex'); }
+        if (pCalmDownBtn) pCalmDownBtn.className = "px-3 py-1 rounded-full bg-sky-600 text-white font-bold shadow-sm flex items-center gap-1";
+        startPrevBreathingEngine();
+      } else {
+        if (pCalmDown) { pCalmDown.classList.add('hidden'); pCalmDown.classList.remove('flex'); }
+        if (pCalmDownBtn) pCalmDownBtn.className = "px-3 py-1 rounded-full bg-slate-100 text-sky-700 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1";
+        pausePrevBreathingEngine();
+      }
+
+      if (num === 'get-inspired' || num === 'getInspired' || num === 'inspired') {
+        if (pInspired) { pInspired.classList.remove('hidden'); pInspired.classList.add('flex'); }
+        const prevDynQuote = document.getElementById('prevDynamicQuoteCard');
+        if (prevDynQuote) prevDynQuote.classList.add('hidden');
+        if (pInspiredBtn) pInspiredBtn.className = "px-3 py-1 rounded-full bg-amber-500 text-white font-bold shadow-sm flex items-center gap-1";
+      } else {
+        if (pInspired) { pInspired.classList.add('hidden'); pInspired.classList.remove('flex'); }
+        if (pInspiredBtn) pInspiredBtn.className = "px-3 py-1 rounded-full bg-slate-100 text-amber-800 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1";
+      }
+
+      if (num === 'get-confident' || num === 'getConfident' || num === 'confident') {
+        if (pConfident) { pConfident.classList.remove('hidden'); pConfident.classList.add('flex'); }
+        const prevDynAffirm = document.getElementById('prevDynamicConfidentCard');
+        if (prevDynAffirm) prevDynAffirm.classList.add('hidden');
+        if (pConfidentBtn) pConfidentBtn.className = "px-3 py-1 rounded-full bg-rose-500 text-white font-bold shadow-sm flex items-center gap-1";
+      } else {
+        if (pConfident) { pConfident.classList.add('hidden'); pConfident.classList.remove('flex'); }
+        if (pConfidentBtn) pConfidentBtn.className = "px-3 py-1 rounded-full bg-slate-100 text-rose-800 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1";
+      }
+
+      if (num === 'get-help' || num === 'getHelp' || num === 'help') {
+        if (pHelp) { pHelp.classList.remove('hidden'); pHelp.classList.add('flex'); }
+        if (pHelpBtn) pHelpBtn.className = "px-3 py-1 rounded-full bg-purple-600 text-white font-bold shadow-sm flex items-center gap-1";
+      } else {
+        if (pHelp) { pHelp.classList.add('hidden'); pHelp.classList.remove('flex'); }
+        if (pHelpBtn) pHelpBtn.className = "px-3 py-1 rounded-full bg-slate-100 text-purple-800 font-bold hover:bg-slate-200 transition-colors flex items-center gap-1";
+      }
+    }
+
+    function showAllPreviewPages() {
+      const container = document.getElementById('previewContainer');
+      container.classList.remove('max-h-[840px]');
+      container.classList.add('max-h-none', 'h-auto');
+
+      for (let i = 1; i <= 7; i++) {
+        const page = document.getElementById(`prevPage${i}`);
+        const btn = document.getElementById(`p${i}Btn`);
+        if (!page) continue;
+        page.classList.remove('hidden');
+        page.classList.add('flex', 'min-h-[500px]', 'border-b-4', 'border-slate-300', 'pb-6');
+        if (btn) btn.className = "px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-bold hover:bg-slate-200 transition-colors";
+      }
+      const pSpace = document.getElementById('prevProjectSpace');
+      if (pSpace) {
+        pSpace.classList.remove('hidden');
+        pSpace.classList.add('flex', 'min-h-[500px]', 'border-b-4', 'border-slate-300', 'pb-6');
+      }
+      const pStudents = document.getElementById('prevStudentsSpace');
+      if (pStudents) {
+        pStudents.classList.remove('hidden');
+        pStudents.classList.add('flex', 'min-h-[500px]', 'border-b-4', 'border-slate-300', 'pb-6');
+      }
+      const pChat = document.getElementById('prevChatSpace');
+      if (pChat) {
+        pChat.classList.remove('hidden');
+        pChat.classList.add('flex', 'min-h-[500px]', 'border-b-4', 'border-slate-300', 'pb-6');
+      }
+      const pProgress = document.getElementById('prevProgressSpace');
+      if (pProgress) {
+        pProgress.classList.remove('hidden');
+        pProgress.classList.add('flex', 'min-h-[500px]', 'border-b-4', 'border-slate-300', 'pb-6');
+      }
+      const pProfile = document.getElementById('prevProfileSpace');
+      if (pProfile) {
+        pProfile.classList.remove('hidden');
+        pProfile.classList.add('flex', 'min-h-[500px]', 'border-b-4', 'border-slate-300', 'pb-6');
+      }
+      const pKangaroo = document.getElementById('prevKangarooSpace');
+      if (pKangaroo) {
+        pKangaroo.classList.remove('hidden');
+        pKangaroo.classList.add('flex', 'min-h-[500px]', 'border-b-4', 'border-slate-300', 'pb-6');
+      }
+      const pCalmDown = document.getElementById('prevCalmDownSpace');
+      if (pCalmDown) {
+        pCalmDown.classList.remove('hidden');
+        pCalmDown.classList.add('flex', 'min-h-[500px]', 'border-b-4', 'border-slate-300', 'pb-6');
+      }
+      const pInspired = document.getElementById('prevGetInspiredSpace');
+      if (pInspired) {
+        pInspired.classList.remove('hidden');
+        pInspired.classList.add('flex', 'min-h-[500px]', 'border-b-4', 'border-slate-300', 'pb-6');
+      }
+      const pConfident = document.getElementById('prevGetConfidentSpace');
+      if (pConfident) {
+        pConfident.classList.remove('hidden');
+        pConfident.classList.add('flex', 'min-h-[500px]', 'border-b-4', 'border-slate-300', 'pb-6');
+      }
+      const pHelp = document.getElementById('prevGetHelpSpace');
+      if (pHelp) {
+        pHelp.classList.remove('hidden');
+        pHelp.classList.add('flex', 'min-h-[500px]', 'border-b-4', 'border-slate-300', 'pb-6');
+      }
+      document.getElementById('showAllBtn').className = "px-3.5 py-1 rounded-full bg-emerald-600 text-white font-bold shadow-sm";
+      renderPreviewCardDeck();
+    }
+
+    function sendPrevChatMessage() {
+      const input = document.getElementById('prevChatInput');
+      if (!input || !input.value.trim()) return;
+      const text = input.value.trim();
+      input.value = '';
+      const c = document.getElementById('prevDynamicChat');
+      if (!c) return;
+      const msg = document.createElement('div');
+      msg.className = "flex items-start gap-2 justify-end";
+      msg.innerHTML = `
+        <div class="flex-1 max-w-[85%] flex flex-col items-end">
+          <div class="flex items-baseline gap-1 mb-0.5"><span class="text-[10px] font-black text-[#0F172A]">You</span><span class="text-[8px] text-slate-400">Just now</span></div>
+          <div class="bg-[#4C39F8] text-white text-xs font-medium px-3.5 py-2 rounded-xl rounded-tr-2xs leading-relaxed">${text}</div>
+        </div>
+        <div class="w-8 h-8 rounded-full bg-purple-100 text-[#4C39F8] flex items-center justify-center text-xs font-bold">👤</div>
+      `;
+      c.appendChild(msg);
+      const scroll = document.getElementById('prevChatScrollArea');
+      if (scroll) scroll.scrollTop = scroll.scrollHeight;
+    }
+
+    const prevDeckData = [
+      {
+        id: 'rover',
+        title: 'Autonomous Campus Rover',
+        desc: "Building a self-navigating rover for campus delivery using computer vision and embedded systems.",
+        image: 'assets/rover.png',
+        tags: ['Robotics', 'Computer Vision', 'Embedded'],
+        author: 'Daniel Kim',
+        role: 'Mechanical Engineering Student',
+        avatar: 'assets/daniel_avatar.png',
+        members: 12,
+        comments: 5,
+        featured: true
+      },
+      {
+        id: 'turtle',
+        title: 'AI for Ocean Clean-Up',
+        desc: "Using computer vision to detect and classify ocean waste from underwater footage.",
+        image: 'assets/turtle.png',
+        tags: ['AI', 'Sustainability', 'Computer Vision'],
+        author: 'Sara Ahmed',
+        role: 'Data Science & Marine Bio',
+        avatar: 'assets/sara_avatar.png',
+        members: 18,
+        comments: 3,
+        featured: false
+      },
+      {
+        id: 'energy',
+        title: 'Smart Campus Energy Monitor',
+        desc: "Monitoring & visualizing real-time energy consumption and wind turbine generation across campus.",
+        image: 'assets/windmill.png',
+        tags: ['IoT', 'Data Visualization', 'CleanTech'],
+        author: 'Alex Chen',
+        role: 'Electrical Engineering Student',
+        avatar: 'assets/daniel_male_avatar.png',
+        members: 24,
+        comments: 5,
+        featured: false
+      }
+    ];
+
+    let activePrevDeck = [...prevDeckData];
+
+    function renderPreviewCardDeck() {
+      const container = document.getElementById('prevDeckContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      if (activePrevDeck.length === 0) {
+        container.innerHTML = `
+          <div class="w-full h-[380px] bg-white rounded-[26px] border border-slate-200 p-6 flex flex-col items-center justify-center text-center shadow-lg">
+            <div class="w-14 h-14 bg-purple-100 text-[#4C39F8] rounded-full flex items-center justify-center text-2xl mb-2">🎉</div>
+            <h3 class="text-base font-black text-[#0F172A]">All Caught Up!</h3>
+            <p class="text-xs text-slate-500 mt-1 max-w-[200px]">You've reviewed all available projects.</p>
+            <button onclick="resetPreviewDeck()" class="mt-4 px-5 py-2 bg-[#4C39F8] text-white font-extrabold text-xs rounded-xl shadow-md cursor-pointer">
+              <span>🔄 Reset Deck</span>
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      const cardsToRender = activePrevDeck.slice(0, 3).reverse();
+
+      cardsToRender.forEach(card => {
+        const realIdx = activePrevDeck.indexOf(card);
+        const isTop = realIdx === 0;
+
+        const cardEl = document.createElement('div');
+        cardEl.className = `swipe-card absolute inset-0 bg-white rounded-[24px] border border-slate-200/90 shadow-lg overflow-hidden flex flex-col justify-between select-none transition-all duration-300 ${isTop ? 'cursor-grab active:cursor-grabbing z-20' : 'pointer-events-none'}`;
+        cardEl.id = `prev-card-${card.id}`;
+
+        if (realIdx === 0) {
+          cardEl.style.transform = 'translate(0px, 0px) scale(1) rotate(0deg)';
+          cardEl.style.zIndex = '25';
+          cardEl.style.opacity = '1';
+        } else if (realIdx === 1) {
+          cardEl.style.transform = 'translate(-28px, 6px) scale(0.92) rotate(-5deg)';
+          cardEl.style.zIndex = '15';
+          cardEl.style.opacity = '0.88';
+        } else if (realIdx === 2) {
+          cardEl.style.transform = 'translate(28px, 6px) scale(0.90) rotate(5deg)';
+          cardEl.style.zIndex = '10';
+          cardEl.style.opacity = '0.80';
+        }
+
+        cardEl.innerHTML = `
+          <div class="relative w-full h-40 bg-slate-100 overflow-hidden pointer-events-none">
+            <img src="${card.image}" alt="${card.title}" class="w-full h-full object-cover">
+            ${card.featured ? `
+            <div class="absolute top-2 left-2 z-10">
+              <span class="px-2.5 py-0.5 bg-white/95 text-[#0F172A] font-extrabold text-[10px] rounded-full shadow-sm flex items-center gap-1">
+                <span class="text-amber-500 text-xs">★</span> Featured
+              </span>
+            </div>` : ''}
+            <div class="badge-pass absolute top-3 right-3 rotate-12 border-2 border-red-500 text-red-500 font-black text-xs px-2.5 py-0.5 rounded uppercase tracking-wider bg-white/95 shadow-md opacity-0 pointer-events-none">
+              PASS ✕
+            </div>
+            <div class="badge-like absolute top-3 left-3 -rotate-12 border-2 border-emerald-500 text-emerald-500 font-black text-xs px-2.5 py-0.5 rounded uppercase tracking-wider bg-white/95 shadow-md opacity-0 pointer-events-none">
+              LIKE 💚
+            </div>
+          </div>
+          <div class="p-3 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-[15px] font-black text-[#0F172A] leading-snug tracking-tight">${card.title}</h3>
+              <p class="text-slate-500 text-[11px] font-normal mt-0.5 line-clamp-2">${card.desc}</p>
+              <div class="flex flex-wrap gap-1 mt-1.5">
+                ${card.tags.map(t => `<span class="px-2 py-0.5 bg-[#EDEBFE] text-[#4C39F8] font-bold text-[10px] rounded-full">${t}</span>`).join('')}
+              </div>
+            </div>
+            <div class="flex items-center justify-between mt-2 pt-1.5 border-t border-slate-100">
+              <div class="flex items-center gap-1.5">
+                <img src="${card.avatar}" alt="${card.author}" class="w-6 h-6 rounded-full object-cover">
+                <div>
+                  <h4 class="text-[11px] font-bold text-[#0F172A] leading-none">${card.author}</h4>
+                  <p class="text-[9px] text-slate-400 font-medium">${card.role}</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 text-slate-500 text-[11px] font-semibold">
+                <span>👥 ${card.members}</span>
+                <span>💬 ${card.comments}</span>
+              </div>
+            </div>
+          </div>
+        `;
+
+        container.appendChild(cardEl);
+
+        if (isTop) {
+          attachPrevSwipe(cardEl);
+        }
+      });
+    }
+
+    function attachPrevSwipe(cardEl) {
+      let isDragging = false, startX = 0, startY = 0, currentX = 0, currentY = 0;
+
+      function onPointerDown(e) {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        currentX = 0;
+        currentY = 0;
+        cardEl.setPointerCapture(e.pointerId);
+        cardEl.style.transition = 'none';
+        cardEl.addEventListener('pointermove', onPointerMove);
+        cardEl.addEventListener('pointerup', onPointerUp);
+        cardEl.addEventListener('pointercancel', onPointerUp);
+      }
+
+      function onPointerMove(e) {
+        if (!isDragging) return;
+        currentX = e.clientX - startX;
+        currentY = e.clientY - startY;
+        cardEl.style.transform = `translate(${currentX}px, ${currentY * 0.25}px) rotate(${currentX * 0.08}deg)`;
+        const pass = cardEl.querySelector('.badge-pass');
+        const like = cardEl.querySelector('.badge-like');
+        if (currentX < -15) {
+          if (pass) pass.style.opacity = Math.min(1, (-currentX - 15) / 50);
+          if (like) like.style.opacity = 0;
+        } else if (currentX > 15) {
+          if (like) like.style.opacity = Math.min(1, (currentX - 15) / 50);
+          if (pass) pass.style.opacity = 0;
+        } else {
+          if (pass) pass.style.opacity = 0;
+          if (like) like.style.opacity = 0;
+        }
+      }
+
+      function onPointerUp() {
+        if (!isDragging) return;
+        isDragging = false;
+        cardEl.removeEventListener('pointermove', onPointerMove);
+        cardEl.removeEventListener('pointerup', onPointerUp);
+        cardEl.removeEventListener('pointercancel', onPointerUp);
+
+        if (Math.hypot(currentX, currentY) < 8) {
+          cardEl.style.transition = 'transform 0.2s ease';
+          cardEl.style.transform = 'translate(0, 0) rotate(0)';
+          return;
+        }
+
+        if (currentX > 75) triggerPreviewSwipe('right');
+        else if (currentX < -75) triggerPreviewSwipe('left');
+        else {
+          cardEl.style.transition = 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+          cardEl.style.transform = 'translate(0, 0) rotate(0)';
+          const pass = cardEl.querySelector('.badge-pass');
+          const like = cardEl.querySelector('.badge-like');
+          if (pass) pass.style.opacity = 0;
+          if (like) like.style.opacity = 0;
+        }
+      }
+
+      cardEl.addEventListener('pointerdown', onPointerDown);
+    }
+
+    function triggerPreviewSwipe(direction) {
+      if (activePrevDeck.length === 0) return;
+      const topCard = activePrevDeck[0];
+      const cardEl = document.getElementById(`prev-card-${topCard.id}`);
+      if (!cardEl) return;
+      const isRight = direction === 'right';
+      const badge = cardEl.querySelector(isRight ? '.badge-like' : '.badge-pass');
+      if (badge) badge.style.opacity = 1;
+
+      cardEl.style.transition = 'transform 0.35s ease, opacity 0.35s ease';
+      cardEl.style.transform = `translate(${isRight ? '400px' : '-400px'}, -30px) rotate(${isRight ? '30deg' : '-30deg'})`;
+      cardEl.style.opacity = '0';
+
+      setTimeout(() => {
+        const swiped = activePrevDeck.shift();
+        renderPreviewCardDeck();
+        if (isRight) {
+          setTimeout(() => {
+            togglePreviewMatchModal(true);
+          }, 350);
+        }
+      }, 320);
+    }
+
+    function togglePreviewMatchModal(show) {
+      const modal = document.getElementById('prevMatchModal');
+      const badge = document.getElementById('prevNotifBadge');
+      if (!modal) return;
+      if (show) {
+        modal.classList.remove('hidden');
+        if (badge) badge.classList.add('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function resetPreviewDeck() {
+      activePrevDeck = [...prevDeckData];
+      renderPreviewCardDeck();
+    }
+
+    /* Guided Breathing Logic for Preview */
+    const PREV_INHALE_DURATION = 5;
+    const PREV_HOLD_DURATION = 30;
+    const PREV_EXHALE_DURATION = 4;
+    let prevBreathState = 'inhale';
+    let prevBreathTimerSeconds = PREV_INHALE_DURATION;
+    let prevBreathCycleNumber = 2;
+    const PREV_MAX_CYCLES = 5;
+    let prevBreathInterval = null;
+    let isPrevBreathingPaused = false;
+    let prevAudioCtx = null;
+    let prevNatureSoundPlaying = false;
+    let prevNatureSource = null;
+
+    function getPrevAudioCtx() {
+      if (!prevAudioCtx) {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (Ctx) prevAudioCtx = new Ctx();
+      }
+      if (prevAudioCtx && prevAudioCtx.state === 'suspended') prevAudioCtx.resume();
+      return prevAudioCtx;
+    }
+
+    function playPrevChime(freq = 432) {
+      try {
+        const ctx = getPrevAudioCtx();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.1, ctx.currentTime + 0.1);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.8);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.8);
+      } catch (e) {}
+    }
+
+    function updatePrevBreathingVisuals() {
+      const ring1 = document.getElementById('prevBreathRing1');
+      const ring2 = document.getElementById('prevBreathRing2');
+      const ring3 = document.getElementById('prevBreathRing3');
+      const centerCircle = document.getElementById('prevBreathCenterCircle');
+      const mainTitle = document.getElementById('prevBreathMainTitle');
+      const subTitle = document.getElementById('prevBreathSubTitle');
+      const stateLabel = document.getElementById('prevBreathStateLabel');
+      const timerDisplay = document.getElementById('prevBreathTimerDisplay');
+      const progressBar = document.getElementById('prevBreathProgressBar');
+      const cycleCounter = document.getElementById('prevBreathCycleCounter');
+
+      if (timerDisplay) timerDisplay.innerText = `${prevBreathTimerSeconds}s`;
+      if (progressBar) progressBar.style.width = `${(prevBreathCycleNumber / PREV_MAX_CYCLES) * 100}%`;
+      if (cycleCounter) cycleCounter.innerText = `${prevBreathCycleNumber}/${PREV_MAX_CYCLES}`;
+
+      if (prevBreathState === 'inhale') {
+        if (mainTitle) mainTitle.innerText = "Breathe In ...";
+        if (subTitle) subTitle.innerText = "Follow the circle";
+        if (stateLabel) {
+          stateLabel.innerText = "Inhale";
+          stateLabel.className = "text-xl font-black text-[#5B3CF7] tracking-tight transition-all duration-300";
+        }
+        if (ring1) ring1.style.transform = "scale(1.2)";
+        if (ring2) ring2.style.transform = "scale(1.15)";
+        if (ring3) ring3.style.transform = "scale(1.1)";
+        if (centerCircle) centerCircle.style.transform = "scale(1.08)";
+      } else if (prevBreathState === 'hold') {
+        if (mainTitle) mainTitle.innerText = "Hold ...";
+        if (subTitle) subTitle.innerText = "Hold breath gently • Stay peaceful";
+        if (stateLabel) {
+          stateLabel.innerText = "Hold";
+          stateLabel.className = "text-xl font-black text-amber-600 tracking-tight transition-all duration-300";
+        }
+      } else {
+        if (mainTitle) mainTitle.innerText = "Breathe Out ...";
+        if (subTitle) subTitle.innerText = "Release and relax";
+        if (stateLabel) {
+          stateLabel.innerText = "Exhale";
+          stateLabel.className = "text-xl font-black text-sky-700 tracking-tight transition-all duration-300";
+        }
+        if (ring1) ring1.style.transform = "scale(0.88)";
+        if (ring2) ring2.style.transform = "scale(0.9)";
+        if (ring3) ring3.style.transform = "scale(0.93)";
+        if (centerCircle) centerCircle.style.transform = "scale(0.92)";
+      }
+    }
+
+    function advancePrevBreathingPhase() {
+      if (prevBreathState === 'inhale') {
+        prevBreathState = 'hold';
+        prevBreathTimerSeconds = PREV_HOLD_DURATION; // 30s
+        playPrevChime(528);
+      } else if (prevBreathState === 'hold') {
+        prevBreathState = 'exhale';
+        prevBreathTimerSeconds = PREV_EXHALE_DURATION; // 4s
+        playPrevChime(396);
+      } else {
+        prevBreathCycleNumber++;
+        if (prevBreathCycleNumber > PREV_MAX_CYCLES) prevBreathCycleNumber = 1;
+        prevBreathState = 'inhale';
+        prevBreathTimerSeconds = PREV_INHALE_DURATION; // 5s
+        playPrevChime(432);
+      }
+      updatePrevBreathingVisuals();
+    }
+
+    function prevBreathingTick() {
+      if (isPrevBreathingPaused) return;
+      if (prevBreathTimerSeconds > 1) {
+        prevBreathTimerSeconds--;
+        const t = document.getElementById('prevBreathTimerDisplay');
+        if (t) t.innerText = `${prevBreathTimerSeconds}s`;
+      } else {
+        advancePrevBreathingPhase();
+      }
+    }
+
+    function startPrevBreathingEngine() {
+      if (!prevBreathInterval) prevBreathInterval = setInterval(prevBreathingTick, 1000);
+      isPrevBreathingPaused = false;
+      const icon = document.getElementById('prevPauseIcon');
+      const label = document.getElementById('prevPauseLabel');
+      if (icon) icon.innerText = "❚❚";
+      if (label) label.innerText = "Pause";
+      updatePrevBreathingVisuals();
+      playPrevChime(432);
+    }
+
+    function pausePrevBreathingEngine() {
+      if (prevBreathInterval) {
+        clearInterval(prevBreathInterval);
+        prevBreathInterval = null;
+      }
+      isPrevBreathingPaused = true;
+      const icon = document.getElementById('prevPauseIcon');
+      const label = document.getElementById('prevPauseLabel');
+      if (icon) icon.innerText = "▶";
+      if (label) label.innerText = "Resume";
+    }
+
+    function togglePrevBreathingPause() {
+      if (isPrevBreathingPaused || !prevBreathInterval) {
+        startPrevBreathingEngine();
+      } else {
+        pausePrevBreathingEngine();
+      }
+    }
+
+    function handlePrevBreathingCircleClick() {
+      if (prevBreathState === 'inhale') {
+        prevBreathState = 'hold';
+        prevBreathTimerSeconds = PREV_HOLD_DURATION; // 30s
+        playPrevChime(528);
+      } else if (prevBreathState === 'hold') {
+        prevBreathState = 'exhale';
+        prevBreathTimerSeconds = PREV_EXHALE_DURATION; // 4s
+        playPrevChime(396);
+      } else {
+        prevBreathState = 'inhale';
+        prevBreathTimerSeconds = PREV_INHALE_DURATION; // 5s
+        playPrevChime(432);
+      }
+      updatePrevBreathingVisuals();
+    }
+
+    function skipPrevBreathingPhase() {
+      advancePrevBreathingPhase();
+    }
+
+    /* Preview Inspiring Figures Interaction Engine */
+    const PREV_INSPIRING_FIGURES = {
+      'ada-lovelace': { name: 'Ada Lovelace', role: 'Pioneer of Computer Programming', avatar: 'assets/avatar_ada_lovelace.png', quote: '“That brain of mine is something more than merely mortal; as time will show.”', bio: 'Recognized as the world’s first computer programmer.' },
+      'tebello-nyokong': { name: 'Tebello Nyokong', role: 'Distinguished Chemist & Nanotech Pioneer', avatar: 'assets/avatar_tebello_nyokong.png', quote: '“Science is about passion. Never let anyone tell you what you can achieve.”', bio: 'Distinguished South African chemist leading cancer therapy innovation.' },
+      'chevarra-hansraj': { name: 'Chevarra Hansraj', role: 'Electrical Engineer & STEM Innovator', avatar: 'assets/avatar_chevarra_hansraj.png', quote: '“Innovation thrives where curiosity meets courage.”', bio: 'Award-winning South African electrical engineer driving youth empowerment.' },
+      'thifhelimbilu-bucher': { name: 'Thifhelimbilu Daphney Bucher', role: 'Nuclear & Medical Physicist', avatar: 'assets/avatar_thifhelimbilu_bucher.png', quote: '“Every barrier broken clears the path for the next generation.”', bio: 'Prominent South African medical and nuclear physicist.' },
+      'seymour-papert': { name: 'Seymour Papert', role: 'Mathematician & Learning Theorist', avatar: 'assets/avatar_seymour_papert.png', quote: '“You can’t teach people everything. Position them to find what they need.”', bio: 'South African-born MIT professor and Logo creator.' },
+      'katherine-johnson': { name: 'Katherine Johnson', role: 'Legendary NASA Mathematician', avatar: 'assets/avatar_katherine_johnson.png', quote: '“Like what you do, and then you will do your best.”', bio: 'Calculated Apollo 11 moon landing trajectories.' },
+      'maggie-aphane': { name: 'Maggie Aphane', role: 'Education Leader & Social Advocate', avatar: 'assets/avatar_maggie_aphane.png', quote: '“Education is the seed of true freedom.”', bio: 'Transforming community learning and student development.' },
+      'allan-cormack': { name: 'Allan McLeod Cormack', role: 'Nobel Laureate & CT Scan Inventor', avatar: 'assets/avatar_allan_cormack.png', quote: '“Curiosity about how things work leads to healing humanity.”', bio: 'Nobel Prize winner for CT scan mathematical formulation.' },
+      'marie-curie': { name: 'Marie Curie', role: 'Double Nobel Laureate in Physics & Chemistry', avatar: 'assets/avatar_marie_curie.png', quote: '“Nothing in life is to be feared, it is only to be understood.”', bio: 'Pioneered research on radioactivity.' },
+      'kuhlula-vilakazi': { name: 'Dr. Kuhlula Vilakazi', role: 'Veterinary Doctor & Health Innovator', avatar: 'assets/avatar_kuhlula_vilakazi.png', quote: '“Healing and science begin with empathy.”', bio: 'Trailblazing South African veterinarian and health innovator.' },
+      'patrice-motsepe': { name: 'Patrice Motsepe', role: 'Philanthropist & Entrepreneur', avatar: 'assets/avatar_patrice_motsepe.png', quote: '“If we work together, there is no limit to what youth can achieve.”', bio: 'South African philanthropist funding university bursaries.' },
+      'sarah-al-amiri': { name: 'Sarah Al Amiri', role: 'Space Agency Chair & Minister of State', avatar: 'assets/avatar_sarah_al_amiri.png', quote: '“When you push boundaries in science, you redefine what is possible.”', bio: 'Lead engineer for the Hope Mars Mission.' }
+    };
+
+    function openPrevInspiringFigure(id) {
+      const fig = PREV_INSPIRING_FIGURES[id];
+      if (!fig) return;
+      playPrevChime(587.33);
+      setTimeout(() => playPrevChime(880), 90);
+      const modal = document.getElementById('prevInspiringFigureModal');
+      const avatarEl = document.getElementById('prevModalFigureAvatar');
+      const nameEl = document.getElementById('prevModalFigureName');
+      const roleEl = document.getElementById('prevModalFigureRole');
+      const quoteEl = document.getElementById('prevModalFigureQuote');
+      const bioEl = document.getElementById('prevModalFigureBio');
+      if (avatarEl) avatarEl.src = fig.avatar;
+      if (nameEl) nameEl.innerText = fig.name;
+      if (roleEl) roleEl.innerText = fig.role;
+      if (quoteEl) quoteEl.innerText = fig.quote;
+      if (bioEl) bioEl.innerText = fig.bio;
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closePrevInspiringFigure() {
+      const modal = document.getElementById('prevInspiringFigureModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function filterPrevInspiredCategory(cat, btnEl) {
+      document.querySelectorAll('.prev-inspired-filter-pill').forEach(pill => {
+        pill.classList.remove('bg-[#FFBE1A]', 'text-[#0B132B]');
+        pill.classList.add('bg-slate-100/90', 'text-slate-700');
+      });
+      if (btnEl) {
+        btnEl.classList.remove('bg-slate-100/90', 'text-slate-700');
+        btnEl.classList.add('bg-[#FFBE1A]', 'text-[#0B132B]');
+      }
+      playPrevChime(659.25);
+      const cards = document.querySelectorAll('.prev-inspired-person-card');
+      cards.forEach(card => {
+        const itemCats = (card.getAttribute('data-category') || '').toLowerCase();
+        if (cat === 'all' || itemCats.includes(cat.toLowerCase())) {
+          card.classList.remove('hidden');
+          card.classList.add('flex');
+        } else {
+          card.classList.add('hidden');
+          card.classList.remove('flex');
+        }
+      });
+    }
+
+    function togglePrevInspiredSearch() {
+      const bar = document.getElementById('prevInspiredSearchBar');
+      const inp = document.getElementById('prevInspiredSearchInput');
+      if (bar) {
+        bar.classList.toggle('hidden');
+        if (!bar.classList.contains('hidden') && inp) inp.focus();
+      }
+    }
+
+    function filterPrevInspiredBySearch(query) {
+      const q = (query || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('.prev-inspired-person-card');
+      cards.forEach(card => {
+        const text = (card.innerText || '').toLowerCase();
+        if (!q || text.includes(q)) {
+          card.classList.remove('hidden');
+          card.classList.add('flex');
+        } else {
+          card.classList.add('hidden');
+          card.classList.remove('flex');
+        }
+      });
+    }
+
+    function togglePrevNatureSounds() {
+      try {
+        const ctx = getPrevAudioCtx();
+        if (!ctx) return;
+        const circle = document.getElementById('prevNatureSoundIconCircle');
+        if (prevNatureSoundPlaying) {
+          if (prevNatureSource) {
+            try { prevNatureSource.stop(); } catch(e){}
+            prevNatureSource = null;
+          }
+          prevNatureSoundPlaying = false;
+          if (circle) circle.classList.remove('!bg-purple-100', '!text-[#5B3CF7]');
+        } else {
+          const buffer = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
+          const data = buffer.getChannelData(0);
+          for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * 0.05;
+          const noise = ctx.createBufferSource();
+          noise.buffer = buffer;
+          noise.loop = true;
+          const filter = ctx.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(360, ctx.currentTime);
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(0.06, ctx.currentTime);
+          noise.connect(filter);
+          filter.connect(gain);
+          gain.connect(ctx.destination);
+          noise.start();
+          prevNatureSource = noise;
+          prevNatureSoundPlaying = true;
+          if (circle) circle.classList.add('!bg-purple-100', '!text-[#5B3CF7]');
+        }
+      } catch(e) {}
+    }
+
+    /* Preview Get Confident Functions */
+    let prevConfidentIndex = 0;
+    let prevAffirmationsCount = 0;
+    let prevRefreshAngle = 0;
+
+    function handlePrevBelieveIt() {
+      prevAffirmationsCount++;
+      playPrevChime(528, 0.5);
+      setTimeout(() => playPrevChime(659.25, 0.6), 80);
+
+      const btn = document.getElementById('prevBelieveItBtn');
+      const btnText = document.getElementById('prevBelieveBtnText');
+      const heartIcon = document.getElementById('prevBelieveHeartIcon');
+      if (btn && btnText) {
+        btn.classList.add('bg-emerald-600');
+        btnText.innerText = "✓ Believed!";
+        if (heartIcon) heartIcon.innerText = "💖";
+        setTimeout(() => {
+          btn.classList.remove('bg-emerald-600');
+          btnText.innerText = "I believe it";
+          if (heartIcon) heartIcon.innerText = "❤️";
+        }, 2200);
+      }
+
+      const kangaroo = document.getElementById('prevConfidentKangarooHero');
+      if (kangaroo) {
+        kangaroo.classList.add('animate-bounce');
+        setTimeout(() => kangaroo.classList.remove('animate-bounce'), 1000);
+      }
+
+      const streakPill = document.getElementById('prevMindsetStreakPill');
+      const countEl = document.getElementById('prevMindsetCount');
+      if (streakPill && countEl) {
+        countEl.innerText = prevAffirmationsCount;
+        streakPill.classList.remove('hidden');
+      }
+
+      const toast = document.getElementById('prevConfidentSavedToast');
+      if (toast) {
+        toast.classList.remove('hidden');
+        setTimeout(() => toast.classList.add('hidden'), 2000);
+      }
+
+      const container = document.getElementById('prevConfidentHeartsContainer');
+      if (container) {
+        for (let i = 0; i < 8; i++) {
+          const heart = document.createElement('div');
+          heart.innerText = ['❤️', '💖', '✨', '💜', '🌟'][i % 5];
+          heart.style.position = 'absolute';
+          heart.style.left = `${20 + Math.random() * 60}%`;
+          heart.style.bottom = `${18 + Math.random() * 8}%`;
+          heart.style.fontSize = `${16 + Math.random() * 14}px`;
+          heart.style.opacity = '1';
+          heart.style.transition = 'all 1.2s cubic-bezier(0.25, 1, 0.5, 1)';
+          heart.style.pointerEvents = 'none';
+          heart.style.zIndex = '60';
+          container.appendChild(heart);
+          setTimeout(() => {
+            heart.style.transform = `translate(${(Math.random() - 0.5) * 60}px, -${180 + Math.random() * 100}px) scale(1.3)`;
+            heart.style.opacity = '0';
+          }, 30);
+          setTimeout(() => {
+            if (heart.parentNode) heart.parentNode.removeChild(heart);
+          }, 1300);
+        }
+      }
+    }
+
+    function nextPrevConfidentAffirmation() {
+      const PREV_AFFIRMS = [
+        { title: "You're capable,<br>and you can do this.", sub: "Mistakes are part of learning.<br>Be proud of how far you've come!" },
+        { title: "I am resilient,<br>focused, and ready.", sub: "Every challenge I face today<br>is helping me become stronger." },
+        { title: "My unique voice<br>and ideas matter.", sub: "I bring creative value and positive energy<br>to my team and my studies." },
+        { title: "I don't have to know everything,<br>just keep trying.", sub: "Curiosity and persistence turn obstacles<br>into incredible achievements." },
+        { title: "I trust my journey<br>and celebrate my progress.", sub: "Small daily wins add up to<br>extraordinary transformation!" }
+      ];
+      prevConfidentIndex = (prevConfidentIndex + 1) % PREV_AFFIRMS.length;
+      const aff = PREV_AFFIRMS[prevConfidentIndex];
+
+      prevRefreshAngle += 360;
+      const icon = document.getElementById('prevRefreshIcon');
+      if (icon) {
+        icon.style.transform = `rotate(${prevRefreshAngle}deg)`;
+      }
+
+      playPrevChime(659.25, 0.4);
+      const titleEl = document.getElementById('prevConfidentAffirmTitle');
+      const subEl = document.getElementById('prevConfidentAffirmSub');
+      const cardBox = document.getElementById('prevConfidentCardBox');
+
+      if (cardBox) {
+        cardBox.classList.add('scale-95', 'opacity-60');
+        setTimeout(() => {
+          if (titleEl) titleEl.innerHTML = aff.title;
+          if (subEl) subEl.innerHTML = aff.sub;
+          cardBox.classList.remove('scale-95', 'opacity-60');
+          cardBox.classList.add('scale-100', 'opacity-100');
+        }, 120);
+      }
+
+      const btn = document.getElementById('prevBelieveItBtn');
+      const btnText = document.getElementById('prevBelieveBtnText');
+      const heartIcon = document.getElementById('prevBelieveHeartIcon');
+      if (btn && btnText) {
+        btn.classList.remove('bg-emerald-600');
+        btnText.innerText = "I believe it";
+        if (heartIcon) heartIcon.innerText = "❤️";
+      }
+    }
+
+    /* Preview Get Help Functions */
+    function openPrevHelpResource(type) {
+      playPrevChime(520, 0.4);
+      const modal = document.getElementById('prevHelpResourceModal');
+      const icon = document.getElementById('prevHelpModalIcon');
+      const title = document.getElementById('prevHelpModalTitle');
+      const subtitle = document.getElementById('prevHelpModalSubtitle');
+      const desc = document.getElementById('prevHelpModalDesc');
+      const callBtn = document.getElementById('prevHelpModalCallBtn');
+      if (!modal) return;
+      if (type === 'childline') {
+        if (icon) icon.innerText = '📞';
+        if (title) title.innerText = 'Call Childline - 116';
+        if (subtitle) subtitle.innerText = 'Free • 24/7 Confidential Helpline';
+        if (desc) desc.innerText = 'Friendly counselors ready to listen and support you.';
+        if (callBtn) { callBtn.href = 'tel:116'; callBtn.onclick = null; callBtn.innerHTML = '<span>Call 116</span>'; }
+      } else if (type === 'sadag') {
+        if (icon) icon.innerText = '🆘';
+        if (title) title.innerText = 'Call SADAG - 0800 567 567';
+        if (subtitle) subtitle.innerText = '24/7 Crisis Support Helpline';
+        if (desc) desc.innerText = 'Compassionate, free mental health care anytime.';
+        if (callBtn) { callBtn.href = 'tel:0800567567'; callBtn.onclick = null; callBtn.innerHTML = '<span>Call 0800 567 567</span>'; }
+      } else if (type === 'trusted-adult') {
+        if (icon) icon.innerText = '💜';
+        if (title) title.innerText = 'Talk to a Trusted Adult';
+        if (subtitle) subtitle.innerText = 'Teacher, Parent, or School Counselor';
+        if (desc) desc.innerText = 'Reach out to your mentor, campus faculty, or counselor.';
+        if (callBtn) {
+          callBtn.href = 'javascript:void(0)';
+          callBtn.onclick = () => { closePrevHelpModal(); showPreviewPage('chat'); };
+          callBtn.innerHTML = '<span>Message Ms. Carter</span>';
+        }
+      }
+      modal.classList.remove('hidden');
+    }
+
+    function closePrevHelpModal() {
+      const modal = document.getElementById('prevHelpResourceModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function triggerPrevStrongerChime() {
+      playPrevChime(432, 0.6);
+      setTimeout(() => playPrevChime(648, 0.7), 100);
+      const toast = document.getElementById('prevHelpToast');
+      if (toast) {
+        toast.classList.remove('hidden');
+        setTimeout(() => toast.classList.add('hidden'), 2200);
+      }
+    }
+  </script>
+</body>
+</html>
