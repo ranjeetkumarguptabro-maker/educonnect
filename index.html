@@ -14,106 +14,7 @@
 </head>
 <body class="bg-gradient-to-br from-[#F4F5FF] via-[#F8FAFC] to-[#EDF2FF] min-h-screen text-slate-800 font-['Plus_Jakarta_Sans',sans-serif] antialiased flex flex-col items-center justify-center p-0 sm:p-6 select-none relative overflow-x-hidden">
 
-  <!-- View Mode Switcher Header for Desktop -->
-  <header class="hidden sm:flex items-center justify-between w-full max-w-5xl mb-4 bg-white/95 backdrop-blur border border-slate-200 px-4 py-2.5 rounded-2xl text-xs font-semibold text-slate-600 shadow-sm z-30">
-    <div class="flex items-center gap-1.5 text-slate-500 shrink-0 mr-2">
-      <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-      <span id="pageTitleLabel">Page 1: Onboarding Landing</span>
-    </div>
-    <div class="flex items-center gap-1.5 overflow-x-auto">
-      <button onclick="goToPage(1)" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-[11px] font-bold">P1</button>
-      <button onclick="goToPage(2)" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-[11px] font-bold">P2</button>
-      <button onclick="goToPage(3)" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-[11px] font-bold">P3</button>
-      <button onclick="goToPage(4)" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-[11px] font-bold">P4</button>
-      <button onclick="goToPage(5)" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-[11px] font-bold">P5</button>
-      <button onclick="goToPage(6)" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-[11px] font-bold">P6</button>
-      <button onclick="goToPage(7)" class="px-2 py-1 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded text-[11px] font-bold">Feed (Swipe)</button>
-      <button onclick="goToPage('space')" class="px-2 py-1 bg-purple-50 text-[#4C39F8] hover:bg-purple-100 rounded text-[11px] font-bold">Project Space</button>
-      <button onclick="goToPage('tasks')" class="px-2 py-1 bg-blue-50 text-[#2563EB] hover:bg-blue-100 rounded text-[11px] font-bold">Tasks</button>
-      <button onclick="goToPage('add-project')" class="px-2 py-1 bg-indigo-50 text-[#4C39F8] hover:bg-indigo-100 rounded text-[11px] font-bold">+ Add Project</button>
-      <button onclick="goToPage('students')" class="px-2 py-1 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 rounded text-[11px] font-bold flex items-center gap-1">
-        <img src="assets/graduation_cap_logo.png" alt="Cap" class="w-3.5 h-3.5 object-contain">
-        <span>Students</span>
-      </button>
-      <button onclick="goToPage('chat')" class="px-2 py-1 bg-violet-50 text-[#4C39F8] hover:bg-violet-100 rounded text-[11px] font-bold flex items-center gap-1">
-        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.141 2 11.25c0 2.87 1.42 5.433 3.66 7.114L5 22l4.027-1.342C10.007 20.874 10.985 21 12 21c5.523 0 10-4.141 10-9.25S17.523 2 12 2zm-3.5 10a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm3.5 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg>
-        <span>Chat</span>
-      </button>
-      <button onclick="goToPage('progress')" class="px-2 py-1 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 rounded text-[11px] font-bold flex items-center gap-1">
-        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-        <span>Progress</span>
-      </button>
-      <button onclick="goToPage('profile')" class="px-2 py-1 bg-purple-100 text-[#4C39F8] hover:bg-purple-200 rounded text-[11px] font-bold flex items-center gap-1">
-        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-        <span>Profile</span>
-      </button>
-      <button onclick="goToPage('kangaroo')" class="px-2 py-1 bg-amber-50 text-amber-800 hover:bg-amber-100 rounded text-[11px] font-bold flex items-center gap-1">
-        <img src="assets/kangaroo_head.png" alt="Kangaroo" class="w-3.5 h-3.5 object-contain">
-        <span>Kangaroo</span>
-      </button>
-      <button onclick="goToPage('calm-down')" class="px-2 py-1 bg-sky-50 text-sky-700 hover:bg-sky-100 rounded text-[11px] font-bold flex items-center gap-1">
-        <span>🌬️ Calm Down</span>
-      </button>
-      <button onclick="goToPage('get-inspired')" class="px-2 py-1 bg-amber-100 text-amber-900 hover:bg-amber-200 rounded text-[11px] font-bold flex items-center gap-1">
-        <span>✨ Get Inspired</span>
-      </button>
-      <button onclick="goToPage('get-confident')" class="px-2 py-1 bg-rose-100 text-rose-900 hover:bg-rose-200 rounded text-[11px] font-bold flex items-center gap-1">
-        <span>💪 Get Confident</span>
-      </button>
-      <button onclick="goToPage('get-help')" class="px-2 py-1 bg-purple-100 text-purple-900 hover:bg-purple-200 rounded text-[11px] font-bold flex items-center gap-1">
-        <span>💜 Get Help</span>
-      </button>
-      <button onclick="showAllPages()" class="px-2 py-1 bg-emerald-600 text-white hover:bg-emerald-700 rounded text-[11px] font-bold">Show All</button>
-      <button id="toggleFrameBtn" onclick="toggleViewMode()" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded transition-colors text-[11px] ml-1">
-        Frame
-      </button>
-    </div>
-  </header>
 
-  <!-- Presentation Wrapper (Promotional Header & Side Swipe Wings Matching Mockup) -->
-  <div class="w-full max-w-5xl flex flex-col items-center">
-    
-    <!-- Top Presentation Banner (Shown on Page 7 Swipe Deck) -->
-    <div id="page7Banner" class="hidden flex flex-col items-center text-center mb-5 px-4 animate-fade-in">
-      <div class="flex items-center gap-2 mb-2">
-        <img src="assets/leaf_logo.png" alt="EduConnect Leaf" class="w-8 h-8 object-contain">
-        <div class="text-left">
-          <div class="text-xl font-black text-[#0F172A] leading-tight">EduConnect</div>
-          <div class="text-[10px] text-slate-500 font-medium -mt-0.5">Explore • Connect • Collaborate</div>
-        </div>
-        <span class="ml-4 px-3 py-0.5 bg-[#EDEBFE] text-[#4C39F8] font-black text-xs rounded-full">Page 1</span>
-      </div>
-
-      <div class="relative">
-        <h1 class="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight">
-          Discover Projects That <span class="text-[#5B3CF7]">Inspire You</span>
-        </h1>
-        <p class="text-slate-500 text-xs sm:text-sm font-medium mt-1">
-          Swipe to explore projects and find opportunities that match your interests.
-        </p>
-        <span class="hidden lg:block absolute -top-4 -right-48 font-['Caveat',cursive] text-lg font-bold text-[#4C39F8] rotate-6 leading-tight text-left">
-          Ideas<br>People<br>Opportunities<br>Together.
-        </span>
-      </div>
-    </div>
-
-    <!-- Center Section: Left Wing + Phone Container + Right Wing -->
-    <div class="flex items-center justify-center gap-4 sm:gap-8 w-full">
-      
-      <!-- Left Side Indicator: Swipe Left / Not Interested -->
-      <div id="page7LeftWing" class="hidden lg:flex flex-col items-center text-center max-w-[170px] animate-fade-in">
-        <div class="relative mb-2">
-          <button onclick="triggerSwipe('left')" title="Swipe Left (Pass)" class="w-20 h-20 rounded-full bg-[#FFE5E8] hover:bg-[#ffd1d7] border-4 border-[#FFD0D6] text-[#FF3B5C] flex items-center justify-center text-3xl font-black shadow-xl hover:scale-110 active:scale-95 transition-all cursor-pointer">
-            ✕
-          </button>
-        </div>
-        <svg class="w-7 h-7 text-[#FF3B5C] stroke-current stroke-[2.5] fill-none -rotate-12 mb-1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 19l-7-7 7-7M5 19l-7-7 7-7" /></svg>
-        <h3 class="text-base font-black text-[#0F172A] leading-tight">Swipe Left</h3>
-        <p class="text-xs text-slate-500 font-medium">Not Interested</p>
-        <div class="mt-3 px-3 py-2 bg-[#FFF0F2] text-[#E11D48] text-[11px] font-semibold rounded-2xl border border-red-100 shadow-2xs leading-snug">
-          Pass on projects that aren't a fit for you.
-        </div>
-      </div>
 
       <!-- Main Mobile Frame Container -->
       <main id="appContainer" class="w-full sm:max-w-[420px] bg-white min-h-screen sm:min-h-[860px] sm:h-[860px] sm:rounded-[44px] sm:shadow-2xl sm:border-[8px] sm:border-slate-900 overflow-hidden flex flex-col justify-between relative transition-all duration-300">
@@ -3733,38 +3634,6 @@
 
   </main>
 
-      <!-- Right Side Indicator: Swipe Right / Interested -->
-      <div id="page7RightWing" class="hidden lg:flex flex-col items-center text-center max-w-[170px] animate-fade-in">
-        <div class="relative mb-2">
-          <button onclick="triggerSwipe('right')" title="Swipe Right (Like)" class="w-20 h-20 rounded-full bg-[#E3F9EC] hover:bg-[#d0f4de] border-4 border-[#C8F2DA] text-[#10B981] flex items-center justify-center text-3xl shadow-xl hover:scale-110 active:scale-95 transition-all cursor-pointer">
-            💚
-          </button>
-        </div>
-        <svg class="w-7 h-7 text-[#10B981] stroke-current stroke-[2.5] fill-none rotate-12 mb-1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5l7 7-7 7M19 5l-7 7 7 7" /></svg>
-        <h3 class="text-base font-black text-[#0F172A] leading-tight">Swipe Right</h3>
-        <p class="text-xs text-slate-500 font-medium">Interested</p>
-        <div class="mt-3 px-3 py-2 bg-[#ECFDF5] text-[#059669] text-[11px] font-semibold rounded-2xl border border-emerald-100 shadow-2xs leading-snug">
-          Show interest and view more details.
-        </div>
-      </div>
-
-    </div>
-
-
-
-
-    <!-- Bottom Presentation Tagline & Info Pill -->
-    <div id="page7Footer" class="hidden w-full max-w-md lg:max-w-3xl items-center justify-between mt-4 px-4">
-      <span class="font-['Caveat',cursive] text-lg font-bold text-[#4C39F8] leading-tight">
-        More than a network.<br>A launchpad.
-      </span>
-      <div class="px-4 py-2 bg-white text-slate-600 rounded-2xl text-xs font-semibold flex items-center gap-2 shadow-sm border border-slate-100">
-        <span class="w-4 h-4 rounded-full bg-[#4C39F8] text-white flex items-center justify-center text-[10px] font-black">i</span>
-        <span>Swipe to discover. Build a brighter tomorrow.</span>
-      </div>
-    </div>
-
-  </div>
 
   <script class="AntigravityScript">
     let isFramed = true;
@@ -4368,14 +4237,15 @@
     function toggleViewMode() {
       const app = document.getElementById('appContainer');
       const btn = document.getElementById('toggleFrameBtn');
+      if (!app) return;
       if (isFramed) {
         app.classList.remove('sm:max-w-[420px]', 'sm:min-h-[860px]', 'sm:h-[860px]', 'sm:rounded-[44px]', 'sm:border-[8px]');
         app.classList.add('max-w-2xl', 'rounded-2xl', 'shadow-lg');
-        btn.innerText = "Frame View";
+        if (btn) btn.innerText = "Frame View";
       } else {
         app.classList.add('sm:max-w-[420px]', 'sm:min-h-[860px]', 'sm:h-[860px]', 'sm:rounded-[44px]', 'sm:border-[8px]');
         app.classList.remove('max-w-2xl', 'rounded-2xl', 'shadow-lg');
-        btn.innerText = "Frame Mode";
+        if (btn) btn.innerText = "Frame Mode";
       }
       isFramed = !isFramed;
     }
