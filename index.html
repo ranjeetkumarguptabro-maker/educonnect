@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>EduConnect - Full 7-Page Complete Web Application</title>
   <!-- Tailwind CSS -->
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
@@ -12,23 +12,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gradient-to-br from-[#F4F5FF] via-[#F8FAFC] to-[#EDF2FF] min-h-screen text-slate-800 font-['Plus_Jakarta_Sans',sans-serif] antialiased flex flex-col items-center justify-center p-0 sm:p-6 select-none relative overflow-x-hidden">
-
-
+<body class="bg-gradient-to-br from-[#F4F5FF] via-[#F8FAFC] to-[#EDF2FF] min-h-[100dvh] text-slate-800 font-['Plus_Jakarta_Sans',sans-serif] antialiased flex flex-col items-center justify-start sm:justify-center p-0 sm:p-6 select-none relative overflow-x-hidden">
 
       <!-- Main Mobile Frame Container -->
-      <main id="appContainer" class="w-full sm:max-w-[420px] bg-white min-h-screen sm:min-h-[860px] sm:h-[860px] sm:rounded-[44px] sm:shadow-2xl sm:border-[8px] sm:border-slate-900 overflow-hidden flex flex-col justify-between relative transition-all duration-300">
+      <main id="appContainer" class="w-full sm:max-w-[420px] bg-white min-h-[100dvh] sm:min-h-[860px] sm:h-[860px] sm:rounded-[44px] sm:shadow-2xl sm:border-[8px] sm:border-slate-900 flex flex-col justify-between relative transition-all duration-300 overflow-x-hidden overflow-y-auto sm:overflow-hidden">
     
     <!-- ====================================================================
          PAGE 1: KANGAROO GET STARTED ONBOARDING SCREEN
          (EXACT MATCH TO MEDIA_1789816318535.PNG)
     ==================================================================== -->
-    <div id="page1" class="flex-1 flex flex-col justify-between transition-opacity duration-300 bg-gradient-to-b from-[#EFF7FE] via-[#FFFFFF] to-[#FFFFFF] select-none">
+    <div id="page1" class="flex-1 flex flex-col justify-between transition-opacity duration-300 bg-gradient-to-b from-[#EFF7FE] via-[#FFFFFF] to-[#FFFFFF] select-none min-h-[100dvh] sm:min-h-0">
       
       <!-- Top Status Bar & Skip Action -->
       <div class="pt-3 px-6 pb-1 flex items-center justify-between text-xs font-semibold text-slate-800 z-20 shrink-0">
-        <span>9:41</span>
-        <div class="flex items-center gap-2">
+        <span class="fake-status-bar-time hidden sm:inline">9:41</span>
+        <div class="flex items-center gap-2 ml-auto">
           <button onclick="handleSkip()" class="text-[#4C39F8] hover:text-[#3d2be2] text-sm font-bold tracking-tight transition-colors cursor-pointer">
             Skip
           </button>
@@ -36,7 +34,7 @@
       </div>
 
       <!-- Scrollable Main Container -->
-      <div class="flex-1 flex flex-col items-center px-5 pt-1 pb-3 overflow-y-auto no-scrollbar justify-between">
+      <div class="flex-1 flex flex-col items-center px-4 sm:px-5 pt-1 pb-3 overflow-y-auto no-scrollbar justify-between">
         
         <!-- Kangaroo Brand Header -->
         <div class="flex flex-col items-center text-center mt-1">
@@ -104,7 +102,7 @@
         </div>
 
         <!-- Center Meadow Illustration -->
-        <div class="w-full relative flex-1 min-h-[250px] max-h-[320px] flex items-center justify-center my-0.5 select-none pointer-events-none">
+        <div class="w-full relative flex-1 min-h-[140px] sm:min-h-[240px] max-h-[220px] sm:max-h-[320px] flex items-center justify-center my-0.5 select-none pointer-events-none">
           <img src="assets/landing_kangaroo_meadow.png" alt="Kangaroo reading in meadow with small steps sign and laptop" class="w-full h-full object-contain rounded-2xl">
         </div>
 
@@ -131,7 +129,7 @@
           </div>
 
           <!-- iOS Home Indicator Pill -->
-          <div class="w-32 h-1 bg-slate-300 rounded-full mt-3 mb-1"></div>
+          <div class="fake-home-indicator hidden sm:block w-32 h-1 bg-slate-300 rounded-full mt-3 mb-1"></div>
         </div>
 
       </div>
@@ -604,8 +602,8 @@
       <div class="bg-white px-5 pt-3 pb-2 border-b border-slate-100/80 z-30 flex flex-col gap-3">
         
         <!-- Status Bar with Dynamic Island (Matching Mockup) -->
-        <div class="flex items-center justify-between text-xs font-semibold text-slate-900 px-1">
-          <span>9:41</span>
+        <div class="hidden sm:flex items-center justify-between text-xs font-semibold text-slate-900 px-1">
+          <span class="fake-status-bar-time hidden sm:inline">9:41</span>
           <div class="w-24 h-4.5 bg-black rounded-full mx-auto -mt-1 shadow-xs flex items-center justify-end px-2">
             <div class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-800"></div>
           </div>
@@ -690,7 +688,7 @@
       <div class="flex-1 flex flex-col items-center justify-between p-3 relative overflow-hidden select-none bg-[#F9FAFB]/60">
 
         <!-- Dynamic Stack Container -->
-        <div id="deckContainer" class="relative w-full max-w-[340px] h-[480px] flex items-center justify-center my-auto">
+        <div id="deckContainer" class="relative w-full max-w-[340px] h-[390px] sm:h-[480px] flex items-center justify-center my-auto">
           <!-- Rendered dynamically by renderCardDeck() -->
         </div>
 
@@ -751,7 +749,7 @@
       </div>
 
       <!-- iOS Home Indicator Pill -->
-      <div class="w-full bg-white pb-1 pt-0.5 flex justify-center">
+      <div class="fake-home-indicator hidden sm:flex w-full bg-white pb-1 pt-0.5 justify-center">
         <div class="w-32 h-1 bg-slate-300 rounded-full"></div>
       </div>
 
@@ -769,7 +767,7 @@
           </button>
           
           <div class="flex items-center gap-1.5 pr-1">
-            <span>9:41</span>
+            <span class="fake-status-bar-time hidden sm:inline">9:41</span>
             <div class="flex items-center gap-1 ml-2">
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.83A1 1 0 005.12 21h13.76a1 1 0 00.77-1.17l-.62-2.22C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"/></svg>
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M2 17h20v2H2zM4 12h16v2H4zM6 7h12v2H6z"/></svg>
@@ -1533,7 +1531,7 @@
       
       <!-- iOS Status Bar -->
       <div class="pt-3 px-6 flex items-center justify-between text-xs font-semibold text-slate-900 z-20 bg-white">
-        <span>9:41</span>
+        <span class="fake-status-bar-time hidden sm:inline">9:41</span>
         <div class="flex items-center gap-1.5 text-slate-900">
           <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.32 19.66 10.61 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/></svg>
           <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4z"/></svg>
@@ -1791,7 +1789,7 @@
       
       <!-- iOS Status Bar -->
       <div class="pt-3 px-6 flex items-center justify-between text-xs font-semibold text-slate-900 z-20 bg-white">
-        <span>9:41</span>
+        <span class="fake-status-bar-time hidden sm:inline">9:41</span>
         <div class="flex items-center gap-1.5 text-slate-900">
           <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.32 19.66 10.61 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/></svg>
           <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4z"/></svg>
@@ -2040,7 +2038,7 @@
       
       <!-- iOS Status Bar (Consistent with Apple HIG) -->
       <div class="w-full pt-3 px-7 pb-1 flex justify-between items-center text-xs font-semibold text-slate-800 shrink-0 select-none">
-        <span>9:41</span>
+        <span class="fake-status-bar-time hidden sm:inline">9:41</span>
         <div class="flex items-center gap-1.5">
           <!-- Cellular signal (4 bars) -->
           <svg class="w-4 h-3 fill-current" viewBox="0 0 17 11">
@@ -2293,7 +2291,7 @@
       
       <!-- iOS Status Bar (Apple HIG) -->
       <div class="w-full pt-3 px-7 pb-1 flex justify-between items-center text-xs font-semibold text-slate-800 shrink-0 select-none">
-        <span>9:41</span>
+        <span class="fake-status-bar-time hidden sm:inline">9:41</span>
         <div class="flex items-center gap-1.5">
           <!-- Cellular signal (4 bars) -->
           <svg class="w-4 h-3 fill-current" viewBox="0 0 17 11">
@@ -2522,7 +2520,7 @@
       
       <!-- iOS Status Bar (Apple HIG) -->
       <div class="w-full pt-3 px-7 pb-1 flex justify-between items-center text-xs font-semibold text-slate-800 shrink-0 select-none z-30">
-        <span>9:41</span>
+        <span class="fake-status-bar-time hidden sm:inline">9:41</span>
         <div class="flex items-center gap-1.5">
           <!-- Cellular signal -->
           <svg class="w-4 h-3 fill-current" viewBox="0 0 17 11">
@@ -2665,7 +2663,7 @@
       
       <!-- iOS Status Bar (Apple HIG - Safely Padded) -->
       <div class="w-full pt-3 px-6 pb-1 flex justify-between items-center text-xs font-semibold text-slate-800 shrink-0 select-none z-30">
-        <span>9:41</span>
+        <span class="fake-status-bar-time hidden sm:inline">9:41</span>
         <div class="flex items-center gap-1.5">
           <svg class="w-4 h-3 fill-current" viewBox="0 0 17 11">
             <rect x="0" y="8" width="3" height="3" rx="0.5"/>
@@ -2970,7 +2968,7 @@
 
           <!-- Top Status Bar (White text over hero) -->
           <div class="absolute top-0 inset-x-0 pt-3 px-6 pb-1 flex justify-between items-center text-xs font-semibold text-white/95 shrink-0 select-none z-20">
-            <span>9:41</span>
+            <span class="fake-status-bar-time hidden sm:inline">9:41</span>
             <div class="flex items-center gap-1.5">
               <svg class="w-4 h-3 fill-current" viewBox="0 0 17 11">
                 <rect x="0" y="8" width="3" height="3" rx="0.5"/>
@@ -3124,7 +3122,7 @@
       
       <!-- iOS Status Bar (Apple HIG - Padded so never clipped) -->
       <div class="w-full pt-3 px-6 pb-1 flex justify-between items-center text-xs font-semibold text-slate-800 shrink-0 select-none z-30">
-        <span>9:41</span>
+        <span class="fake-status-bar-time hidden sm:inline">9:41</span>
         <div class="flex items-center gap-1.5">
           <!-- Cellular signal -->
           <svg class="w-4 h-3 fill-current" viewBox="0 0 17 11">
@@ -3215,7 +3213,7 @@
       
       <!-- iOS Status Bar (Apple HIG - Safely Padded) -->
       <div class="w-full pt-3 px-6 pb-1 flex justify-between items-center text-xs font-semibold text-slate-800 shrink-0 select-none z-30">
-        <span>9:41</span>
+        <span class="fake-status-bar-time hidden sm:inline">9:41</span>
         <div class="flex items-center gap-1.5">
           <!-- Cellular signal -->
           <svg class="w-4 h-3 fill-current" viewBox="0 0 17 11">
@@ -3347,7 +3345,7 @@
       
       <!-- iOS Status Bar (Apple HIG) -->
       <div class="w-full pt-3 px-7 pb-1 flex justify-between items-center text-xs font-semibold text-slate-800 shrink-0 select-none z-30">
-        <span>9:41</span>
+        <span class="fake-status-bar-time hidden sm:inline">9:41</span>
         <div class="flex items-center gap-1.5">
           <svg class="w-4 h-3 fill-current" viewBox="0 0 17 11">
             <rect x="0" y="8" width="3" height="3" rx="0.5"/>

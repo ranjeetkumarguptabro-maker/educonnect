@@ -5,9 +5,26 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100%;
+  min-height: 100dvh;
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   background-color: #F1F5F9;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* On mobile phones (under 640px), hide fake phone status indicators and home bars */
+@media (max-width: 639px) {
+  .fake-status-bar-time {
+    display: none !important;
+  }
+  .fake-home-indicator {
+    display: none !important;
+  }
+  .w-32.h-1.bg-slate-300.rounded-full {
+    display: none !important;
+  }
 }
 
 /* Custom Scrollbar for inner container */
